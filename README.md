@@ -24,4 +24,6 @@ Open `http://localhost:4173`. The app fetches `data/daily.json`, so it should be
 
 `deploy.yml` publishes the repository root to GitHub Pages on every push to `main`. `generate-puzzles.yml` runs shortly after midnight UTC, appends the new frozen puzzle, and commits it back to `main`. The next push then deploys the updated archive automatically.
 
+For the first deployment, open the repository's **Settings → Pages** screen and choose **GitHub Actions** as the build and deployment source. GitHub does not allow the repository token to enable Pages on an otherwise empty repository. Once that one-time setting is made, rerun `Deploy Deviate` from the Actions tab and future pushes will deploy normally.
+
 All player progress, streaks, scores and backup data are stored in browser `localStorage`. The share output contains only the date, score, direction glyphs and site URL, never the anchor clues.
