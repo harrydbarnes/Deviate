@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0b0c0c" />
+    <meta name="description" content="Deviate is a daily game about placing people and films on a timeline." />
+    <title>Deviate</title>
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#app">Skip to game</a>
+
+    <header class="topbar">
+      <a class="wordmark" href="#daily" aria-label="Deviate home">Deviate<span class="wordmark-dot">.</span></a>
+      <nav class="top-actions" aria-label="Game controls">
+        <button class="icon-button" id="share-button" type="button" aria-label="Share result" title="Share result">
+          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 16V3m0 0 4.5 4.5M12 3 7.5 7.5M5 12.5v6A1.5 1.5 0 0 0 6.5 20h11a1.5 1.5 0 0 0 1.5-1.5v-6" /></svg>
+        </button>
+        <a class="icon-button" href="#stats" aria-label="Stats and streak" title="Stats and streak">
+          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5 20V10m7 10V4m7 16v-7" /></svg>
+        </a>
+        <button class="icon-button" id="help-button" type="button" aria-label="How to play" title="How to play">
+          <svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" /><path d="M9.7 9.4a2.4 2.4 0 1 1 3.8 1.9c-.9.6-1.5 1.1-1.5 2.3m0 3.1h.01" /></svg>
+        </button>
+        <button class="icon-button" id="theme-button" type="button" aria-label="Switch theme" title="Switch theme">
+          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M20 15.2A8.5 8.5 0 0 1 8.8 4 8.5 8.5 0 1 0 20 15.2Z" /></svg>
+        </button>
+      </nav>
+    </header>
+
+    <main id="app" tabindex="-1">
+      <section class="loading-state" aria-live="polite">
+        <div class="loading-mark" aria-hidden="true"></div>
+        <p>Loading today's line…</p>
+      </section>
+    </main>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <dialog class="modal" id="help-dialog" aria-labelledby="help-title">
+      <div class="modal-inner">
+        <div class="modal-heading">
+          <div>
+            <p class="eyebrow">A quiet little challenge</p>
+            <h2 id="help-title">How to play</h2>
+          </div>
+          <button class="icon-button" id="close-help" type="button" aria-label="Close how to play">
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18" /></svg>
+          </button>
+        </div>
+        <div class="help-copy">
+          <p>Each day gives you five chances to place a hidden film credit on a narrowing timeline.</p>
+          <ol>
+            <li>Study the fully revealed anchor and the clue on the other side.</li>
+            <li>Drag or tap the marker where you think the hidden value belongs.</li>
+            <li>Lock in your guess. The answer is revealed and the range contracts for the next round.</li>
+          </ol>
+          <p>Your score is the average distance from the truth, normalised to each round's range. Lower is better. A perfect game is <strong>0.0</strong>.</p>
+          <p class="muted-copy">Progress and stats stay in this browser. Use the export button in Stats if you want a backup.</p>
+        </div>
+        <button class="button button-primary modal-close-button" id="understand-button" type="button">Got it</button>
+      </div>
+    </dialog>
+
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>
