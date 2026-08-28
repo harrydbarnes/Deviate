@@ -1,0 +1,170 @@
+{
+  "schemaVersion": 1,
+  "puzzles": [
+    {
+      "date": "2026-08-28",
+      "mode": "year",
+      "generatorVersion": "v1",
+      "roundCount": 5,
+      "rounds": [
+        {
+          "number": 1,
+          "mode": "year",
+          "range": {
+            "min": 1951,
+            "max": 2024
+          },
+          "anchor": {
+            "personId": "marlon-brando",
+            "name": "Marlon Brando",
+            "gender": "M",
+            "film": "A Streetcar Named Desire",
+            "year": 1951,
+            "value": 1951,
+            "age": 27,
+            "valueLabel": "1951"
+          },
+          "anchorSide": "left",
+          "target": {
+            "personId": "tom-hanks",
+            "name": "Tom Hanks",
+            "gender": "M",
+            "film": "Big",
+            "year": 1988,
+            "value": 1988,
+            "age": 32
+          },
+          "nextRange": {
+            "min": 1988,
+            "max": 2024
+          }
+        },
+        {
+          "number": 2,
+          "mode": "year",
+          "range": {
+            "min": 1988,
+            "max": 2024
+          },
+          "anchor": {
+            "personId": "tom-hanks",
+            "name": "Tom Hanks",
+            "gender": "M",
+            "film": "Big",
+            "year": 1988,
+            "value": 1988,
+            "age": 32,
+            "valueLabel": "1988"
+          },
+          "anchorSide": "left edge",
+          "target": {
+            "personId": "saoirse-ronan",
+            "name": "Saoirse Ronan",
+            "gender": "F",
+            "film": "Atonement",
+            "year": 2007,
+            "value": 2007,
+            "age": 13
+          },
+          "nextRange": {
+            "min": 2007,
+            "max": 2024
+          }
+        },
+        {
+          "number": 3,
+          "mode": "year",
+          "range": {
+            "min": 2007,
+            "max": 2024
+          },
+          "anchor": {
+            "personId": "saoirse-ronan",
+            "name": "Saoirse Ronan",
+            "gender": "F",
+            "film": "Atonement",
+            "year": 2007,
+            "value": 2007,
+            "age": 13,
+            "valueLabel": "2007"
+          },
+          "anchorSide": "left edge",
+          "target": {
+            "personId": "denzel-washington",
+            "name": "Denzel Washington",
+            "gender": "M",
+            "film": "Fences",
+            "year": 2016,
+            "value": 2016,
+            "age": 62
+          },
+          "nextRange": {
+            "min": 2016,
+            "max": 2024
+          }
+        },
+        {
+          "number": 4,
+          "mode": "year",
+          "range": {
+            "min": 2016,
+            "max": 2024
+          },
+          "anchor": {
+            "personId": "denzel-washington",
+            "name": "Denzel Washington",
+            "gender": "M",
+            "film": "Fences",
+            "year": 2016,
+            "value": 2016,
+            "age": 62,
+            "valueLabel": "2016"
+          },
+          "anchorSide": "left edge",
+          "target": {
+            "personId": "frances-mcdormand",
+            "name": "Frances McDormand",
+            "gender": "F",
+            "film": "Nomadland",
+            "year": 2020,
+            "value": 2020,
+            "age": 63
+          },
+          "nextRange": {
+            "min": 2020,
+            "max": 2024
+          }
+        },
+        {
+          "number": 5,
+          "mode": "year",
+          "range": {
+            "min": 2020,
+            "max": 2024
+          },
+          "anchor": {
+            "personId": "frances-mcdormand",
+            "name": "Frances McDormand",
+            "gender": "F",
+            "film": "Nomadland",
+            "year": 2020,
+            "value": 2020,
+            "age": 63,
+            "valueLabel": "2020"
+          },
+          "anchorSide": "left edge",
+          "target": {
+            "personId": "cate-blanchett",
+            "name": "Cate Blanchett",
+            "gender": "F",
+            "film": "Tár",
+            "year": 2022,
+            "value": 2022,
+            "age": 53
+          },
+          "nextRange": null
+        }
+      ]
+    }
+  ]
+}

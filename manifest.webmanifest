@@ -1,0 +1,10 @@
+{
+  "name": "Deviate",
+  "short_name": "Deviate",
+  "description": "A daily timeline-guessing game about people and films.",
+  "start_url": "./#daily",
+  "display": "standalone",
+  "background_color": "#0b0c0c",
+  "theme_color": "#0b0c0c",
+  "icons": []
+}
