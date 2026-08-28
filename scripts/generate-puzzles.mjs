@@ -6,7 +6,7 @@ const ROOT = process.cwd();
 const PEOPLE_PATH = path.join(ROOT, "data", "people.json");
 const OUTPUT_PATH = path.join(ROOT, "data", "daily.json");
 const ROUND_COUNT = 5;
-const GENERATOR_VERSION = "v1";
+const GENERATOR_VERSION = "v2";
 
 const dateFlagIndex = process.argv.indexOf("--date");
 const dateArg = process.argv.find((argument) => argument.startsWith("--date="))?.split("=")[1] || (dateFlagIndex >= 0 ? process.argv[dateFlagIndex + 1] : undefined);
@@ -41,15 +41,19 @@ async function readExisting() {
 }
 
 function buildPuzzle(puzzleDate, puzzleMode, sourcePeople) {
-  const entries = sourcePeople.flatMap((person) => person.credits.map((credit, creditIndex) => ({
+  const entries = sourcePeople.flatMap((person) => person.filmography.map((credit, creditIndex) => ({
     id: `${person.id}:${creditIndex}`,
     personId: person.id,
     name: person.name,
     gender: person.gender,
     birthYear: person.birthYear,
-    film: credit.film,
-    year: credit.year,
-    value: puzzleMode === "year" ? credit.year : credit.year - person.birthYear,
+    nationality: person.nationality,
+    popularityTier: person.popularityTier,
+    film: credit.title,
+    year: credit.releaseYear,
+    role: credit.role,
+    creditType: credit.creditType,
+    value: puzzleMode === "year" ? credit.releaseYear : credit.releaseYear - person.birthYear,
   }))).filter((entry) => puzzleMode === "year" ? entry.value >= 1950 : entry.value >= 12 && entry.value <= 80);
 
   const sorted = [...entries].sort((a, b) => a.value - b.value || a.id.localeCompare(b.id));
@@ -58,9 +62,11 @@ function buildPuzzle(puzzleDate, puzzleMode, sourcePeople) {
   const startAnchor = sorted.find((entry) => entry.value === minValue);
   const initialRange = { min: minValue, max: maxValue };
   const random = mulberry32(hashString(`${puzzleDate}:${puzzleMode}:${GENERATOR_VERSION}`));
+  const searchState = { nodes: 0, maxNodes: 50000 };
   const rounds = buildChain({
     entries,
     random,
+    searchState,
     mode: puzzleMode,
     depth: 0,
     range: initialRange,
@@ -70,7 +76,7 @@ function buildPuzzle(puzzleDate, puzzleMode, sourcePeople) {
   });
 
   if (!rounds) {
-    throw new Error(`Could not build a ${ROUND_COUNT}-round ${puzzleMode} puzzle for ${puzzleDate}`);
+    throw new Error(`Could not build a ${ROUND_COUNT}-round ${puzzleMode} puzzle for ${puzzleDate} after ${searchState.nodes} search nodes`);
   }
 
   return {
@@ -82,7 +88,12 @@ function buildPuzzle(puzzleDate, puzzleMode, sourcePeople) {
   };
 }
 
-function buildChain({ entries, random, mode, depth, range, anchor, anchorSide, usedPeople }) {
+function buildChain({ entries, random, searchState, mode, depth, range, anchor, anchorSide, usedPeople }) {
+  if (searchState.nodes >= searchState.maxNodes) return null;
+  searchState.nodes += 1;
+  const midpoint = range.min + ((range.max - range.min) / 2);
+  const remainingRounds = ROUND_COUNT - depth - 1;
+  const minimumNextWidth = minimumWidthForRounds(mode, remainingRounds);
   const candidates = shuffle(entries.filter((entry) => {
     if (usedPeople.has(entry.personId)) return false;
     if (entry.value <= range.min || entry.value >= range.max) return false;
@@ -90,11 +101,18 @@ function buildChain({ entries, random, mode, depth, range, anchor, anchorSide, u
     const margin = mode === "age"
       ? Math.max(0.25, Math.min(2, width * 0.04))
       : Math.max(1, Math.ceil(width * 0.08));
-    return entry.value > range.min + margin && entry.value < range.max - margin;
-  }), random);
+    const targetOnLeft = entry.value < midpoint;
+    const nextWidth = targetOnLeft ? entry.value - range.min : range.max - entry.value;
+    return entry.value > range.min + margin
+      && entry.value < range.max - margin
+      && nextWidth >= minimumNextWidth;
+  }), random).sort((left, right) => {
+    const leftWidth = left.value < midpoint ? left.value - range.min : range.max - left.value;
+    const rightWidth = right.value < midpoint ? right.value - range.min : range.max - right.value;
+    return rightWidth - leftWidth;
+  });
 
   for (const target of candidates) {
-    const midpoint = range.min + ((range.max - range.min) / 2);
     const targetOnLeft = target.value < midpoint;
     const nextRange = targetOnLeft ? { min: range.min, max: target.value } : { min: target.value, max: range.max };
     const nextAnchorSide = targetOnLeft ? "right" : "left";
@@ -115,6 +133,7 @@ function buildChain({ entries, random, mode, depth, range, anchor, anchorSide, u
     const continuation = buildChain({
       entries,
       random,
+      searchState,
       mode,
       depth: depth + 1,
       range: nextRange,
@@ -127,13 +146,22 @@ function buildChain({ entries, random, mode, depth, range, anchor, anchorSide, u
   return null;
 }
 
+function minimumWidthForRounds(mode, rounds) {
+  if (rounds === 0) return 0;
+  return mode === "year" ? rounds * 2 + 2 : rounds * 2 + 2;
+}
+
 function fullEntry(entry, mode) {
   return {
     personId: entry.personId,
     name: entry.name,
     gender: entry.gender,
+    nationality: entry.nationality,
+    popularityTier: entry.popularityTier,
     film: entry.film,
     year: entry.year,
+    role: entry.role,
+    creditType: entry.creditType,
     value: entry.value,
     age: entry.year - entry.birthYear,
     valueLabel: mode === "year" ? String(entry.value) : `${(entry.year - entry.birthYear).toFixed(1)} yrs`,
@@ -145,7 +173,11 @@ function clueEntry(entry) {
     personId: entry.personId,
     name: entry.name,
     gender: entry.gender,
+    nationality: entry.nationality,
+    popularityTier: entry.popularityTier,
     film: entry.film,
+    role: entry.role,
+    creditType: entry.creditType,
     year: entry.year,
     value: entry.value,
     age: entry.year - entry.birthYear,

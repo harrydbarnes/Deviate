@@ -18,6 +18,8 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
+      - name: Validate actor catalogue
+        run: npm run validate:data
       - name: Freeze today's puzzle
         run: npm run generate:today
       - name: Commit frozen data

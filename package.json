@@ -5,8 +5,11 @@
   "description": "A daily monochrome timeline-guessing game.",
   "type": "module",
   "scripts": {
+    "build:data": "node scripts/build-people.mjs",
+    "enrich:data": "node scripts/enrich-nationalities.mjs",
+    "validate:data": "node scripts/validate-people.mjs",
     "generate": "node scripts/generate-puzzles.mjs",
     "generate:today": "node scripts/generate-puzzles.mjs --date $(date -u +%F)",
-    "check": "node --check app.js && node --check scripts/generate-puzzles.mjs"
+    "check": "node --check app.js && node --check scripts/build-people.mjs && node --check scripts/enrich-nationalities.mjs && node --check scripts/generate-puzzles.mjs && node --check scripts/validate-people.mjs && npm run validate:data"
   }
 }

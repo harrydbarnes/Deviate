@@ -654,7 +654,9 @@ function formatDistance(distance, mode) {
 }
 
 function formatGender(gender) {
-  return gender === "F" ? "Woman" : "Man";
+  if (gender === "F" || gender === "female") return "Woman";
+  if (gender === "M" || gender === "male") return "Man";
+  return "Actor";
 }
 
 function formatDate(date, options = {}) {
