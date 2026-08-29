@@ -5,6 +5,7 @@ const payload = JSON.parse(await fs.readFile(dailyPath, "utf8"));
 const puzzles = payload?.puzzles;
 const errors = [];
 const dates = new Set();
+const ids = new Set();
 const allowedModes = new Set(["year", "age", "middle"]);
 
 if (!Array.isArray(puzzles)) {
@@ -19,6 +20,10 @@ if (!Array.isArray(puzzles)) {
     if (!/^\d{4}-\d{2}-\d{2}$/.test(puzzle.date || "")) errors.push(`${label} has an invalid date.`);
     if (dates.has(puzzle.date)) errors.push(`Duplicate puzzle date: ${puzzle.date}.`);
     dates.add(puzzle.date);
+    const puzzleId = Number(puzzle.id);
+    if (!Number.isInteger(puzzleId) || puzzleId < 1) errors.push(`${label} has an invalid puzzle number.`);
+    else if (ids.has(puzzleId)) errors.push(`Duplicate puzzle number: ${puzzleId}.`);
+    else ids.add(puzzleId);
     if (!allowedModes.has(puzzle.mode)) errors.push(`${label} has an invalid mode: ${puzzle.mode}.`);
     if (!Array.isArray(puzzle.rounds) || puzzle.rounds.length !== puzzle.roundCount) {
       errors.push(`${label} does not contain the declared round count.`);

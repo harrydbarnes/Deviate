@@ -39,6 +39,7 @@ if (requestedMode && !MODES.includes(requestedMode)) {
 
 const people = JSON.parse(await fs.readFile(PEOPLE_PATH, "utf8"));
 const existing = await readExisting();
+ensurePuzzleIds(existing.puzzles);
 
 if (existing.puzzles.some((puzzle) => puzzle.date === date)) {
   console.log(`Puzzle ${date} already frozen; nothing to change.`);
@@ -47,7 +48,7 @@ if (existing.puzzles.some((puzzle) => puzzle.date === date)) {
 
 const mode = requestedMode || scheduledMode(date);
 const recentUsage = getRecentUsage(existing.puzzles, date);
-const puzzle = buildPuzzle(date, mode, people, recentUsage);
+const puzzle = buildPuzzle(date, mode, people, recentUsage, getNextPuzzleId(existing.puzzles));
 existing.puzzles.push(puzzle);
 existing.puzzles.sort((a, b) => a.date.localeCompare(b.date));
 await fs.writeFile(OUTPUT_PATH, `${JSON.stringify(existing, null, 2)}\n`);
@@ -62,7 +63,31 @@ async function readExisting() {
   }
 }
 
-function buildPuzzle(puzzleDate, puzzleMode, sourcePeople, recentUsage) {
+function ensurePuzzleIds(puzzles) {
+  const used = new Set();
+  for (const puzzle of puzzles) {
+    const id = Number(puzzle?.id ?? puzzle?.number ?? puzzle?.puzzleNumber);
+    if (Number.isInteger(id) && id > 0) {
+      puzzle.id = id;
+      used.add(id);
+    }
+  }
+  let next = 1;
+  for (const puzzle of [...puzzles].sort((left, right) => String(left.date).localeCompare(String(right.date)))) {
+    if (Number.isInteger(Number(puzzle.id)) && Number(puzzle.id) > 0) continue;
+    while (used.has(next)) next += 1;
+    puzzle.id = next;
+    used.add(next);
+    next += 1;
+  }
+}
+
+function getNextPuzzleId(puzzles) {
+  const ids = puzzles.map((puzzle) => Number(puzzle?.id)).filter((id) => Number.isInteger(id) && id > 0);
+  return ids.length ? Math.max(...ids) + 1 : puzzles.length + 1;
+}
+
+function buildPuzzle(puzzleDate, puzzleMode, sourcePeople, recentUsage, puzzleId) {
   const entries = sourcePeople.flatMap((person) => person.filmography.map((credit, creditIndex) => ({
     id: `${person.id}:${creditIndex}`,
     personId: person.id,
@@ -120,6 +145,7 @@ function buildPuzzle(puzzleDate, puzzleMode, sourcePeople, recentUsage) {
   }
 
   return {
+    id: puzzleId,
     date: puzzleDate,
     mode: puzzleMode,
     generatorVersion: GENERATOR_VERSION,

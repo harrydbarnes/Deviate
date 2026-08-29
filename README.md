@@ -9,6 +9,7 @@ Deviate is a static, daily timeline-guessing game for mobile and desktop. It is 
 - Each day is one mode: Middle mode is the default, release year appears regularly, and age at release is an occasional variation. The mode is selected deterministically by weekday so every puzzle stays internally consistent.
 - Middle mode replaces the numeric guess with four film-credit choices. Years remain hidden and the goal is to choose the credit closest to the range midpoint.
 - Every puzzle has five rounds. The generator backtracks until it finds a nested chain with a non-degenerate range on every round.
+- Every frozen puzzle has a stable sequential number, displayed as `Deviate #N` in the game, archive and share result so players can identify the same daily line.
 - New hidden clues favour A/B-tier actors and recognisable credits, using source recognition flags where available and a conservative familiar-title / repeated-lead fallback for the current snapshot. Targets distribute away from a free midpoint strategy where the data allows it, and avoid reusing a clue or actor within the recent rolling window.
 - Deviate score is the average of each round's normalised distance, expressed as a percentage. Lower is better and 0.0 is perfect. Placement accuracy is the inverse percentage: `100 - Deviate score`.
 - `data/daily.json` is append-only in normal operation. Once a date is present, the generator will never rewrite it, so historical puzzles stay frozen if generation logic changes later.
@@ -33,4 +34,4 @@ To rebuild the catalogue after downloading the source snapshots, run `npm run bu
 
 For the first deployment, open the repository's **Settings → Pages** screen and choose **GitHub Actions** as the build and deployment source. GitHub does not allow the repository token to enable Pages on an otherwise empty repository. Once that one-time setting is made, rerun `Deploy Deviate` from the Actions tab and future pushes will deploy normally.
 
-All player progress, streaks, scores and backup data are stored in browser `localStorage`. A service worker caches the app shell and frozen puzzle catalogue so the latest loaded line remains playable without a connection. The share output contains only the date, Deviate score, placement accuracy, direction glyphs and site URL, never the anchor clues.
+All player progress, streaks, scores and backup data are stored in browser `localStorage`. A service worker caches the app shell and frozen puzzle catalogue so the latest loaded line remains playable without a connection. The header's `Today` badge links to [GameGrid](https://harrydbarnes.github.io/GameGrid/). The share output contains the puzzle number, date, Deviate score, placement accuracy, direction glyphs and site URL, never the anchor clues.

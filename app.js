@@ -142,6 +142,19 @@ function getPuzzle(date) {
   return state.puzzles.find((puzzle) => puzzle.date === date) || null;
 }
 
+function getPuzzleNumber(puzzle) {
+  const explicit = Number(puzzle?.id ?? puzzle?.number ?? puzzle?.puzzleNumber);
+  if (Number.isInteger(explicit) && explicit > 0) return explicit;
+  const chronological = [...state.puzzles].sort((left, right) => String(left.date).localeCompare(String(right.date)));
+  const fallback = chronological.findIndex((candidate) => candidate.date === puzzle?.date);
+  return fallback >= 0 ? fallback + 1 : null;
+}
+
+function getPuzzleLabel(puzzle) {
+  const number = getPuzzleNumber(puzzle);
+  return number ? `Deviate #${number}` : "Deviate";
+}
+
 function renderRoute() {
   if (state.route === "archive") return renderArchive();
   if (state.route === "stats") return renderStats();
@@ -205,6 +218,7 @@ function renderGame() {
 
   const puzzle = state.puzzle;
   const round = puzzle.rounds[state.roundIndex];
+  const puzzleLabel = getPuzzleLabel(puzzle);
   const isMiddle = round.mode === "middle";
   const selectedOption = isMiddle ? getSelectedOption(round) : null;
   const hasGuess = isMiddle ? Boolean(selectedOption) : state.guess !== null;
@@ -223,7 +237,7 @@ function renderGame() {
   app.innerHTML = `
     <section class="game-shell${state.roundTransition ? " is-round-entering" : ""}" aria-labelledby="game-heading">
       <div class="game-topline">
-        <span class="round-count"><strong>${lineLabel}</strong> · ${formatDate(puzzle.date, { day: "numeric", month: "long" })}</span>
+        <span class="round-count"><strong>${puzzleLabel}</strong> · ${lineLabel} · ${formatDate(puzzle.date, { day: "numeric", month: "long" })}</span>
         <span class="round-count">Round <strong>${state.roundIndex + 1}</strong> of <strong>${puzzle.rounds.length}</strong></span>
       </div>
       <div class="progress-track" aria-hidden="true" style="--progress:${progressPercent}%"><span></span></div>
@@ -346,6 +360,7 @@ function renderMiddleOptions(round, revealed, selectedOptionId) {
 
 function renderIntro() {
   const puzzle = state.puzzle;
+  const puzzleLabel = getPuzzleLabel(puzzle);
   const record = progress.completed?.[puzzle.date];
   const inProgress = progress.inProgress?.[puzzle.date];
   const isDaily = puzzle.date === getTodayKey();
@@ -360,6 +375,7 @@ function renderIntro() {
         <h1 id="intro-heading" tabindex="-1">Find your place in time.</h1>
         <p class="lede">${lede}</p>
         <div class="intro-meta" aria-label="Puzzle details">
+          <span>${puzzleLabel}</span>
           <span>${formatDate(puzzle.date, { weekday: "long", day: "numeric", month: "long" })}</span>
           <span>${getModeLabel(puzzle.mode)}</span>
           <span>${puzzle.rounds.length} rounds</span>
@@ -545,6 +561,7 @@ function completePuzzle() {
   progress.completed[state.puzzle.date] = {
     date: state.puzzle.date,
     mode: state.puzzle.mode,
+    puzzleNumber: getPuzzleNumber(state.puzzle),
     score,
     accuracy: calculateAccuracy(score),
     results: state.results,
@@ -560,6 +577,7 @@ function completePuzzle() {
 
 function renderSummary() {
   const puzzle = state.puzzle || getDailyPuzzle();
+  const puzzleLabel = getPuzzleLabel(puzzle);
   const record = progress.completed?.[puzzle.date] || { score: calculateScore(state.results), results: state.results };
   const results = record.results || [];
   const score = getRecordScore(record, results);
@@ -570,7 +588,7 @@ function renderSummary() {
   app.innerHTML = `
     <section class="summary-shell" aria-labelledby="summary-heading">
       <div class="summary-topline">
-        <span class="round-count"><strong>Line complete</strong> · ${formatDate(puzzle.date, { day: "numeric", month: "long", year: "numeric" })}</span>
+        <span class="round-count"><strong>${puzzleLabel}</strong> · <strong>Line complete</strong> · ${formatDate(puzzle.date, { day: "numeric", month: "long", year: "numeric" })}</span>
         <span class="round-count">${getModeLabel(puzzle.mode)}</span>
       </div>
       <div class="summary-hero">
@@ -587,7 +605,7 @@ function renderSummary() {
       <div class="share-card">
         <div>
           <p>Your spoiler-free result</p>
-          <p class="share-metrics"><strong>Deviate ${formatScore(score)}</strong><span>${formatAccuracy(accuracy)} accuracy</span></p>
+          <p class="share-metrics"><strong>${puzzleLabel} · ${formatScore(score)}</strong><span>${formatAccuracy(accuracy)} accuracy</span></p>
           <p class="share-glyphs" aria-label="Round results">${shareGlyphs || "No placements"}</p>
           <p class="share-legend" aria-label="Result key"><span aria-hidden="true">◀</span> left · <span aria-hidden="true">◎</span> bullseye · <span aria-hidden="true">▶</span> right</p>
         </div>
@@ -648,7 +666,7 @@ function renderArchive() {
           const current = puzzle.date === today;
           return `<button class="archive-item" data-date="${puzzle.date}" type="button">
             <span class="archive-date">${current ? "Today" : formatDate(puzzle.date, { day: "numeric", month: "short" })}</span>
-            <span class="archive-status">${record ? `Deviate ${formatScore(getRecordScore(record))}` : "unplayed"}</span>
+            <span class="archive-status">${getPuzzleLabel(puzzle)} · ${record ? formatScore(getRecordScore(record)) : "unplayed"}</span>
             <span class="archive-info"><strong>${getModeLabel(puzzle.mode)}</strong><span>${puzzle.rounds.length} rounds · ${record ? "completed" : "ready"}</span></span>
           </button>`;
         }).join("")}
@@ -751,17 +769,18 @@ function dayDifference(from, to) {
 
 async function shareCurrentResult() {
   const puzzle = state.puzzle || getDailyPuzzle();
+  const puzzleLabel = getPuzzleLabel(puzzle);
   const record = progress.completed?.[puzzle?.date];
   if (!record) {
     const url = window.location.href.split("#")[0];
-    await copyText(`Deviate · a daily timeline game\n${url}`);
+    await copyText(`${puzzleLabel} · a daily timeline game\n${url}`);
     return showToast("Link copied");
   }
   const glyphs = record.results.map((result) => result.direction === "bullseye" ? "◎" : result.direction === "left" ? "◀" : "▶").join(" ");
   const score = getRecordScore(record);
   const accuracy = calculateAccuracy(score);
   const shareText = [
-    `Deviate · ${formatDate(puzzle.date, { day: "numeric", month: "short", year: "numeric" })} · ${getModeLabel(puzzle.mode)}`,
+    `${puzzleLabel} · ${formatDate(puzzle.date, { day: "numeric", month: "short", year: "numeric" })} · ${getModeLabel(puzzle.mode)}`,
     `Deviate score ${formatScore(score)}`,
     `Placement accuracy ${formatAccuracy(accuracy)}`,
     glyphs,
@@ -769,7 +788,7 @@ async function shareCurrentResult() {
   ].join("\n");
   if (navigator.share) {
     try {
-      await navigator.share({ title: "Deviate result", text: shareText });
+      await navigator.share({ title: `${puzzleLabel} result`, text: shareText });
       return;
     } catch (error) {
       if (error?.name === "AbortError") return;

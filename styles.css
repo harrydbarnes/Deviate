@@ -103,6 +103,31 @@ a { color: inherit; }
 
 .wordmark-dot { color: var(--text-soft); }
 
+.today-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 42px;
+  padding: 10px 12px;
+  border-radius: 9px;
+  background: var(--surface);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: normal;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background .25s var(--ease), color .25s var(--ease), transform .25s var(--ease);
+}
+
+.today-link:hover, .today-link:focus-visible {
+  background: var(--surface-strong);
+  color: var(--text);
+}
+
+.today-link:active { transform: scale(.96); }
+
 .top-actions { display: flex; align-items: center; gap: 5px; }
 
 .icon-button {
@@ -589,8 +614,19 @@ h1[tabindex="-1"]:focus { outline: none; }
 
 @media (max-width: 620px) {
   .topbar, #app { width: min(100% - 26px, 1180px); }
-  .topbar { min-height: 64px; }
-  #app { min-height: calc(100vh - 64px); padding-top: 10px; }
+  .topbar {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas: "brand actions" "today today";
+    row-gap: 2px;
+    min-height: auto;
+    padding-top: 8px;
+    padding-bottom: 7px;
+  }
+  .wordmark { grid-area: brand; }
+  .top-actions { grid-area: actions; }
+  .today-link { grid-area: today; justify-self: start; min-height: 36px; padding: 8px 10px; }
+  #app { min-height: calc(100vh - 97px); padding-top: 10px; }
   .top-actions { gap: 0; }
   .icon-button { width: 44px; height: 44px; }
   #share-button svg { width: 20px; height: 20px; }
