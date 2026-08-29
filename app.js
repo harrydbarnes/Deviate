@@ -316,7 +316,7 @@ function renderIntro() {
         <div class="promise-card">
           <p class="card-kicker">The small promise</p>
           <h2>Every answer leaves a narrower line.</h2>
-          <p>lower score = closer guess</p>
+          <p>Deviate score: lower is closer</p>
         </div>
         <div class="tip-card"><strong>One puzzle.</strong> Frozen forever once it goes live. Your record never leaves this browser.</div>
       </div>
@@ -371,6 +371,8 @@ function renderMystery(target, mode, revealed) {
 function renderRevealNote(round, result) {
   if (!result) return "";
   const glyph = result.direction === "bullseye" ? "◎" : result.direction === "left" ? "◀" : "▶";
+  const roundScore = Number(result.normalized || 0) * 100;
+  const roundAccuracy = calculateAccuracy(roundScore);
   const relative = round.mode === "middle"
     ? result.direction === "bullseye" ? "inside the bullseye" : result.direction === "left" ? "to the left of the middle" : "to the right of the middle"
     : result.direction === "bullseye" ? "inside the bullseye" : result.direction === "left" ? "to the left of the answer" : "to the right of the answer";
@@ -383,7 +385,7 @@ function renderRevealNote(round, result) {
       <span class="result-glyph" aria-hidden="true">${glyph}</span>
       <div>
         <p>Your ${round.mode === "middle" ? "choice" : "marker"} landed <strong>${formatDistance(result.distance, round.mode)}</strong> ${relative}.</p>
-        <p class="answer-detail">${answerDetail} · Next range: ${nextRange}</p>
+        <p class="answer-detail">${answerDetail} · Deviation ${formatScore(roundScore)} · ${formatAccuracy(roundAccuracy)} placement accuracy · Next range: ${nextRange}</p>
       </div>
     </div>`;
 }
@@ -471,6 +473,7 @@ function completePuzzle() {
     date: state.puzzle.date,
     mode: state.puzzle.mode,
     score,
+    accuracy: calculateAccuracy(score),
     results: state.results,
     completedAt: new Date().toISOString(),
   };
@@ -485,7 +488,8 @@ function renderSummary() {
   const puzzle = state.puzzle || getDailyPuzzle();
   const record = progress.completed?.[puzzle.date] || { score: calculateScore(state.results), results: state.results };
   const results = record.results || [];
-  const score = Number(record.score ?? calculateScore(results));
+  const score = getRecordScore(record, results);
+  const accuracy = calculateAccuracy(score);
   const shareGlyphs = results.map((result) => result.direction === "bullseye" ? "◎" : result.direction === "left" ? "◀" : "▶").join(" ");
   const heading = score <= 5 ? "Beautifully placed." : score <= 15 ? "A steady line." : score <= 30 ? "You found the shape of it." : "The line fought back.";
 
@@ -497,18 +501,19 @@ function renderSummary() {
       </div>
       <div class="summary-hero">
         <div>
-          <p class="eyebrow">${heading}</p>
-          <h1 id="summary-heading">${score.toFixed(1)}</h1>
+          <p class="eyebrow">${heading} · Deviate score</p>
+          <h1 id="summary-heading">${formatScore(score)}</h1>
         </div>
         <div class="summary-score">
-          <p class="eyebrow">Distance score</p>
-          <span class="score-value">${score.toFixed(1)}</span>
-          <p>Lower is closer · perfect is 0.0</p>
+          <p class="eyebrow">Placement accuracy</p>
+          <span class="score-value">${formatAccuracy(accuracy)}</span>
+          <p>Higher is better · ideal placement is 100%</p>
         </div>
       </div>
       <div class="share-card">
         <div>
-          <p>Your spoiler-free shape</p>
+          <p>Your spoiler-free result</p>
+          <p class="share-metrics"><strong>Deviate ${formatScore(score)}</strong><span>${formatAccuracy(accuracy)} accuracy</span></p>
           <p class="share-glyphs" aria-label="Round results">${shareGlyphs || "No placements"}</p>
         </div>
         <button class="button" id="summary-share" type="button">Share result</button>
@@ -538,7 +543,7 @@ function renderResultRow(result, round) {
           <strong>${escapeHtml(selected?.name || result.optionName || "Selected answer")} · ${escapeHtml(selected?.film || result.optionFilm || "Film credit")}</strong>
           <span>${formatValue(result.guess, "middle")} chosen · closest was ${formatValue(result.truth, "middle")}</span>
         </div>
-        <div class="result-score"><strong><span class="round-glyph" aria-hidden="true">${glyph}</span>${(result.normalized * 100).toFixed(1)}</strong><span>middle distance</span></div>
+        <div class="result-score"><strong><span class="round-glyph" aria-hidden="true">${glyph}</span>${formatScore(result.normalized * 100)}</strong><span>deviation</span></div>
       </div>`;
   }
   return `
@@ -548,7 +553,7 @@ function renderResultRow(result, round) {
         <strong>${escapeHtml(round.target.name)} · ${escapeHtml(round.target.film)}</strong>
         <span>${formatValue(result.guess, round.mode)} guessed · ${formatValue(result.truth, round.mode)} true</span>
       </div>
-      <div class="result-score"><strong><span class="round-glyph" aria-hidden="true">${glyph}</span>${(result.normalized * 100).toFixed(1)}</strong><span>distance</span></div>
+      <div class="result-score"><strong><span class="round-glyph" aria-hidden="true">${glyph}</span>${formatScore(result.normalized * 100)}</strong><span>deviation</span></div>
     </div>`;
 }
 
@@ -567,7 +572,7 @@ function renderArchive() {
           const current = puzzle.date === today;
           return `<button class="archive-item" data-date="${puzzle.date}" type="button">
             <span class="archive-date">${current ? "Today" : formatDate(puzzle.date, { day: "numeric", month: "short" })}</span>
-            <span class="archive-status">${record ? `${Number(record.score).toFixed(1)}` : "unplayed"}</span>
+            <span class="archive-status">${record ? `D ${formatScore(getRecordScore(record))}` : "unplayed"}</span>
             <span class="archive-info"><strong>${getModeLabel(puzzle.mode)}</strong><span>${puzzle.rounds.length} rounds · ${record ? "completed" : "ready"}</span></span>
           </button>`;
         }).join("")}
@@ -597,9 +602,9 @@ function renderStats() {
       <div class="stats-summary">
         <div class="stat-card"><p class="eyebrow">Current streak</p><strong>${stats.currentStreak}</strong><span>${stats.currentStreak === 1 ? "day" : "days"}</span></div>
         <div class="stat-card"><p class="eyebrow">Best streak</p><strong>${stats.bestStreak}</strong><span>${stats.bestStreak === 1 ? "day" : "days"}</span></div>
-        <div class="stat-card"><p class="eyebrow">Average score</p><strong>${records.length ? stats.average.toFixed(1) : "n/a"}</strong><span>${records.length ? "lower is better" : "complete a line"}</span></div>
+        <div class="stat-card"><p class="eyebrow">Average Deviate</p><strong>${records.length ? formatScore(stats.average) : "n/a"}</strong><span>${records.length ? `${formatAccuracy(stats.averageAccuracy)} placement accuracy` : "complete a line"}</span></div>
       </div>
-      <div class="section-heading"><h2>Score distribution</h2><span class="muted-copy">${records.length} ${records.length === 1 ? "line" : "lines"}</span></div>
+      <div class="section-heading"><h2>Deviate score distribution</h2><span class="muted-copy">${records.length} ${records.length === 1 ? "line" : "lines"}</span></div>
       ${records.length ? `<div class="distribution">${stats.distribution.map((bucket) => `<div class="distribution-row"><span>${bucket.label}</span><div class="distribution-bar"><span style="--bar-width:${bucket.width}%"></span></div><strong>${bucket.count}</strong></div>`).join("")}</div>` : `<div class="empty-card"><p>Your distribution will take shape after your first completed line.</p></div>`}
       <div class="data-actions">
         <button class="button" id="export-button" type="button">Export backup</button>
@@ -616,6 +621,7 @@ function renderStats() {
 function getStats(records) {
   const scores = records.map((record) => Number(record.score)).filter(Number.isFinite);
   const average = scores.length ? scores.reduce((sum, score) => sum + score, 0) / scores.length : 0;
+  const averageAccuracy = scores.length ? scores.reduce((sum, score) => sum + calculateAccuracy(score), 0) / scores.length : 0;
   const distribution = [
     { label: "0–5", min: 0, max: 5 },
     { label: "5–10", min: 5, max: 10 },
@@ -629,7 +635,7 @@ function getStats(records) {
   const maxBucket = Math.max(1, ...distribution.map((bucket) => bucket.count));
   distribution.forEach((bucket) => bucket.width = (bucket.count / maxBucket) * 100);
   const dates = records.map((record) => record.date);
-  return { average, distribution, currentStreak: calculateStreak(dates, true), bestStreak: calculateStreak(dates, false) };
+  return { average, averageAccuracy, distribution, currentStreak: calculateStreak(dates, true), bestStreak: calculateStreak(dates, false) };
 }
 
 function calculateStreak(dates, currentOnly) {
@@ -669,7 +675,15 @@ async function shareCurrentResult() {
     return showToast("Link copied");
   }
   const glyphs = record.results.map((result) => result.direction === "bullseye" ? "◎" : result.direction === "left" ? "◀" : "▶").join(" ");
-  const shareText = `Deviate · ${formatDate(puzzle.date, { day: "numeric", month: "short", year: "numeric" })} · ${getModeLabel(puzzle.mode)}\nScore ${Number(record.score).toFixed(1)} · lower is better\n${glyphs}\n${window.location.href.split("#")[0]}`;
+  const score = getRecordScore(record);
+  const accuracy = calculateAccuracy(score);
+  const shareText = [
+    `Deviate · ${formatDate(puzzle.date, { day: "numeric", month: "short", year: "numeric" })} · ${getModeLabel(puzzle.mode)}`,
+    `Deviate score ${formatScore(score)}`,
+    `Placement accuracy ${formatAccuracy(accuracy)}`,
+    glyphs,
+    window.location.href.split("#")[0],
+  ].join("\n");
   if (navigator.share) {
     try {
       await navigator.share({ title: "Deviate result", text: shareText });
@@ -789,9 +803,26 @@ function getModeLabel(mode) {
   return "Timeline";
 }
 
+function getRecordScore(record, results = []) {
+  const storedScore = Number(record?.score);
+  return Number.isFinite(storedScore) ? clamp(storedScore, 0, 100) : calculateScore(results);
+}
+
 function calculateScore(results) {
   if (!results.length) return 0;
   return (results.reduce((sum, result) => sum + Number(result.normalized || 0), 0) / results.length) * 100;
+}
+
+function calculateAccuracy(score) {
+  return clamp(100 - Number(score), 0, 100);
+}
+
+function formatScore(score) {
+  return Number(score).toFixed(1);
+}
+
+function formatAccuracy(accuracy) {
+  return `${Number(accuracy).toFixed(1)}%`;
 }
 
 function formatValue(value, mode) {

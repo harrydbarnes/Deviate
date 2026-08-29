@@ -476,6 +476,9 @@ a { color: inherit; }
 .summary-score p { margin: 0; color: var(--text-faint); font-size: .74rem; }
 .share-card { display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 18px 20px; border: 1px solid var(--line); border-radius: var(--radius-md); background: var(--surface); }
 .share-card p { margin: 0; color: var(--text-soft); font-size: .84rem; }
+.share-metrics { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px; margin-top: 5px !important; color: var(--text) !important; font-family: var(--font-mono); font-size: .76rem !important; }
+.share-metrics strong { font-weight: 600; }
+.share-metrics span { color: var(--text-soft); }
 .share-glyphs { margin-top: 5px !important; color: var(--text) !important; font-family: var(--font-mono); letter-spacing: .2em; }
 .section-heading { display: flex; align-items: center; justify-content: space-between; gap: 18px; margin: 41px 0 14px; }
 .section-heading h2 { margin: 0; font-size: .78rem; font-family: var(--font-mono); font-weight: 650; letter-spacing: .1em; text-transform: uppercase; }

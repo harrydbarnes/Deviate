@@ -8,7 +8,8 @@ const OUTPUT_PATH = path.join(ROOT, "data", "daily.json");
 const ROUND_COUNT = 5;
 const MIDDLE_OPTION_COUNT = 4;
 const MODES = ["year", "age", "middle"];
-const GENERATOR_VERSION = "v3";
+const WEEKLY_MODE_SCHEDULE = ["middle", "middle", "year", "middle", "middle", "year", "age"];
+const GENERATOR_VERSION = "v4";
 const RECENT_WINDOW_DAYS = 60;
 const MAX_TARGET_USES_IN_WINDOW = 2;
 
@@ -33,7 +34,7 @@ if (existing.puzzles.some((puzzle) => puzzle.date === date)) {
   process.exit(0);
 }
 
-const mode = requestedMode || MODES[hashString(`${date}:mode`) % MODES.length];
+const mode = requestedMode || scheduledMode(date);
 const recentUsage = getRecentUsage(existing.puzzles, date);
 const puzzle = buildPuzzle(date, mode, people, recentUsage);
 existing.puzzles.push(puzzle);
@@ -241,6 +242,7 @@ function buildMiddleOptions({ target, entries, range, midpoint, mode, random, re
   const width = range.max - range.min;
   const targetDistance = Math.abs(target.value - midpoint);
   const candidates = entries.filter((entry) => {
+    if (!isCasualTarget(entry)) return false;
     if (entry.id === target.id || usedPeople.has(entry.personId)) return false;
     if (entry.value <= range.min || entry.value >= range.max) return false;
     return true;
@@ -278,6 +280,11 @@ function preferredPositionFor(dateValue, mode, depth) {
   const seed = hashString(`${dateValue}:${mode}:position:${depth}`);
   const distance = 0.22 + ((seed % 12) / 100);
   return seed % 2 === 0 ? 0.5 - distance : 0.5 + distance;
+}
+
+function scheduledMode(dateValue) {
+  const day = new Date(`${dateValue}T00:00:00Z`).getUTCDay();
+  return WEEKLY_MODE_SCHEDULE[day];
 }
 
 function positionScore(entry, range, preferredPosition) {
