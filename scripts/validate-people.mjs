@@ -62,6 +62,9 @@ for (const [index, person] of people.entries()) {
     }
     if (!credit.role || typeof credit.role !== "string") errors.push(`${person.name || label} has a film credit without a role.`);
     if (!["lead", "supporting"].includes(credit.creditType)) errors.push(`${person.name || label} has an invalid creditType.`);
+    if (credit.recognitionTier !== undefined && !["popular", "known", "standard", "deep-cut"].includes(credit.recognitionTier)) {
+      errors.push(`${person.name || label} has an invalid recognitionTier.`);
+    }
     const creditKey = `${credit.title.toLowerCase()}|${credit.releaseYear}`;
     if (credits.has(creditKey)) errors.push(`${person.name || label} repeats ${credit.title} (${credit.releaseYear}).`);
     credits.add(creditKey);

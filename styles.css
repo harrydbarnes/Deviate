@@ -420,6 +420,32 @@ a { color: inherit; }
 .truth-label { left: var(--truth); opacity: 0; color: var(--text); }
 .timeline.is-revealed .truth-label { opacity: 1; transition: left .85s var(--ease), opacity .55s var(--ease) .15s; }
 
+.middle-centre-line { position: absolute; top: 29px; left: 50%; height: 18px; border-left: 1px dashed var(--text-faint); opacity: .8; transform: translateX(-50%); }
+.middle-marker { position: absolute; z-index: 3; top: 29px; left: var(--option); width: 16px; height: 16px; border: 1px solid var(--text-soft); border-radius: 50%; background: var(--surface); opacity: 0; transform: translate(-50%, 7px) scale(.6); transition: left .85s var(--ease), opacity .55s var(--ease) .12s, transform .65s var(--ease) .12s, background .4s var(--ease), border-color .4s var(--ease); }
+.middle-marker::after { position: absolute; top: 4px; left: 4px; width: 6px; height: 6px; border-radius: 50%; background: var(--text-soft); content: ""; }
+.middle-marker span { position: absolute; top: 29px; left: 50%; color: var(--text-faint); font-family: var(--font-mono); font-size: .62rem; white-space: nowrap; transform: translateX(-50%); }
+.middle-timeline.is-revealed .middle-marker { opacity: 1; transform: translate(-50%, 0) scale(1); }
+.middle-timeline.is-revealed .middle-marker.is-answer { border-color: var(--text); background: var(--text); box-shadow: 0 0 0 5px rgba(238, 234, 222, .06); }
+.middle-timeline.is-revealed .middle-marker.is-answer::after { background: var(--accent-ink); }
+.middle-timeline.is-revealed .middle-marker.is-selected:not(.is-answer) { border-color: var(--text-faint); background: var(--surface-soft); }
+.middle-timeline.is-revealed .middle-marker.is-selected:not(.is-answer)::after { background: var(--text); }
+.middle-options { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin-top: 9px; }
+.middle-option { display: grid; grid-template-columns: 31px minmax(0, 1fr) auto; align-items: center; gap: 10px; min-width: 0; min-height: 67px; padding: 10px 12px; border: 1px solid var(--line-soft); border-radius: var(--radius-sm); background: var(--surface-soft); color: var(--text); text-align: left; transition: border-color .3s var(--ease), background .3s var(--ease), transform .3s var(--ease), opacity .3s var(--ease); }
+.middle-option:hover, .middle-option:focus-visible { border-color: var(--text-soft); background: var(--surface-strong); transform: translateY(-1px); }
+.middle-option:disabled { cursor: default; }
+.middle-option.is-selected { border-color: var(--text-soft); background: var(--surface-strong); }
+.middle-option.is-answer { border-color: var(--text); }
+.middle-option.is-distractor { opacity: .62; }
+.option-letter { display: grid; place-items: center; width: 25px; height: 25px; border: 1px solid var(--line); border-radius: 50%; color: var(--text-soft); font-family: var(--font-mono); font-size: .69rem; }
+.middle-option.is-selected .option-letter, .middle-option.is-answer .option-letter { border-color: var(--text); color: var(--text); }
+.option-copy { min-width: 0; }
+.option-copy strong, .option-copy span { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.option-copy strong { font-size: .8rem; font-weight: 550; }
+.option-copy span { margin-top: 2px; color: var(--text-faint); font-size: .68rem; }
+.option-copy em { color: var(--text-soft); font-style: normal; }
+.option-value { color: var(--text); font-family: var(--font-mono); font-size: .7rem; }
+.middle-option:not(.is-selected):not(.is-answer) .option-value { color: var(--text-faint); }
+
 .timeline-footer { display: flex; align-items: end; justify-content: space-between; gap: 20px; margin-top: 9px; }
 .scale-note { margin: 0; color: var(--text-faint); font-size: .76rem; }
 
@@ -532,6 +558,7 @@ a { color: inherit; }
   .anchor-card { min-height: 145px; }
   .anchor-topline { margin-bottom: 17px; }
   .anchor-clue { min-height: 62px; }
+  .middle-options { grid-template-columns: 1fr; }
   .timeline-panel { padding-right: 16px; padding-left: 16px; }
   .timeline-header { align-items: start; margin-bottom: 36px; }
   .timeline-header p { max-width: 215px; }

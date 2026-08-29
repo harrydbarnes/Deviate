@@ -14,6 +14,7 @@ const state = {
   screen: "intro",
   roundIndex: 0,
   guess: null,
+  selectedOptionId: null,
   results: [],
   toastTimer: null,
 };
@@ -113,14 +114,16 @@ function restorePuzzleState(puzzle) {
     state.roundIndex = puzzle.rounds.length - 1;
     state.results = completed.results || [];
     state.guess = null;
+    state.selectedOptionId = null;
     return;
   }
 
   if (inProgress) {
-    state.screen = "playing";
     state.roundIndex = Math.min(inProgress.roundIndex || 0, puzzle.rounds.length - 1);
     state.results = Array.isArray(inProgress.results) ? inProgress.results : [];
+    state.screen = inProgress.screen === "revealed" || state.results.length > state.roundIndex ? "revealed" : "playing";
     state.guess = null;
+    state.selectedOptionId = inProgress.selectedOptionId || null;
     return;
   }
 
@@ -128,6 +131,7 @@ function restorePuzzleState(puzzle) {
   state.roundIndex = 0;
   state.results = [];
   state.guess = null;
+  state.selectedOptionId = null;
 }
 
 function startPuzzle(puzzle) {
@@ -137,6 +141,7 @@ function startPuzzle(puzzle) {
   state.screen = "playing";
   state.roundIndex = state.results.length;
   state.guess = null;
+  state.selectedOptionId = null;
   saveInProgress();
   renderGame();
   window.scrollTo({ top: 0, behavior: "smooth" });
@@ -149,11 +154,18 @@ function renderGame() {
 
   const puzzle = state.puzzle;
   const round = puzzle.rounds[state.roundIndex];
+  const isMiddle = round.mode === "middle";
+  const selectedOption = isMiddle ? getSelectedOption(round) : null;
   const progressPercent = ((state.roundIndex + (state.screen === "revealed" ? 1 : 0)) / puzzle.rounds.length) * 100;
-  const guess = state.guess ?? midpoint(round.range.min, round.range.max);
+  const guess = isMiddle ? (selectedOption?.value ?? midpoint(round.range.min, round.range.max)) : state.guess ?? midpoint(round.range.min, round.range.max);
   const guessPercent = toPercent(guess, round.range.min, round.range.max);
   const truthPercent = toPercent(round.target.value, round.range.min, round.range.max);
   const contract = getContractStyle(round);
+  const prompt = isMiddle ? "Which answer is closest to the middle?" : `Where does this ${round.mode === "year" ? "release year" : "age at release"} belong?`;
+  const timelineInstruction = state.screen === "revealed"
+    ? (round.nextRange ? "The warm line shows the narrower range for the next round." : "The final answer is now locked in.")
+    : isMiddle ? "Pick the film credit you think sits closest to the midpoint." : "Drag the marker, or tap anywhere on the line.";
+  const readout = isMiddle ? (selectedOption ? `Choice ${optionIndex(round, selectedOption)}` : "Choose one") : formatValue(guess, round.mode);
 
   app.innerHTML = `
     <section class="game-shell" aria-labelledby="game-heading">
@@ -165,10 +177,10 @@ function renderGame() {
 
       <div class="game-prompt">
         <div>
-          <p class="eyebrow">Place the hidden value</p>
-          <h1 id="game-heading">Where does this ${round.mode === "year" ? "release year" : "age at release"} belong?</h1>
+          <p class="eyebrow">${isMiddle ? "Choose the middle" : "Place the hidden value"}</p>
+          <h1 id="game-heading">${prompt}</h1>
         </div>
-        <span class="mode-pill">${round.mode === "year" ? "Release year" : "Age at release"}</span>
+        <span class="mode-pill">${getModeLabel(round.mode)}</span>
       </div>
 
       <div class="anchor-grid">
@@ -178,46 +190,102 @@ function renderGame() {
 
       <div class="timeline-panel">
         <div class="timeline-header">
-          <p>${state.screen === "revealed" ? (round.nextRange ? "The warm line shows the narrower range for the next round." : "The final answer is now locked in.") : "Drag the marker, or tap anywhere on the line."}</p>
-          <span class="guess-readout" id="guess-readout">${formatValue(guess, round.mode)}</span>
+          <p>${timelineInstruction}</p>
+          <span class="guess-readout" id="guess-readout">${readout}</span>
         </div>
-        <div class="timeline ${state.screen === "revealed" ? "is-revealed" : ""}" style="--guess:${guessPercent}%;--truth:${truthPercent}%;--contract-start:${contract.start}%;--contract-width:${contract.width}%">
-          <div class="timeline-ticks" aria-hidden="true">
-            <span>${formatValue(round.range.min, round.mode)}</span>
-            <span>${formatValue(midpoint(round.range.min, round.range.max), round.mode)}</span>
-            <span>${formatValue(round.range.max, round.mode)}</span>
-          </div>
-          <div class="timeline-axis" aria-hidden="true"></div>
-          <div class="range-window" aria-hidden="true"></div>
-          <div class="marker guess-marker" style="left:${guessPercent}%" aria-hidden="true"></div>
-          <div class="marker truth-marker" style="left:${truthPercent}%" aria-hidden="true"></div>
-          <span class="marker-label guess-label" style="--guess:${guessPercent}%">${state.screen === "revealed" ? "Your guess" : "Your marker"}</span>
-          <span class="marker-label truth-label" style="--truth:${truthPercent}%">Answer</span>
-          <input class="timeline-input" id="timeline-input" type="range" min="${round.range.min}" max="${round.range.max}" step="0.1" value="${guess}" aria-label="Place your guess on the timeline" ${state.screen === "revealed" ? "disabled" : ""} />
-        </div>
+        ${isMiddle ? renderMiddleTimeline(round, state.screen === "revealed", selectedOption, contract) : renderValueTimeline(round, state.screen === "revealed", guess, guessPercent, truthPercent, contract)}
+        ${isMiddle ? renderMiddleOptions(round, state.screen === "revealed", state.selectedOptionId) : ""}
         <div class="timeline-footer">
-          <p class="scale-note">${state.screen === "revealed" ? `Answer: ${formatValue(round.target.value, round.mode)}` : "The exact value can sit anywhere between the anchors."}</p>
-          ${state.screen === "revealed" ? `<button class="button button-primary" id="continue-button" type="button">${state.roundIndex === puzzle.rounds.length - 1 ? "See your summary" : "Continue to next line"}</button>` : `<button class="button button-primary" id="lock-button" type="button">Lock in guess</button>`}
+          <p class="scale-note">${state.screen === "revealed" ? (isMiddle ? `Closest answer: ${formatValue(round.target.value, round.mode)}` : `Answer: ${formatValue(round.target.value, round.mode)}`) : isMiddle ? "Years stay hidden until you lock in." : "The exact value can sit anywhere between the anchors."}</p>
+          ${state.screen === "revealed" ? `<button class="button button-primary" id="continue-button" type="button">${state.roundIndex === puzzle.rounds.length - 1 ? "See your summary" : "Continue to next line"}</button>` : `<button class="button button-primary" id="lock-button" type="button" ${isMiddle && !selectedOption ? "disabled" : ""}>Lock in guess</button>`}
         </div>
         ${state.screen === "revealed" ? renderRevealNote(round, state.results[state.results.length - 1]) : ""}
       </div>
     </section>`;
 
   if (state.screen !== "revealed") {
-    const input = document.querySelector("#timeline-input");
-    input.addEventListener("input", (event) => {
-      state.guess = Number(event.target.value);
-      updateGuessReadout(round);
-    });
-    input.addEventListener("change", (event) => {
-      state.guess = Number(event.target.value);
-      updateGuessReadout(round);
-    });
+    if (isMiddle) {
+      document.querySelectorAll(".middle-option").forEach((option) => {
+        option.addEventListener("click", () => {
+          state.selectedOptionId = option.dataset.optionId;
+          state.guess = null;
+          renderGame();
+        });
+      });
+    } else {
+      const input = document.querySelector("#timeline-input");
+      input.addEventListener("input", (event) => {
+        state.guess = Number(event.target.value);
+        updateGuessReadout(round);
+      });
+      input.addEventListener("change", (event) => {
+        state.guess = Number(event.target.value);
+        updateGuessReadout(round);
+      });
+      requestAnimationFrame(() => input.focus({ preventScroll: true }));
+    }
     document.querySelector("#lock-button").addEventListener("click", lockGuess);
-    requestAnimationFrame(() => input.focus({ preventScroll: true }));
   } else {
     document.querySelector("#continue-button").addEventListener("click", continueAfterReveal);
   }
+}
+
+function renderValueTimeline(round, revealed, guess, guessPercent, truthPercent, contract) {
+  return `
+    <div class="timeline ${revealed ? "is-revealed" : ""}" style="--guess:${guessPercent}%;--truth:${truthPercent}%;--contract-start:${contract.start}%;--contract-width:${contract.width}%">
+      <div class="timeline-ticks" aria-hidden="true">
+        <span>${formatValue(round.range.min, round.mode)}</span>
+        <span>${formatValue(midpoint(round.range.min, round.range.max), round.mode)}</span>
+        <span>${formatValue(round.range.max, round.mode)}</span>
+      </div>
+      <div class="timeline-axis" aria-hidden="true"></div>
+      <div class="range-window" aria-hidden="true"></div>
+      <div class="marker guess-marker" style="left:${guessPercent}%" aria-hidden="true"></div>
+      <div class="marker truth-marker" style="left:${truthPercent}%" aria-hidden="true"></div>
+      <span class="marker-label guess-label" style="--guess:${guessPercent}%">${revealed ? "Your guess" : "Your marker"}</span>
+      <span class="marker-label truth-label" style="--truth:${truthPercent}%">Answer</span>
+      <input class="timeline-input" id="timeline-input" type="range" min="${round.range.min}" max="${round.range.max}" step="0.1" value="${guess}" aria-label="Place your guess on the timeline" ${revealed ? "disabled" : ""} />
+    </div>`;
+}
+
+function renderMiddleTimeline(round, revealed, selectedOption, contract) {
+  const markers = revealed ? round.options.map((option) => {
+    const position = toPercent(option.value, round.range.min, round.range.max);
+    const classes = [
+      "middle-marker",
+      option.optionId === selectedOption?.optionId ? "is-selected" : "",
+      option.optionId === round.target.optionId ? "is-answer" : "",
+    ].filter(Boolean).join(" ");
+    return `<div class="${classes}" style="--option:${position}%"><span>${formatValue(option.value, "middle")}</span></div>`;
+  }).join("") : "";
+  return `
+    <div class="timeline middle-timeline ${revealed ? "is-revealed" : ""}" style="--contract-start:${contract.start}%;--contract-width:${contract.width}%">
+      <div class="timeline-ticks" aria-hidden="true">
+        <span>${formatValue(round.range.min, "middle")}</span>
+        <span>middle</span>
+        <span>${formatValue(round.range.max, "middle")}</span>
+      </div>
+      <div class="timeline-axis" aria-hidden="true"></div>
+      <div class="middle-centre-line" aria-hidden="true"></div>
+      <div class="range-window" aria-hidden="true"></div>
+      ${markers}
+    </div>`;
+}
+
+function renderMiddleOptions(round, revealed, selectedOptionId) {
+  return `
+    <div class="middle-options" aria-label="Middle mode answers">
+      ${round.options.map((option, index) => {
+        const isSelected = option.optionId === selectedOptionId;
+        const isAnswer = option.optionId === round.target.optionId;
+        const stateClass = revealed ? `${isSelected ? "is-selected" : ""} ${isAnswer ? "is-answer" : "is-distractor"}` : isSelected ? "is-selected" : "";
+        return `<button class="middle-option ${stateClass}" data-option-id="${escapeHtml(option.optionId)}" type="button" ${revealed ? "disabled" : ""}>
+          <span class="option-letter">${String.fromCharCode(65 + index)}</span>
+          <span class="option-copy"><strong>${escapeHtml(option.name)}</strong><span><em>${escapeHtml(option.film)}</em>${option.role ? ` · as ${escapeHtml(option.role)}` : ""}</span></span>
+          <span class="option-value">${revealed ? formatValue(option.value, "middle") : "?"}</span>
+        </button>`;
+      }).join("")}
+    </div>`;
 }
 
 function renderIntro() {
@@ -225,15 +293,18 @@ function renderIntro() {
   const record = progress.completed?.[puzzle.date];
   const inProgress = progress.inProgress?.[puzzle.date];
   const isFallback = puzzle.date !== getTodayKey();
+  const lede = puzzle.mode === "middle"
+    ? "A calm, five-round challenge about actors, films and choosing the credit closest to the middle."
+    : "A calm, five-round guessing game about actors, films and the space between two known points.";
   app.innerHTML = `
     <section class="intro-layout" aria-labelledby="intro-heading">
       <div class="intro-copy">
         <p class="eyebrow">${isFallback ? "Latest frozen line" : "Today's puzzle"}</p>
         <h1 id="intro-heading">Find your place in time.</h1>
-        <p class="lede">A calm, five-round guessing game about actors, films and the space between two known points.</p>
+        <p class="lede">${lede}</p>
         <div class="intro-meta" aria-label="Puzzle details">
           <span>${formatDate(puzzle.date, { weekday: "long", day: "numeric", month: "long" })}</span>
-          <span>${puzzle.mode === "year" ? "Release year" : "Age at release"}</span>
+          <span>${getModeLabel(puzzle.mode)}</span>
           <span>${puzzle.rounds.length} rounds</span>
         </div>
         <div class="button-row">
@@ -267,6 +338,21 @@ function renderAnchor(anchor, mode, label, side) {
 }
 
 function renderMystery(target, mode, revealed) {
+  if (mode === "middle") {
+    return `
+      <article class="anchor-card mystery ${revealed ? "revealed" : ""}">
+        <div class="anchor-topline"><span>${revealed ? "Middle found" : "Answer set"}</span><span class="anchor-side">Right edge</span></div>
+        ${revealed ? `
+          <p class="anchor-name">${escapeHtml(target.name)}</p>
+          <p class="anchor-credit"><em>${escapeHtml(target.film)}</em> · ${target.year}</p>
+          <p class="anchor-credit">${formatValue(target.value, mode)} · closest to middle</p>` : `
+          <div class="anchor-clue">
+            <p class="clue-label">The challenge</p>
+            <p class="clue-value">Pick the closest</p>
+            <p class="clue-detail">Four film credits · release years hidden</p>
+          </div>`}
+      </article>`;
+  }
   return `
     <article class="anchor-card mystery ${revealed ? "revealed" : ""}">
       <div class="anchor-topline"><span>${revealed ? "Revealed" : "Mystery anchor"}</span><span class="anchor-side">Right edge</span></div>
@@ -277,7 +363,7 @@ function renderMystery(target, mode, revealed) {
         <div class="anchor-clue">
           <p class="clue-label">The clue</p>
           <p class="clue-value">${formatGender(target.gender)}</p>
-          <p class="clue-detail">One credit: <em>${escapeHtml(target.film)}</em></p>
+          <p class="clue-detail">One credit: <em>${escapeHtml(target.film)}</em>${mode === "age" && target.role ? ` · as ${escapeHtml(target.role)}` : ""}</p>
         </div>`}
     </article>`;
 }
@@ -285,14 +371,19 @@ function renderMystery(target, mode, revealed) {
 function renderRevealNote(round, result) {
   if (!result) return "";
   const glyph = result.direction === "bullseye" ? "◎" : result.direction === "left" ? "◀" : "▶";
-  const relative = result.direction === "bullseye" ? "inside the bullseye" : result.direction === "left" ? "to the left of the answer" : "to the right of the answer";
+  const relative = round.mode === "middle"
+    ? result.direction === "bullseye" ? "inside the bullseye" : result.direction === "left" ? "to the left of the middle" : "to the right of the middle"
+    : result.direction === "bullseye" ? "inside the bullseye" : result.direction === "left" ? "to the left of the answer" : "to the right of the answer";
   const nextRange = round.nextRange ? `${formatValue(round.nextRange.min, round.mode)} to ${formatValue(round.nextRange.max, round.mode)}` : "the line is complete";
+  const answerDetail = round.mode === "middle"
+    ? `Closest answer: ${escapeHtml(round.target.name)} · ${escapeHtml(round.target.film)} · ${formatValue(round.target.value, round.mode)}`
+    : `${escapeHtml(round.target.name)} · ${escapeHtml(round.target.film)} · ${formatValue(round.target.value, round.mode)}`;
   return `
     <div class="reveal-note" aria-live="polite">
       <span class="result-glyph" aria-hidden="true">${glyph}</span>
       <div>
-        <p>Your marker landed <strong>${formatDistance(result.distance, round.mode)}</strong> ${relative}.</p>
-        <p class="answer-detail">${escapeHtml(round.target.name)} · ${escapeHtml(round.target.film)} · ${formatValue(round.target.value, round.mode)} · Next range: ${nextRange}</p>
+        <p>Your ${round.mode === "middle" ? "choice" : "marker"} landed <strong>${formatDistance(result.distance, round.mode)}</strong> ${relative}.</p>
+        <p class="answer-detail">${answerDetail} · Next range: ${nextRange}</p>
       </div>
     </div>`;
 }
@@ -312,6 +403,34 @@ function updateGuessReadout(round) {
 function lockGuess() {
   const puzzle = state.puzzle;
   const round = puzzle.rounds[state.roundIndex];
+  if (round.mode === "middle") {
+    const selected = getSelectedOption(round);
+    if (!selected) {
+      showToast("Choose an answer first");
+      return;
+    }
+    const middle = midpoint(round.range.min, round.range.max);
+    const distance = Math.abs(selected.value - middle);
+    const normalized = clamp(distance / Math.max((round.range.max - round.range.min) / 2, 0.0001), 0, 1);
+    const direction = normalized <= 0.05 ? "bullseye" : selected.value < middle ? "left" : "right";
+    state.guess = selected.value;
+    state.results = [...state.results, {
+      round: state.roundIndex + 1,
+      guess: selected.value,
+      truth: round.target.value,
+      middle,
+      distance,
+      normalized,
+      direction,
+      optionId: selected.optionId,
+      optionName: selected.name,
+      optionFilm: selected.film,
+    }];
+    state.screen = "revealed";
+    saveInProgress();
+    renderGame();
+    return;
+  }
   const guess = clamp(state.guess ?? midpoint(round.range.min, round.range.max), round.range.min, round.range.max);
   const distance = Math.abs(guess - round.target.value);
   const normalized = clamp(distance / (round.range.max - round.range.min), 0, 1);
@@ -338,6 +457,7 @@ function continueAfterReveal() {
   }
   state.roundIndex += 1;
   state.guess = null;
+  state.selectedOptionId = null;
   state.screen = "playing";
   saveInProgress();
   renderGame();
@@ -373,7 +493,7 @@ function renderSummary() {
     <section class="summary-shell" aria-labelledby="summary-heading">
       <div class="summary-topline">
         <span class="round-count"><strong>Line complete</strong> · ${formatDate(puzzle.date, { day: "numeric", month: "long", year: "numeric" })}</span>
-        <span class="round-count">${puzzle.mode === "year" ? "Release year" : "Age at release"}</span>
+        <span class="round-count">${getModeLabel(puzzle.mode)}</span>
       </div>
       <div class="summary-hero">
         <div>
@@ -409,6 +529,18 @@ function renderSummary() {
 
 function renderResultRow(result, round) {
   const glyph = result.direction === "bullseye" ? "◎" : result.direction === "left" ? "◀" : "▶";
+  if (round.mode === "middle") {
+    const selected = round.options?.find((option) => option.optionId === result.optionId);
+    return `
+      <div class="result-row">
+        <span class="result-number">0${result.round}</span>
+        <div class="result-copy">
+          <strong>${escapeHtml(selected?.name || result.optionName || "Selected answer")} · ${escapeHtml(selected?.film || result.optionFilm || "Film credit")}</strong>
+          <span>${formatValue(result.guess, "middle")} chosen · closest was ${formatValue(result.truth, "middle")}</span>
+        </div>
+        <div class="result-score"><strong><span class="round-glyph" aria-hidden="true">${glyph}</span>${(result.normalized * 100).toFixed(1)}</strong><span>middle distance</span></div>
+      </div>`;
+  }
   return `
     <div class="result-row">
       <span class="result-number">0${result.round}</span>
@@ -436,7 +568,7 @@ function renderArchive() {
           return `<button class="archive-item" data-date="${puzzle.date}" type="button">
             <span class="archive-date">${current ? "Today" : formatDate(puzzle.date, { day: "numeric", month: "short" })}</span>
             <span class="archive-status">${record ? `${Number(record.score).toFixed(1)}` : "unplayed"}</span>
-            <span class="archive-info"><strong>${puzzle.mode === "year" ? "Release year" : "Age at release"}</strong><span>${puzzle.rounds.length} rounds · ${record ? "completed" : "ready"}</span></span>
+            <span class="archive-info"><strong>${getModeLabel(puzzle.mode)}</strong><span>${puzzle.rounds.length} rounds · ${record ? "completed" : "ready"}</span></span>
           </button>`;
         }).join("")}
       </div>
@@ -537,7 +669,7 @@ async function shareCurrentResult() {
     return showToast("Link copied");
   }
   const glyphs = record.results.map((result) => result.direction === "bullseye" ? "◎" : result.direction === "left" ? "◀" : "▶").join(" ");
-  const shareText = `Deviate · ${formatDate(puzzle.date, { day: "numeric", month: "short", year: "numeric" })}\nScore ${Number(record.score).toFixed(1)} · lower is better\n${glyphs}\n${window.location.href.split("#")[0]}`;
+  const shareText = `Deviate · ${formatDate(puzzle.date, { day: "numeric", month: "short", year: "numeric" })} · ${getModeLabel(puzzle.mode)}\nScore ${Number(record.score).toFixed(1)} · lower is better\n${glyphs}\n${window.location.href.split("#")[0]}`;
   if (navigator.share) {
     try {
       await navigator.share({ title: "Deviate result", text: shareText });
@@ -600,6 +732,8 @@ function saveInProgress() {
   progress.inProgress[state.puzzle.date] = {
     roundIndex: state.roundIndex,
     results: state.results,
+    selectedOptionId: state.selectedOptionId,
+    screen: state.screen,
     updatedAt: new Date().toISOString(),
   };
   writeProgress();
@@ -639,13 +773,29 @@ function getContractStyle(round) {
   return { start, width: Math.max(0, end - start), rangeWidth };
 }
 
+function getSelectedOption(round) {
+  return round.options?.find((option) => option.optionId === state.selectedOptionId) || null;
+}
+
+function optionIndex(round, option) {
+  const index = round.options?.findIndex((candidate) => candidate.optionId === option.optionId) ?? -1;
+  return index >= 0 ? String.fromCharCode(65 + index) : "?";
+}
+
+function getModeLabel(mode) {
+  if (mode === "year") return "Release year";
+  if (mode === "age") return "Age at release";
+  if (mode === "middle") return "Middle mode";
+  return "Timeline";
+}
+
 function calculateScore(results) {
   if (!results.length) return 0;
   return (results.reduce((sum, result) => sum + Number(result.normalized || 0), 0) / results.length) * 100;
 }
 
 function formatValue(value, mode) {
-  if (mode === "year") return `${Math.round(value)}`;
+  if (mode === "year" || mode === "middle") return `${Math.round(value)}`;
   return `${Number(value).toFixed(1)} yrs`;
 }
 

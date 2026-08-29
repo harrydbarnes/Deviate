@@ -219,7 +219,13 @@ function selectFilmography(person, rows, titles) {
   const chosen = spreadSelect(entries, 8);
   return chosen
     .sort((a, b) => a.releaseYear - b.releaseYear || a.title.localeCompare(b.title))
-    .map(({ title, releaseYear, role, creditType }) => ({ title, releaseYear, role, creditType }));
+    .map(({ title, releaseYear, role, creditType, knownFor }) => ({
+      title,
+      releaseYear,
+      role,
+      creditType,
+      recognitionTier: knownFor ? "known" : "standard",
+    }));
 }
 
 function spreadSelect(entries, limit) {

@@ -22,6 +22,8 @@ jobs:
         run: npm run validate:data
       - name: Freeze today's puzzle
         run: npm run generate:today
+      - name: Validate frozen puzzles
+        run: npm run validate:puzzles
       - name: Commit frozen data
         run: |
           git config user.name "github-actions[bot]"

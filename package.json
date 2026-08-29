@@ -10,6 +10,7 @@
     "validate:data": "node scripts/validate-people.mjs",
     "generate": "node scripts/generate-puzzles.mjs",
     "generate:today": "node scripts/generate-puzzles.mjs --date $(date -u +%F)",
-    "check": "node --check app.js && node --check scripts/build-people.mjs && node --check scripts/enrich-nationalities.mjs && node --check scripts/generate-puzzles.mjs && node --check scripts/validate-people.mjs && npm run validate:data"
+    "validate:puzzles": "node scripts/validate-puzzles.mjs",
+    "check": "node --check app.js && node --check scripts/build-people.mjs && node --check scripts/enrich-nationalities.mjs && node --check scripts/generate-puzzles.mjs && node --check scripts/validate-people.mjs && node --check scripts/validate-puzzles.mjs && npm run validate:data && npm run validate:puzzles"
   }
 }
