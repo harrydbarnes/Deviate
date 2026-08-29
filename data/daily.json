@@ -165,6 +165,211 @@
           "nextRange": null
         }
       ]
+    },
+    {
+      "date": "2026-08-29",
+      "mode": "age",
+      "generatorVersion": "v2",
+      "roundCount": 5,
+      "rounds": [
+        {
+          "number": 1,
+          "mode": "age",
+          "range": {
+            "min": 12,
+            "max": 80
+          },
+          "anchor": {
+            "personId": "anton-yelchin",
+            "name": "Anton Yelchin",
+            "gender": "male",
+            "nationality": "American",
+            "popularityTier": "B",
+            "film": "Hearts in Atlantis",
+            "year": 2001,
+            "role": "Bobby Garfield",
+            "creditType": "lead",
+            "value": 12,
+            "age": 12,
+            "valueLabel": "12.0 yrs"
+          },
+          "anchorSide": "left",
+          "target": {
+            "personId": "jamie-foxx",
+            "name": "Jamie Foxx",
+            "gender": "male",
+            "nationality": "American",
+            "popularityTier": "B",
+            "film": "White House Down",
+            "role": "President Sawyer",
+            "creditType": "lead",
+            "year": 2013,
+            "value": 46,
+            "age": 46
+          },
+          "nextRange": {
+            "min": 46,
+            "max": 80
+          }
+        },
+        {
+          "number": 2,
+          "mode": "age",
+          "range": {
+            "min": 46,
+            "max": 80
+          },
+          "anchor": {
+            "personId": "jamie-foxx",
+            "name": "Jamie Foxx",
+            "gender": "male",
+            "nationality": "American",
+            "popularityTier": "B",
+            "film": "White House Down",
+            "year": 2013,
+            "role": "President Sawyer",
+            "creditType": "lead",
+            "value": 46,
+            "age": 46,
+            "valueLabel": "46.0 yrs"
+          },
+          "anchorSide": "left",
+          "target": {
+            "personId": "harvey-keitel",
+            "name": "Harvey Keitel",
+            "gender": "male",
+            "nationality": "American / Romanian",
+            "popularityTier": "B",
+            "film": "Ginostra",
+            "role": "Matt Benson",
+            "creditType": "lead",
+            "year": 2002,
+            "value": 63,
+            "age": 63
+          },
+          "nextRange": {
+            "min": 63,
+            "max": 80
+          }
+        },
+        {
+          "number": 3,
+          "mode": "age",
+          "range": {
+            "min": 63,
+            "max": 80
+          },
+          "anchor": {
+            "personId": "harvey-keitel",
+            "name": "Harvey Keitel",
+            "gender": "male",
+            "nationality": "American / Romanian",
+            "popularityTier": "B",
+            "film": "Ginostra",
+            "year": 2002,
+            "role": "Matt Benson",
+            "creditType": "lead",
+            "value": 63,
+            "age": 63,
+            "valueLabel": "63.0 yrs"
+          },
+          "anchorSide": "left",
+          "target": {
+            "personId": "malcolm-mcdowell",
+            "name": "Malcolm McDowell",
+            "gender": "male",
+            "nationality": "British",
+            "popularityTier": "C",
+            "film": "Shock Value",
+            "role": "Edmund Dean Huntley",
+            "creditType": "supporting",
+            "year": 2014,
+            "value": 71,
+            "age": 71
+          },
+          "nextRange": {
+            "min": 63,
+            "max": 71
+          }
+        },
+        {
+          "number": 4,
+          "mode": "age",
+          "range": {
+            "min": 63,
+            "max": 71
+          },
+          "anchor": {
+            "personId": "malcolm-mcdowell",
+            "name": "Malcolm McDowell",
+            "gender": "male",
+            "nationality": "British",
+            "popularityTier": "C",
+            "film": "Shock Value",
+            "year": 2014,
+            "role": "Edmund Dean Huntley",
+            "creditType": "supporting",
+            "value": 71,
+            "age": 71,
+            "valueLabel": "71.0 yrs"
+          },
+          "anchorSide": "right",
+          "target": {
+            "personId": "sylvester-stallone",
+            "name": "Sylvester Stallone",
+            "gender": "male",
+            "nationality": "American",
+            "popularityTier": "A",
+            "film": "Grudge Match",
+            "role": "Henry 'Razor' Sharp",
+            "creditType": "lead",
+            "year": 2013,
+            "value": 67,
+            "age": 67
+          },
+          "nextRange": {
+            "min": 67,
+            "max": 71
+          }
+        },
+        {
+          "number": 5,
+          "mode": "age",
+          "range": {
+            "min": 67,
+            "max": 71
+          },
+          "anchor": {
+            "personId": "sylvester-stallone",
+            "name": "Sylvester Stallone",
+            "gender": "male",
+            "nationality": "American",
+            "popularityTier": "A",
+            "film": "Grudge Match",
+            "year": 2013,
+            "role": "Henry 'Razor' Sharp",
+            "creditType": "lead",
+            "value": 67,
+            "age": 67,
+            "valueLabel": "67.0 yrs"
+          },
+          "anchorSide": "left",
+          "target": {
+            "personId": "sam-neill",
+            "name": "Sam Neill",
+            "gender": "male",
+            "nationality": "Irish / British",
+            "popularityTier": "B",
+            "film": "Hunt for the Wilderpeople",
+            "role": "Hec",
+            "creditType": "lead",
+            "year": 2016,
+            "value": 69,
+            "age": 69
+          },
+          "nextRange": null
+        }
+      ]
     }
   ]
 }
