@@ -615,20 +615,17 @@ h1[tabindex="-1"]:focus { outline: none; }
 @media (max-width: 620px) {
   .topbar, #app { width: min(100% - 26px, 1180px); }
   .topbar {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) auto;
-    grid-template-areas: "brand actions" "gamegrid gamegrid";
-    row-gap: 2px;
-    min-height: auto;
+    display: flex;
+    min-height: 64px;
+    gap: 4px;
     padding-top: 8px;
-    padding-bottom: 7px;
+    padding-bottom: 8px;
   }
-  .wordmark { grid-area: brand; }
-  .top-actions { grid-area: actions; }
-  .gamegrid-link { grid-area: gamegrid; justify-self: start; min-height: 36px; padding: 8px 10px; }
-  #app { min-height: calc(100vh - 97px); padding-top: 10px; }
-  .top-actions { gap: 0; }
-  .icon-button { width: 44px; height: 44px; }
+  .wordmark { flex: 0 0 auto; }
+  .top-actions { flex: 0 0 auto; margin-left: auto; gap: 0; }
+  .gamegrid-link { flex: 0 0 auto; min-height: 36px; padding: 8px 4px; }
+  #app { min-height: calc(100vh - 64px); padding-top: 10px; }
+  .icon-button { width: 38px; height: 44px; }
   #share-button svg { width: 20px; height: 20px; }
   .intro-copy { padding-top: 48px; }
   .intro-copy h1 { font-size: clamp(3.1rem, 17vw, 5rem); }
@@ -665,6 +662,12 @@ h1[tabindex="-1"]:focus { outline: none; }
   .page-heading { display: block; margin-bottom: 24px; }
   .page-heading h1 { font-size: 3.7rem; }
   .page-heading .button { margin-top: 18px; }
+}
+
+@media (max-width: 340px) {
+  .wordmark { font-size: 1.05rem; }
+  .gamegrid-link { padding-left: 2px; padding-right: 2px; }
+  .icon-button { width: 34px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
