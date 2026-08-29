@@ -31,4 +31,4 @@ npm run enrich:data
 npm run validate:data
 ```
 
-The build and enrichment scripts retain IMDb IDs in `sourceId` so records can be audited without exposing any prose biography or plot text. The puzzle generator uses this structured recognition signal when present and falls back to the existing A/B tier plus lead-credit rules for older frozen catalogue records.
+The build and enrichment scripts retain IMDb IDs in `sourceId` so records can be audited without exposing any prose biography or plot text. The puzzle generator uses this structured recognition signal when present. The current checked-in catalogue predates that optional field, so legacy records use a conservative fallback: familiar franchise or mainstream title matches, plus repeated lead credits that appear across the structured cast snapshot. Deep-cut credits are excluded from new puzzles. This affects future generation only; frozen puzzle dates are never rewritten.

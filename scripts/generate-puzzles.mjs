@@ -9,9 +9,20 @@ const ROUND_COUNT = 5;
 const MIDDLE_OPTION_COUNT = 4;
 const MODES = ["year", "age", "middle"];
 const WEEKLY_MODE_SCHEDULE = ["middle", "middle", "year", "middle", "middle", "year", "age"];
-const GENERATOR_VERSION = "v4";
+const GENERATOR_VERSION = "v5";
 const RECENT_WINDOW_DAYS = 60;
 const MAX_TARGET_USES_IN_WINDOW = 2;
+const FAMILIAR_TITLE_PATTERNS = [
+  /avengers|iron man|captain america|thor|guardians of the galaxy|black panther/i,
+  /fast & furious|the fast and the furious|fast five|fast x|furious|mission: impossible|top gun|matrix|terminator|star trek|star wars|pirates of the caribbean/i,
+  /harry potter|lord of the rings|hobbit|batman|dark knight|superman|spider-man|x-men|deadpool|wolverine|jurassic|jumanji|hunger games|twilight/i,
+  /james bond|casino royale|skyfall|spectre|no time to die|goldeneye|die another day|quantum of solace|world is not enough/i,
+  /lion king|beauty and the beast|cinderella|frozen|moana|toy story|shrek|kung fu panda|despicable me|minions|incredibles|finding nemo|ratatouille/i,
+  /pulp fiction|fight club|forrest gump|shawshank|gladiator|titanic|inception|interstellar|memento|django|once upon a time|kill bill|reservoir dogs|departed|goodfellas|casino|godfather|silence of the lambs|se7en|american psycho|wolf of wall street|social network/i,
+  /hangover|mean girls|bridesmaids|superbad|notebook|love actually|bridget jones|notting hill|pretty woman|la la land|greatest showman|bohemian rhapsody|rocketman|mamma mia|devil wears prada|the help|little women|star is born/i,
+  /mad max|rocky|rambo|die hard|lethal weapon|predator|alien|exorcist|shining|scream|quiet place|conjuring|saw|sixth sense|green mile|saving private ryan|catch me if you can|cast away|sleepless in seattle/i,
+  /speed|men in black|charlie's angels|king kong|moulin rouge|les misérables|american hustle|closer|chicago|moneyball|silver linings playbook|eternal sunshine|argo|about a boy|as good as it gets|romeo \+ juliet/i,
+];
 
 const dateFlagIndex = process.argv.indexOf("--date");
 const dateArg = process.argv.find((argument) => argument.startsWith("--date="))?.split("=")[1] || (dateFlagIndex >= 0 ? process.argv[dateFlagIndex + 1] : undefined);
@@ -71,6 +82,14 @@ function buildPuzzle(puzzleDate, puzzleMode, sourcePeople, recentUsage) {
     if (puzzleMode === "age") return entry.value >= 12 && entry.value <= 80;
     return entry.value >= 1950;
   });
+  const titleCounts = new Map();
+  for (const entry of entries) {
+    const key = normaliseTitle(entry.film);
+    titleCounts.set(key, (titleCounts.get(key) || 0) + 1);
+  }
+  for (const entry of entries) {
+    entry.titleFrequency = titleCounts.get(normaliseTitle(entry.film)) || 1;
+  }
 
   const targetEntries = entries.filter(isCasualTarget);
   if (targetEntries.length < 100) {
@@ -296,7 +315,22 @@ function positionScore(entry, range, preferredPosition) {
 function isCasualTarget(entry) {
   if (!entry || !["A", "B"].includes(entry.popularityTier)) return false;
   if (entry.recognitionTier === "deep-cut") return false;
-  return entry.popularityTier === "A" || entry.recognitionTier === "known" || entry.creditType === "lead";
+  if (["popular", "known"].includes(entry.recognitionTier)) return true;
+  if (titleLooksFamiliar(entry.film)) return true;
+  return entry.creditType === "lead" && entry.titleFrequency >= 2;
+}
+
+function titleLooksFamiliar(title) {
+  return FAMILIAR_TITLE_PATTERNS.some((pattern) => pattern.test(title || ""));
+}
+
+function normaliseTitle(title) {
+  return String(title || "")
+    .normalize("NFKC")
+    .toLowerCase()
+    .replace(/[’‘`]/g, "'")
+    .replace(/[^\p{L}\p{N}]+/gu, " ")
+    .trim();
 }
 
 function getRecognitionTier(credit) {

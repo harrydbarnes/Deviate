@@ -1,4 +1,5 @@
 const DATA_URL = "./data/daily.json";
+const SERVICE_WORKER_URL = "./service-worker.js";
 const PROGRESS_KEY = "deviate-progress-v1";
 const THEME_KEY = "deviate-theme-v1";
 const ROUND_COUNT = 5;
@@ -17,18 +18,24 @@ const state = {
   selectedOptionId: null,
   results: [],
   toastTimer: null,
+  roundTransition: false,
 };
 
 let progress = readProgress();
+let globalEventsBound = false;
 
 init();
 
 async function init() {
   applyTheme(localStorage.getItem(THEME_KEY) || "dark");
-  bindGlobalEvents();
+  if (!globalEventsBound) {
+    bindGlobalEvents();
+    globalEventsBound = true;
+  }
+  registerServiceWorker();
 
   try {
-    const response = await fetch(DATA_URL, { cache: "no-store" });
+    const response = await fetch(DATA_URL);
     if (!response.ok) throw new Error(`Puzzle data returned ${response.status}`);
     const payload = await response.json();
     state.puzzles = Array.isArray(payload.puzzles) ? payload.puzzles : [];
@@ -41,18 +48,27 @@ async function init() {
         <p class="eyebrow">The line is resting</p>
         <h1>Today's puzzle could not load.</h1>
         <p class="subheading">Check your connection and try refreshing the page.</p>
+        <button class="button button-primary" id="retry-button" type="button">Try again</button>
       </section>`;
+    document.querySelector("#retry-button")?.addEventListener("click", init);
   }
 }
 
 function bindGlobalEvents() {
-  window.addEventListener("hashchange", () => {
+  const handleRouteChange = () => {
     state.route = getRoute();
     if (state.route === "daily") {
       state.puzzle = getDailyPuzzle();
       restorePuzzleState(state.puzzle);
     }
     renderRoute();
+  };
+  window.addEventListener("hashchange", handleRouteChange);
+  window.addEventListener("popstate", handleRouteChange);
+
+  document.querySelector(".wordmark").addEventListener("click", (event) => {
+    event.preventDefault();
+    goHome();
   });
 
   document.querySelector("#theme-button").addEventListener("click", () => {
@@ -73,9 +89,39 @@ function bindGlobalEvents() {
   document.querySelector("#share-button").addEventListener("click", () => shareCurrentResult());
 }
 
+function registerServiceWorker() {
+  if (!("serviceWorker" in navigator)) return;
+  navigator.serviceWorker.register(SERVICE_WORKER_URL).catch((error) => {
+    console.warn("Deviate offline support could not start", error);
+  });
+}
+
+function goHome() {
+  const puzzle = getDailyPuzzle();
+  if (!puzzle) return;
+  state.route = "daily";
+  state.puzzle = puzzle;
+  state.screen = "intro";
+  state.roundIndex = 0;
+  state.guess = null;
+  state.selectedOptionId = null;
+  state.results = [];
+  state.roundTransition = false;
+  if (window.location.hash !== "#daily") {
+    window.history.pushState({ route: "daily" }, "", `${window.location.pathname}${window.location.search}#daily`);
+  }
+  renderIntro();
+  focusHeading("intro-heading");
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
 function closeHelp() {
   if (typeof helpDialog.close === "function") helpDialog.close();
   else helpDialog.removeAttribute("open");
+}
+
+function focusHeading(id) {
+  requestAnimationFrame(() => document.getElementById(id)?.focus({ preventScroll: true }));
 }
 
 function getRoute() {
@@ -137,13 +183,18 @@ function restorePuzzleState(puzzle) {
 function startPuzzle(puzzle) {
   state.puzzle = puzzle;
   restorePuzzleState(puzzle);
-  if (state.screen === "complete") return renderSummary();
+  if (state.screen === "complete") {
+    renderSummary();
+    return;
+  }
   state.screen = "playing";
   state.roundIndex = state.results.length;
   state.guess = null;
   state.selectedOptionId = null;
+  state.roundTransition = false;
   saveInProgress();
   renderGame();
+  focusHeading("game-heading");
   window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
@@ -156,6 +207,7 @@ function renderGame() {
   const round = puzzle.rounds[state.roundIndex];
   const isMiddle = round.mode === "middle";
   const selectedOption = isMiddle ? getSelectedOption(round) : null;
+  const hasGuess = isMiddle ? Boolean(selectedOption) : state.guess !== null;
   const progressPercent = ((state.roundIndex + (state.screen === "revealed" ? 1 : 0)) / puzzle.rounds.length) * 100;
   const guess = isMiddle ? (selectedOption?.value ?? midpoint(round.range.min, round.range.max)) : state.guess ?? midpoint(round.range.min, round.range.max);
   const guessPercent = toPercent(guess, round.range.min, round.range.max);
@@ -165,12 +217,13 @@ function renderGame() {
   const timelineInstruction = state.screen === "revealed"
     ? (round.nextRange ? "The warm line shows the narrower range for the next round." : "The final answer is now locked in.")
     : isMiddle ? "Pick the film credit you think sits closest to the midpoint." : "Drag the marker, or tap anywhere on the line.";
-  const readout = isMiddle ? (selectedOption ? `Choice ${optionIndex(round, selectedOption)}` : "Choose one") : formatValue(guess, round.mode);
+  const readout = isMiddle ? (selectedOption ? `Choice ${optionIndex(round, selectedOption)}` : "Choose one") : hasGuess ? formatValue(guess, round.mode) : "Place a marker";
+  const lineLabel = puzzle.date === getTodayKey() ? "Daily line" : "Archive line";
 
   app.innerHTML = `
-    <section class="game-shell" aria-labelledby="game-heading">
+    <section class="game-shell${state.roundTransition ? " is-round-entering" : ""}" aria-labelledby="game-heading">
       <div class="game-topline">
-        <span class="round-count"><strong>Daily line</strong> · ${formatDate(puzzle.date, { day: "numeric", month: "long" })}</span>
+        <span class="round-count"><strong>${lineLabel}</strong> · ${formatDate(puzzle.date, { day: "numeric", month: "long" })}</span>
         <span class="round-count">Round <strong>${state.roundIndex + 1}</strong> of <strong>${puzzle.rounds.length}</strong></span>
       </div>
       <div class="progress-track" aria-hidden="true" style="--progress:${progressPercent}%"><span></span></div>
@@ -178,7 +231,7 @@ function renderGame() {
       <div class="game-prompt">
         <div>
           <p class="eyebrow">${isMiddle ? "Choose the middle" : "Place the hidden value"}</p>
-          <h1 id="game-heading">${prompt}</h1>
+          <h1 id="game-heading" tabindex="-1">${prompt}</h1>
         </div>
         <span class="mode-pill">${getModeLabel(round.mode)}</span>
       </div>
@@ -191,13 +244,13 @@ function renderGame() {
       <div class="timeline-panel">
         <div class="timeline-header">
           <p>${timelineInstruction}</p>
-          <span class="guess-readout" id="guess-readout">${readout}</span>
+          <span class="guess-readout" id="guess-readout" aria-live="polite">${readout}</span>
         </div>
-        ${isMiddle ? renderMiddleTimeline(round, state.screen === "revealed", selectedOption, contract) : renderValueTimeline(round, state.screen === "revealed", guess, guessPercent, truthPercent, contract)}
+        ${isMiddle ? renderMiddleTimeline(round, state.screen === "revealed", selectedOption, contract) : renderValueTimeline(round, state.screen === "revealed", guess, guessPercent, truthPercent, contract, hasGuess)}
         ${isMiddle ? renderMiddleOptions(round, state.screen === "revealed", state.selectedOptionId) : ""}
         <div class="timeline-footer">
           <p class="scale-note">${state.screen === "revealed" ? (isMiddle ? `Closest answer: ${formatValue(round.target.value, round.mode)}` : `Answer: ${formatValue(round.target.value, round.mode)}`) : isMiddle ? "Years stay hidden until you lock in." : "The exact value can sit anywhere between the anchors."}</p>
-          ${state.screen === "revealed" ? `<button class="button button-primary" id="continue-button" type="button">${state.roundIndex === puzzle.rounds.length - 1 ? "See your summary" : "Continue to next line"}</button>` : `<button class="button button-primary" id="lock-button" type="button" ${isMiddle && !selectedOption ? "disabled" : ""}>Lock in guess</button>`}
+          ${state.screen === "revealed" ? `<button class="button button-primary" id="continue-button" type="button">${state.roundIndex === puzzle.rounds.length - 1 ? "See your summary" : "Continue to next line"}</button>` : `<button class="button button-primary" id="lock-button" type="button" ${(!isMiddle && !hasGuess) || (isMiddle && !selectedOption) ? "disabled" : ""}>Lock in guess</button>`}
         </div>
         ${state.screen === "revealed" ? renderRevealNote(round, state.results[state.results.length - 1]) : ""}
       </div>
@@ -205,11 +258,14 @@ function renderGame() {
 
   if (state.screen !== "revealed") {
     if (isMiddle) {
-      document.querySelectorAll(".middle-option").forEach((option) => {
+        document.querySelectorAll(".middle-option").forEach((option) => {
         option.addEventListener("click", () => {
           state.selectedOptionId = option.dataset.optionId;
           state.guess = null;
           renderGame();
+          requestAnimationFrame(() => {
+            [...document.querySelectorAll(".middle-option")].find((candidate) => candidate.dataset.optionId === state.selectedOptionId)?.focus({ preventScroll: true });
+          });
         });
       });
     } else {
@@ -222,7 +278,7 @@ function renderGame() {
         state.guess = Number(event.target.value);
         updateGuessReadout(round);
       });
-      requestAnimationFrame(() => input.focus({ preventScroll: true }));
+      requestAnimationFrame(() => input?.focus({ preventScroll: true }));
     }
     document.querySelector("#lock-button").addEventListener("click", lockGuess);
   } else {
@@ -230,9 +286,9 @@ function renderGame() {
   }
 }
 
-function renderValueTimeline(round, revealed, guess, guessPercent, truthPercent, contract) {
+function renderValueTimeline(round, revealed, guess, guessPercent, truthPercent, contract, hasGuess) {
   return `
-    <div class="timeline ${revealed ? "is-revealed" : ""}" style="--guess:${guessPercent}%;--truth:${truthPercent}%;--contract-start:${contract.start}%;--contract-width:${contract.width}%">
+    <div class="timeline ${revealed ? "is-revealed" : ""} ${hasGuess ? "" : "is-unplaced"}" style="--guess:${guessPercent}%;--truth:${truthPercent}%;--contract-start:${contract.start}%;--contract-width:${contract.width}%">
       <div class="timeline-ticks" aria-hidden="true">
         <span>${formatValue(round.range.min, round.mode)}</span>
         <span>${formatValue(midpoint(round.range.min, round.range.max), round.mode)}</span>
@@ -240,11 +296,11 @@ function renderValueTimeline(round, revealed, guess, guessPercent, truthPercent,
       </div>
       <div class="timeline-axis" aria-hidden="true"></div>
       <div class="range-window" aria-hidden="true"></div>
-      <div class="marker guess-marker" style="left:${guessPercent}%" aria-hidden="true"></div>
+      <div class="marker guess-marker ${hasGuess ? "" : "is-hidden"}" style="left:${guessPercent}%" aria-hidden="true"></div>
       <div class="marker truth-marker" style="left:${truthPercent}%" aria-hidden="true"></div>
-      <span class="marker-label guess-label" style="--guess:${guessPercent}%">${revealed ? "Your guess" : "Your marker"}</span>
+      <span class="marker-label guess-label ${hasGuess ? "" : "is-hidden"}" style="--guess:${guessPercent}%">${revealed ? "Your guess" : "Your marker"}</span>
       <span class="marker-label truth-label" style="--truth:${truthPercent}%">Answer</span>
-      <input class="timeline-input" id="timeline-input" type="range" min="${round.range.min}" max="${round.range.max}" step="0.1" value="${guess}" aria-label="Place your guess on the timeline" ${revealed ? "disabled" : ""} />
+      <input class="timeline-input" id="timeline-input" type="range" min="${round.range.min}" max="${round.range.max}" step="0.1" value="${guess}" aria-label="Place your guess on the timeline" aria-valuetext="${hasGuess ? formatValue(guess, round.mode) : "No guess placed"}" ${revealed ? "disabled" : ""} />
     </div>`;
 }
 
@@ -292,15 +348,16 @@ function renderIntro() {
   const puzzle = state.puzzle;
   const record = progress.completed?.[puzzle.date];
   const inProgress = progress.inProgress?.[puzzle.date];
-  const isFallback = puzzle.date !== getTodayKey();
+  const isDaily = puzzle.date === getTodayKey();
+  const lineDescription = isDaily ? "today's line" : "this frozen line";
   const lede = puzzle.mode === "middle"
     ? "A calm, five-round challenge about actors, films and choosing the credit closest to the middle."
     : "A calm, five-round guessing game about actors, films and the space between two known points.";
   app.innerHTML = `
     <section class="intro-layout" aria-labelledby="intro-heading">
       <div class="intro-copy">
-        <p class="eyebrow">${isFallback ? "Latest frozen line" : "Today's puzzle"}</p>
-        <h1 id="intro-heading">Find your place in time.</h1>
+        <p class="eyebrow">${isDaily ? "Today's puzzle" : "Frozen archive line"}</p>
+        <h1 id="intro-heading" tabindex="-1">Find your place in time.</h1>
         <p class="lede">${lede}</p>
         <div class="intro-meta" aria-label="Puzzle details">
           <span>${formatDate(puzzle.date, { weekday: "long", day: "numeric", month: "long" })}</span>
@@ -308,7 +365,7 @@ function renderIntro() {
           <span>${puzzle.rounds.length} rounds</span>
         </div>
         <div class="button-row">
-          <button class="button button-primary" id="start-button" type="button">${record ? "View completed line" : inProgress ? "Resume today's line" : "Start today's line"}</button>
+          <button class="button button-primary" id="start-button" type="button">${record ? "View completed line" : inProgress ? `Resume ${lineDescription}` : `Start ${lineDescription}`}</button>
           <a class="button button-quiet" href="#archive">Browse archive</a>
         </div>
       </div>
@@ -371,8 +428,6 @@ function renderMystery(target, mode, revealed) {
 function renderRevealNote(round, result) {
   if (!result) return "";
   const glyph = result.direction === "bullseye" ? "◎" : result.direction === "left" ? "◀" : "▶";
-  const roundScore = Number(result.normalized || 0) * 100;
-  const roundAccuracy = calculateAccuracy(roundScore);
   const relative = round.mode === "middle"
     ? result.direction === "bullseye" ? "inside the bullseye" : result.direction === "left" ? "to the left of the middle" : "to the right of the middle"
     : result.direction === "bullseye" ? "inside the bullseye" : result.direction === "left" ? "to the left of the answer" : "to the right of the answer";
@@ -385,7 +440,8 @@ function renderRevealNote(round, result) {
       <span class="result-glyph" aria-hidden="true">${glyph}</span>
       <div>
         <p>Your ${round.mode === "middle" ? "choice" : "marker"} landed <strong>${formatDistance(result.distance, round.mode)}</strong> ${relative}.</p>
-        <p class="answer-detail">${answerDetail} · Deviation ${formatScore(roundScore)} · ${formatAccuracy(roundAccuracy)} placement accuracy · Next range: ${nextRange}</p>
+        <p class="answer-detail">${answerDetail}</p>
+        <p class="range-detail">${round.nextRange ? `Next range: ${nextRange}` : "Final round complete."}</p>
       </div>
     </div>`;
 }
@@ -394,12 +450,20 @@ function updateGuessReadout(round) {
   const readout = document.querySelector("#guess-readout");
   const marker = document.querySelector(".guess-marker");
   const label = document.querySelector(".guess-label");
+  const timeline = document.querySelector(".timeline");
+  const input = document.querySelector("#timeline-input");
   if (!readout || !marker || !label) return;
   const value = state.guess ?? midpoint(round.range.min, round.range.max);
   const percent = toPercent(value, round.range.min, round.range.max);
   readout.textContent = formatValue(value, round.mode);
   marker.style.left = `${percent}%`;
   label.style.setProperty("--guess", `${percent}%`);
+  timeline?.classList.remove("is-unplaced");
+  marker.classList.remove("is-hidden");
+  label.classList.remove("is-hidden");
+  input?.setAttribute("aria-valuetext", formatValue(value, round.mode));
+  const lockButton = document.querySelector("#lock-button");
+  if (lockButton) lockButton.disabled = false;
 }
 
 function lockGuess() {
@@ -461,9 +525,18 @@ function continueAfterReveal() {
   state.guess = null;
   state.selectedOptionId = null;
   state.screen = "playing";
+  state.roundTransition = true;
   saveInProgress();
   renderGame();
   window.scrollTo({ top: 0, behavior: "smooth" });
+  requestAnimationFrame(() => {
+    const shell = document.querySelector(".game-shell");
+    shell?.classList.add("is-round-entered");
+    focusHeading("game-heading");
+    window.setTimeout(() => {
+      state.roundTransition = false;
+    }, 900);
+  });
 }
 
 function completePuzzle() {
@@ -480,6 +553,7 @@ function completePuzzle() {
   if (progress.inProgress) delete progress.inProgress[state.puzzle.date];
   writeProgress();
   state.screen = "complete";
+  state.roundTransition = false;
   renderSummary();
   window.scrollTo({ top: 0, behavior: "smooth" });
 }
@@ -502,7 +576,7 @@ function renderSummary() {
       <div class="summary-hero">
         <div>
           <p class="eyebrow">${heading} · Deviate score</p>
-          <h1 id="summary-heading">${formatScore(score)}</h1>
+          <h1 id="summary-heading" tabindex="-1">${formatScore(score)}</h1>
         </div>
         <div class="summary-score">
           <p class="eyebrow">Placement accuracy</p>
@@ -515,6 +589,7 @@ function renderSummary() {
           <p>Your spoiler-free result</p>
           <p class="share-metrics"><strong>Deviate ${formatScore(score)}</strong><span>${formatAccuracy(accuracy)} accuracy</span></p>
           <p class="share-glyphs" aria-label="Round results">${shareGlyphs || "No placements"}</p>
+          <p class="share-legend" aria-label="Result key"><span aria-hidden="true">◀</span> left · <span aria-hidden="true">◎</span> bullseye · <span aria-hidden="true">▶</span> right</p>
         </div>
         <button class="button" id="summary-share" type="button">Share result</button>
       </div>
@@ -530,6 +605,7 @@ function renderSummary() {
       </div>
     </section>`;
   document.querySelector("#summary-share").addEventListener("click", () => shareCurrentResult());
+  focusHeading("summary-heading");
 }
 
 function renderResultRow(result, round) {
@@ -572,7 +648,7 @@ function renderArchive() {
           const current = puzzle.date === today;
           return `<button class="archive-item" data-date="${puzzle.date}" type="button">
             <span class="archive-date">${current ? "Today" : formatDate(puzzle.date, { day: "numeric", month: "short" })}</span>
-            <span class="archive-status">${record ? `D ${formatScore(getRecordScore(record))}` : "unplayed"}</span>
+            <span class="archive-status">${record ? `Deviate ${formatScore(getRecordScore(record))}` : "unplayed"}</span>
             <span class="archive-info"><strong>${getModeLabel(puzzle.mode)}</strong><span>${puzzle.rounds.length} rounds · ${record ? "completed" : "ready"}</span></span>
           </button>`;
         }).join("")}
@@ -606,6 +682,7 @@ function renderStats() {
       </div>
       <div class="section-heading"><h2>Deviate score distribution</h2><span class="muted-copy">${records.length} ${records.length === 1 ? "line" : "lines"}</span></div>
       ${records.length ? `<div class="distribution">${stats.distribution.map((bucket) => `<div class="distribution-row"><span>${bucket.label}</span><div class="distribution-bar"><span style="--bar-width:${bucket.width}%"></span></div><strong>${bucket.count}</strong></div>`).join("")}</div>` : `<div class="empty-card"><p>Your distribution will take shape after your first completed line.</p></div>`}
+      ${stats.modeBreakdown.length ? `<div class="section-heading"><h2>By mode</h2><span class="muted-copy">Average score</span></div><div class="mode-stats">${stats.modeBreakdown.map((mode) => `<div class="mode-stat"><p class="eyebrow">${getModeLabel(mode.mode)}</p><strong>${formatScore(mode.average)}</strong><span>${mode.count} ${mode.count === 1 ? "line" : "lines"} · ${formatAccuracy(mode.averageAccuracy)}</span></div>`).join("")}</div>` : ""}
       <div class="data-actions">
         <button class="button" id="export-button" type="button">Export backup</button>
         <button class="button" id="import-button" type="button">Import backup</button>
@@ -635,7 +712,13 @@ function getStats(records) {
   const maxBucket = Math.max(1, ...distribution.map((bucket) => bucket.count));
   distribution.forEach((bucket) => bucket.width = (bucket.count / maxBucket) * 100);
   const dates = records.map((record) => record.date);
-  return { average, averageAccuracy, distribution, currentStreak: calculateStreak(dates, true), bestStreak: calculateStreak(dates, false) };
+  const modeBreakdown = ["middle", "year", "age"].map((mode) => {
+    const modeScores = records.filter((record) => record.mode === mode).map((record) => Number(record.score)).filter(Number.isFinite);
+    if (!modeScores.length) return null;
+    const modeAverage = modeScores.reduce((sum, score) => sum + score, 0) / modeScores.length;
+    return { mode, count: modeScores.length, average: modeAverage, averageAccuracy: calculateAccuracy(modeAverage) };
+  }).filter(Boolean);
+  return { average, averageAccuracy, distribution, modeBreakdown, currentStreak: calculateStreak(dates, true), bestStreak: calculateStreak(dates, false) };
 }
 
 function calculateStreak(dates, currentOnly) {
