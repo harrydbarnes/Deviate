@@ -137,6 +137,13 @@ a { color: inherit; }
   stroke-width: 1.5;
 }
 
+#share-button svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+  stroke: none;
+}
+
 #app {
   width: min(100% - 36px, 1180px);
   min-height: calc(100vh - 72px);
