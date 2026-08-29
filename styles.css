@@ -103,7 +103,7 @@ a { color: inherit; }
 
 .wordmark-dot { color: var(--text-soft); }
 
-.today-link {
+.gamegrid-link {
   display: inline-flex;
   align-items: center;
   min-height: 42px;
@@ -121,12 +121,12 @@ a { color: inherit; }
   transition: background .25s var(--ease), color .25s var(--ease), transform .25s var(--ease);
 }
 
-.today-link:hover, .today-link:focus-visible {
+.gamegrid-link:hover, .gamegrid-link:focus-visible {
   background: var(--surface-strong);
   color: var(--text);
 }
 
-.today-link:active { transform: scale(.96); }
+.gamegrid-link:active { transform: scale(.96); }
 
 .top-actions { display: flex; align-items: center; gap: 5px; }
 
@@ -617,7 +617,7 @@ h1[tabindex="-1"]:focus { outline: none; }
   .topbar {
     display: grid;
     grid-template-columns: minmax(0, 1fr) auto;
-    grid-template-areas: "brand actions" "today today";
+    grid-template-areas: "brand actions" "gamegrid gamegrid";
     row-gap: 2px;
     min-height: auto;
     padding-top: 8px;
@@ -625,7 +625,7 @@ h1[tabindex="-1"]:focus { outline: none; }
   }
   .wordmark { grid-area: brand; }
   .top-actions { grid-area: actions; }
-  .today-link { grid-area: today; justify-self: start; min-height: 36px; padding: 8px 10px; }
+  .gamegrid-link { grid-area: gamegrid; justify-self: start; min-height: 36px; padding: 8px 10px; }
   #app { min-height: calc(100vh - 97px); padding-top: 10px; }
   .top-actions { gap: 0; }
   .icon-button { width: 44px; height: 44px; }
