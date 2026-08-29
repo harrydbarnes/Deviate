@@ -138,8 +138,8 @@ a { color: inherit; }
 }
 
 #share-button svg {
-  width: 20px;
-  height: 20px;
+  width: 23px;
+  height: 23px;
   fill: currentColor;
   stroke: none;
 }
@@ -593,6 +593,7 @@ h1[tabindex="-1"]:focus { outline: none; }
   #app { min-height: calc(100vh - 64px); padding-top: 10px; }
   .top-actions { gap: 0; }
   .icon-button { width: 44px; height: 44px; }
+  #share-button svg { width: 20px; height: 20px; }
   .intro-copy { padding-top: 48px; }
   .intro-copy h1 { font-size: clamp(3.1rem, 17vw, 5rem); }
   .intro-copy .lede { margin-top: 22px; }
