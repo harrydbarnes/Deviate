@@ -226,10 +226,11 @@ function restorePuzzleState(puzzle) {
     state.roundIndex = Math.min(inProgress.roundIndex || 0, puzzle.rounds.length - 1);
     state.results = Array.isArray(inProgress.results) ? inProgress.results : [];
     state.screen = inProgress.screen === "revealed" || state.results.length > state.roundIndex ? "revealed" : "playing";
-    state.guess = Number.isFinite(Number(inProgress.guess))
-      ? Number(inProgress.guess)
-      : state.screen === "revealed" ? Number(state.results.at(-1)?.guess) : null;
-    if (!Number.isFinite(state.guess)) state.guess = null;
+    const savedGuess = Number(inProgress.guess);
+    const lastGuess = Number(state.results.at(-1)?.guess);
+    state.guess = inProgress.guess !== null && inProgress.guess !== undefined && Number.isFinite(savedGuess)
+      ? savedGuess
+      : state.screen === "revealed" && Number.isFinite(lastGuess) ? lastGuess : null;
     state.selectedOptionId = inProgress.selectedOptionId || null;
     state.hardAnswer = inProgress.hardAnswer || "";
     if (state.difficulty === "hard" && !state.selectedOptionId) {
