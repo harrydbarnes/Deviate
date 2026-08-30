@@ -609,7 +609,10 @@ function renderSummary() {
           <p class="share-glyphs" aria-label="Round results">${shareGlyphs || "No placements"}</p>
           <p class="share-legend" aria-label="Result key"><span aria-hidden="true">◀</span> left · <span aria-hidden="true">◎</span> bullseye · <span aria-hidden="true">▶</span> right</p>
         </div>
-        <button class="button" id="summary-share" type="button">Share result</button>
+        <div class="share-actions">
+          <button class="button" id="summary-share" type="button">Share result</button>
+          <button class="button button-quiet" id="summary-share-answers" type="button">Share with answers</button>
+        </div>
       </div>
 
       <div class="section-heading"><h2>Round by round</h2><span class="muted-copy">${results.length} placements</span></div>
@@ -623,6 +626,7 @@ function renderSummary() {
       </div>
     </section>`;
   document.querySelector("#summary-share").addEventListener("click", () => shareCurrentResult());
+  document.querySelector("#summary-share-answers").addEventListener("click", () => shareCurrentResult(true));
   focusHeading("summary-heading");
 }
 
@@ -767,7 +771,7 @@ function dayDifference(from, to) {
   return Math.round((second - first) / 86400000);
 }
 
-async function shareCurrentResult() {
+async function shareCurrentResult(includeAnswers = false) {
   const puzzle = state.puzzle || getDailyPuzzle();
   const puzzleLabel = getPuzzleLabel(puzzle);
   const record = progress.completed?.[puzzle?.date];
@@ -784,18 +788,31 @@ async function shareCurrentResult() {
     `Deviate score ${formatScore(score)}`,
     `Placement accuracy ${formatAccuracy(accuracy)}`,
     glyphs,
+    ...(includeAnswers ? ["", "Answers", ...record.results.map((result, index) => formatSharedAnswer(result, puzzle.rounds[index], index))] : []),
     window.location.href.split("#")[0],
   ].join("\n");
   if (navigator.share) {
     try {
-      await navigator.share({ title: `${puzzleLabel} result`, text: shareText });
+      await navigator.share({ title: `${puzzleLabel} ${includeAnswers ? "answers" : "result"}`, text: shareText });
       return;
     } catch (error) {
       if (error?.name === "AbortError") return;
     }
   }
   await copyText(shareText);
-  showToast("Result copied");
+  showToast(includeAnswers ? "Answers copied" : "Result copied");
+}
+
+function formatSharedAnswer(result, round, index) {
+  const answerValue = round.mode === "age"
+    ? `${formatValue(result.truth, round.mode)} at release`
+    : `${formatValue(result.truth, round.mode)} release year`;
+  const answer = `${round.target.name} · ${round.target.film} · answer: ${answerValue}`;
+  if (round.mode === "middle") {
+    const choice = result.optionName && result.optionFilm ? `${result.optionName} · ${result.optionFilm}` : "unknown choice";
+    return `${String(index + 1).padStart(2, "0")}. ${answer} · your choice: ${choice}`;
+  }
+  return `${String(index + 1).padStart(2, "0")}. ${answer} · guessed: ${formatValue(result.guess, round.mode)}`;
 }
 
 async function copyText(value) {

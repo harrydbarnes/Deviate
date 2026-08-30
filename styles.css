@@ -538,6 +538,7 @@ h1[tabindex="-1"]:focus { outline: none; }
 .summary-score p { margin: 0; color: var(--text-faint); font-size: .74rem; }
 .share-card { display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 18px 20px; border: 1px solid var(--line); border-radius: var(--radius-md); background: var(--surface); }
 .share-card p { margin: 0; color: var(--text-soft); font-size: .84rem; }
+.share-actions { display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end; gap: 10px; }
 .share-metrics { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px; margin-top: 5px !important; color: var(--text) !important; font-family: var(--font-mono); font-size: .76rem !important; }
 .share-metrics strong { font-weight: 600; }
 .share-metrics span { color: var(--text-soft); }
@@ -651,7 +652,8 @@ h1[tabindex="-1"]:focus { outline: none; }
   .summary-score .score-value { margin: 0; }
   .summary-score p { grid-column: 2; margin-top: 5px; }
   .share-card { display: block; }
-  .share-card .button { width: 100%; margin-top: 14px; }
+  .share-actions { margin-top: 14px; }
+  .share-actions .button { width: 100%; }
   .archive-grid { grid-template-columns: 1fr; }
   .stats-summary { gap: 7px; }
   .stat-card { min-height: 118px; padding: 13px; }
