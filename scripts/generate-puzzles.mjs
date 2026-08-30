@@ -9,9 +9,10 @@ const ROUND_COUNT = 5;
 const MIDDLE_OPTION_COUNT = 4;
 const MODES = ["year", "age", "middle"];
 const WEEKLY_MODE_SCHEDULE = ["middle", "middle", "year", "middle", "middle", "year", "age"];
-const GENERATOR_VERSION = "v5";
+const GENERATOR_VERSION = "v6";
 const RECENT_WINDOW_DAYS = 60;
 const MAX_TARGET_USES_IN_WINDOW = 2;
+const FIRST_ROUND_MIN_RECOGNISABLE_OPTIONS = 4;
 const FAMILIAR_TITLE_PATTERNS = [
   /avengers|iron man|captain america|thor|guardians of the galaxy|black panther/i,
   /fast & furious|the fast and the furious|fast five|fast x|furious|mission: impossible|top gun|matrix|terminator|star trek|star wars|pirates of the caribbean/i,
@@ -22,6 +23,26 @@ const FAMILIAR_TITLE_PATTERNS = [
   /hangover|mean girls|bridesmaids|superbad|notebook|love actually|bridget jones|notting hill|pretty woman|la la land|greatest showman|bohemian rhapsody|rocketman|mamma mia|devil wears prada|the help|little women|star is born/i,
   /mad max|rocky|rambo|die hard|lethal weapon|predator|alien|exorcist|shining|scream|quiet place|conjuring|saw|sixth sense|green mile|saving private ryan|catch me if you can|cast away|sleepless in seattle/i,
   /speed|men in black|charlie's angels|king kong|moulin rouge|les misérables|american hustle|closer|chicago|moneyball|silver linings playbook|eternal sunshine|argo|about a boy|as good as it gets|romeo \+ juliet/i,
+];
+const FRANCHISE_PATTERNS = [
+  ["star trek", /^star trek\b/i],
+  ["star wars", /^star wars\b/i],
+  ["marvel", /^(?:the )?(?:avengers|avenger|iron man|thor|captain america|guardians of the galaxy|black panther)\b/i],
+  ["fast and furious", /^(?:the )?fast (?:and|&) furious\b|^fast [0-9x]+\b|^furious [0-9]+\b/i],
+  ["mission impossible", /^mission:?\s+impossible\b/i],
+  ["james bond", /^(?:james bond|007|casino royale|skyfall|spectre|no time to die|goldeneye)\b/i],
+  ["harry potter", /^harry potter\b/i],
+  ["lord of the rings", /^(?:the )?(?:lord of the rings|hobbit)\b/i],
+  ["jurassic", /^jurassic\b/i],
+  ["batman", /^(?:the )?dark knight\b|^batman\b/i],
+  ["superman", /^superman\b/i],
+  ["spider man", /^spider[- ]man\b/i],
+  ["x men", /^x[- ]men\b/i],
+  ["terminator", /^terminator\b/i],
+  ["matrix", /^the matrix\b|^matrix\b/i],
+  ["pirates", /^pirates of the caribbean\b/i],
+  ["toy story", /^toy story\b/i],
+  ["shrek", /^shrek\b/i],
 ];
 
 const dateFlagIndex = process.argv.indexOf("--date");
@@ -161,7 +182,8 @@ function buildChain({ entries, random, searchState, puzzleDate, recentUsage, mod
   const midpoint = midpointOf(range);
   const remainingRounds = ROUND_COUNT - depth - 1;
   const minimumNextWidth = minimumWidthForRounds(remainingRounds);
-  const candidates = getChainCandidates({ entries, range, mode, usedPeople, minimumNextWidth, recentUsage });
+  const firstRound = depth === 0;
+  const candidates = getChainCandidates({ entries, range, mode, usedPeople, minimumNextWidth, recentUsage, firstRound });
 
   if (mode === "middle") {
     const middleChoices = chooseMiddleTargets({
@@ -173,6 +195,7 @@ function buildChain({ entries, random, searchState, puzzleDate, recentUsage, mod
       random,
       recentUsage,
       usedPeople,
+      firstRound,
     });
     for (const middleChoice of middleChoices) {
       const target = middleChoice.target;
@@ -251,7 +274,7 @@ function buildChain({ entries, random, searchState, puzzleDate, recentUsage, mod
   return null;
 }
 
-function getChainCandidates({ entries, range, mode, usedPeople, minimumNextWidth, recentUsage }) {
+function getChainCandidates({ entries, range, mode, usedPeople, minimumNextWidth, recentUsage, firstRound = false }) {
   const midpoint = midpointOf(range);
   const width = range.max - range.min;
   const margin = mode === "age"
@@ -260,6 +283,7 @@ function getChainCandidates({ entries, range, mode, usedPeople, minimumNextWidth
   const available = entries.filter((entry) => {
     if (usedPeople.has(entry.personId)) return false;
     if (entry.value <= range.min || entry.value >= range.max) return false;
+    if (firstRound && !isApproachableFirstRoundEntry(entry)) return false;
     const targetOnLeft = entry.value < midpoint;
     const nextWidth = targetOnLeft ? entry.value - range.min : range.max - entry.value;
     return entry.value > range.min + margin
@@ -272,18 +296,18 @@ function getChainCandidates({ entries, range, mode, usedPeople, minimumNextWidth
   return [];
 }
 
-function chooseMiddleTargets({ candidates, entries, range, midpoint, mode, random, recentUsage, usedPeople }) {
+function chooseMiddleTargets({ candidates, entries, range, midpoint, mode, random, recentUsage, usedPeople, firstRound = false }) {
   const ordered = shuffle(candidates, random).sort((left, right) => Math.abs(left.value - midpoint) - Math.abs(right.value - midpoint));
   const choices = [];
   for (const target of ordered) {
-    const options = buildMiddleOptions({ target, entries, range, midpoint, mode, random, recentUsage, usedPeople });
+    const options = buildMiddleOptions({ target, entries, range, midpoint, mode, random, recentUsage, usedPeople, firstRound });
     if (options) choices.push({ target, options });
     if (choices.length >= 80) break;
   }
   return choices;
 }
 
-function buildMiddleOptions({ target, entries, range, midpoint, mode, random, recentUsage, usedPeople }) {
+function buildMiddleOptions({ target, entries, range, midpoint, mode, random, recentUsage, usedPeople, firstRound = false }) {
   const width = range.max - range.min;
   const targetDistance = Math.abs(target.value - midpoint);
   const candidates = entries.filter((entry) => {
@@ -299,22 +323,55 @@ function buildMiddleOptions({ target, entries, range, midpoint, mode, random, re
   const farther = withGap.length >= MIDDLE_OPTION_COUNT - 1
     ? withGap
     : pool.filter((entry) => Math.abs(entry.value - midpoint) > targetDistance + 0.01);
-  if (farther.length < MIDDLE_OPTION_COUNT - 1) return null;
+  const firstRoundPool = firstRound ? farther.filter(isApproachableFirstRoundEntry) : farther;
+  if (firstRoundPool.length < MIDDLE_OPTION_COUNT - 1) return null;
 
-  const shuffled = shuffle(farther, random);
-  const left = shuffled.find((entry) => entry.value < midpoint);
-  const right = shuffled.find((entry) => entry.value > midpoint);
-  const selected = [];
-  if (left) selected.push(left);
-  if (right && !selected.some((entry) => entry.personId === right.personId)) selected.push(right);
-  for (const entry of shuffled) {
-    if (selected.length >= MIDDLE_OPTION_COUNT - 1) break;
-    if (!selected.some((chosen) => chosen.personId === entry.personId)) selected.push(entry);
+  for (let attempt = 0; attempt < (firstRound ? 80 : 1); attempt += 1) {
+    const shuffled = shuffle(firstRoundPool, random);
+    const selected = [];
+    const left = shuffled.find((entry) => entry.value < midpoint && canAddMiddleOption(entry, selected, target, firstRound));
+    const right = shuffled.find((entry) => entry.value > midpoint && canAddMiddleOption(entry, selected, target, firstRound));
+    if (left) selected.push(left);
+    if (right && canAddMiddleOption(right, selected, target, firstRound)) selected.push(right);
+    for (const entry of shuffled) {
+      if (selected.length >= MIDDLE_OPTION_COUNT - 1) break;
+      if (canAddMiddleOption(entry, selected, target, firstRound)) selected.push(entry);
+    }
+    if (selected.length < MIDDLE_OPTION_COUNT - 1) continue;
+    const options = shuffle([target, ...selected.slice(0, MIDDLE_OPTION_COUNT - 1)], random);
+    if (firstRound && !isFairFirstRoundOptionSet(options)) continue;
+    return options.map((entry) => ({ ...clueEntry(entry), optionId: entry.id }));
   }
-  if (selected.length < MIDDLE_OPTION_COUNT - 1) return null;
+  return null;
+}
 
-  return shuffle([target, ...selected.slice(0, MIDDLE_OPTION_COUNT - 1)], random)
-    .map((entry) => ({ ...clueEntry(entry), optionId: entry.id }));
+function canAddMiddleOption(entry, selected, target, firstRound) {
+  if (selected.some((chosen) => chosen.personId === entry.personId)) return false;
+  if (!firstRound) return true;
+  const chosen = [target, ...selected];
+  const title = normaliseTitle(entry.film);
+  if (chosen.some((option) => normaliseTitle(option.film) === title)) return false;
+  const franchise = getFranchiseKey(entry.film);
+  return !franchise || !chosen.some((option) => getFranchiseKey(option.film) === franchise);
+}
+
+function isApproachableFirstRoundEntry(entry) {
+  return entry.popularityTier === "A"
+    || ["popular", "known"].includes(entry.recognitionTier)
+    || titleLooksFamiliar(entry.film);
+}
+
+function isFairFirstRoundOptionSet(options) {
+  const recognisable = options.filter(isApproachableFirstRoundEntry).length;
+  if (recognisable < FIRST_ROUND_MIN_RECOGNISABLE_OPTIONS) return false;
+  const titles = options.map((option) => normaliseTitle(option.film));
+  if (new Set(titles).size !== titles.length) return false;
+  const franchises = options.map((option) => getFranchiseKey(option.film)).filter(Boolean);
+  return new Set(franchises).size === franchises.length;
+}
+
+function getFranchiseKey(title) {
+  return FRANCHISE_PATTERNS.find(([, pattern]) => pattern.test(title || ""))?.[0] || null;
 }
 
 function minimumWidthForRounds(rounds) {

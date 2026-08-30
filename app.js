@@ -16,6 +16,8 @@ const state = {
   roundIndex: 0,
   guess: null,
   selectedOptionId: null,
+  difficulty: "normal",
+  hardAnswer: "",
   results: [],
   toastTimer: null,
   roundTransition: false,
@@ -105,6 +107,8 @@ function goHome() {
   state.roundIndex = 0;
   state.guess = null;
   state.selectedOptionId = null;
+  state.difficulty = "normal";
+  state.hardAnswer = "";
   state.results = [];
   state.roundTransition = false;
   if (window.location.hash !== "#daily") {
@@ -155,6 +159,45 @@ function getPuzzleLabel(puzzle) {
   return number ? `Deviate #${number}` : "Deviate";
 }
 
+function normaliseDifficulty(difficulty, puzzle) {
+  return puzzle?.mode === "middle" && difficulty === "hard" ? "hard" : "normal";
+}
+
+function getDifficultyLabel(difficulty) {
+  return difficulty === "hard" ? "Hard mode" : "Normal mode";
+}
+
+function getCompletionBucket(difficulty = state.difficulty) {
+  return difficulty === "hard" ? "hardCompleted" : "completed";
+}
+
+function getInProgressBucket(difficulty = state.difficulty) {
+  return difficulty === "hard" ? "hardInProgress" : "inProgress";
+}
+
+function getCompletionRecord(puzzle, difficulty = state.difficulty) {
+  if (!puzzle) return null;
+  const bucket = getCompletionBucket(normaliseDifficulty(difficulty, puzzle));
+  return progress[bucket]?.[puzzle.date] || null;
+}
+
+function getInProgressRecord(puzzle, difficulty = state.difficulty) {
+  if (!puzzle) return null;
+  const bucket = getInProgressBucket(normaliseDifficulty(difficulty, puzzle));
+  return progress[bucket]?.[puzzle.date] || null;
+}
+
+function getPrimaryCompletedRecords() {
+  const dates = new Set([
+    ...Object.keys(progress.completed || {}),
+    ...Object.keys(progress.hardCompleted || {}),
+  ]);
+  return [...dates]
+    .map((date) => progress.completed?.[date] || progress.hardCompleted?.[date])
+    .filter(Boolean)
+    .sort((left, right) => left.date.localeCompare(right.date));
+}
+
 function renderRoute() {
   if (state.route === "archive") return renderArchive();
   if (state.route === "stats") return renderStats();
@@ -165,8 +208,9 @@ function renderRoute() {
 
 function restorePuzzleState(puzzle) {
   if (!puzzle) return;
-  const completed = progress.completed?.[puzzle.date];
-  const inProgress = progress.inProgress?.[puzzle.date];
+  state.difficulty = normaliseDifficulty(state.difficulty, puzzle);
+  const completed = getCompletionRecord(puzzle);
+  const inProgress = getInProgressRecord(puzzle);
 
   if (completed) {
     state.screen = "complete";
@@ -174,6 +218,7 @@ function restorePuzzleState(puzzle) {
     state.results = completed.results || [];
     state.guess = null;
     state.selectedOptionId = null;
+    state.hardAnswer = "";
     return;
   }
 
@@ -181,8 +226,15 @@ function restorePuzzleState(puzzle) {
     state.roundIndex = Math.min(inProgress.roundIndex || 0, puzzle.rounds.length - 1);
     state.results = Array.isArray(inProgress.results) ? inProgress.results : [];
     state.screen = inProgress.screen === "revealed" || state.results.length > state.roundIndex ? "revealed" : "playing";
-    state.guess = null;
+    state.guess = Number.isFinite(Number(inProgress.guess))
+      ? Number(inProgress.guess)
+      : state.screen === "revealed" ? Number(state.results.at(-1)?.guess) : null;
+    if (!Number.isFinite(state.guess)) state.guess = null;
     state.selectedOptionId = inProgress.selectedOptionId || null;
+    state.hardAnswer = inProgress.hardAnswer || "";
+    if (state.difficulty === "hard" && !state.selectedOptionId) {
+      state.selectedOptionId = findHardOption(puzzle.rounds[state.roundIndex], state.hardAnswer)?.optionId || null;
+    }
     return;
   }
 
@@ -191,19 +243,28 @@ function restorePuzzleState(puzzle) {
   state.results = [];
   state.guess = null;
   state.selectedOptionId = null;
+  state.hardAnswer = "";
 }
 
-function startPuzzle(puzzle) {
+function startPuzzle(puzzle, difficulty = state.difficulty) {
   state.puzzle = puzzle;
+  state.difficulty = normaliseDifficulty(difficulty, puzzle);
   restorePuzzleState(puzzle);
   if (state.screen === "complete") {
     renderSummary();
     return;
   }
+  if (state.screen === "revealed") {
+    renderGame();
+    focusHeading("game-heading");
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    return;
+  }
   state.screen = "playing";
-  state.roundIndex = state.results.length;
+  state.roundIndex = Math.min(state.results.length, puzzle.rounds.length - 1);
   state.guess = null;
   state.selectedOptionId = null;
+  state.hardAnswer = "";
   state.roundTransition = false;
   saveInProgress();
   renderGame();
@@ -220,6 +281,7 @@ function renderGame() {
   const round = puzzle.rounds[state.roundIndex];
   const puzzleLabel = getPuzzleLabel(puzzle);
   const isMiddle = round.mode === "middle";
+  const hardMode = isMiddle && state.difficulty === "hard";
   const selectedOption = isMiddle ? getSelectedOption(round) : null;
   const hasGuess = isMiddle ? Boolean(selectedOption) : state.guess !== null;
   const progressPercent = ((state.roundIndex + (state.screen === "revealed" ? 1 : 0)) / puzzle.rounds.length) * 100;
@@ -230,8 +292,12 @@ function renderGame() {
   const prompt = isMiddle ? "Which answer is closest to the middle?" : `Where does this ${round.mode === "year" ? "release year" : "age at release"} belong?`;
   const timelineInstruction = state.screen === "revealed"
     ? (round.nextRange ? "The warm line shows the narrower range for the next round." : "The final answer is now locked in.")
-    : isMiddle ? "Pick the film credit you think sits closest to the midpoint." : "Drag the marker, or tap anywhere on the line.";
-  const readout = isMiddle ? (selectedOption ? `Choice ${optionIndex(round, selectedOption)}` : "Choose one") : hasGuess ? formatValue(guess, round.mode) : "Place a marker";
+    : isMiddle ? hardMode ? "Type an actor or film from the cards." : "Pick the film credit you think sits closest to the midpoint." : "Drag the marker, or tap anywhere on the line.";
+  const readout = isMiddle
+    ? hardMode
+      ? selectedOption ? state.screen === "revealed" ? "Answer revealed" : "Answer entered" : "Type an answer"
+      : selectedOption ? `Choice ${optionIndex(round, selectedOption)}` : "Choose one"
+    : hasGuess ? formatValue(guess, round.mode) : "Place a marker";
   const lineLabel = puzzle.date === getTodayKey() ? "Daily line" : "Archive line";
 
   app.innerHTML = `
@@ -247,7 +313,7 @@ function renderGame() {
           <p class="eyebrow">${isMiddle ? "Choose the middle" : "Place the hidden value"}</p>
           <h1 id="game-heading" tabindex="-1">${prompt}</h1>
         </div>
-        <span class="mode-pill">${getModeLabel(round.mode)}</span>
+        <span class="mode-pill">${getModeLabel(round.mode)}${hardMode ? " · Hard" : ""}</span>
       </div>
 
       <div class="anchor-grid">
@@ -261,9 +327,10 @@ function renderGame() {
           <span class="guess-readout" id="guess-readout" aria-live="polite">${readout}</span>
         </div>
         ${isMiddle ? renderMiddleTimeline(round, state.screen === "revealed", selectedOption, contract) : renderValueTimeline(round, state.screen === "revealed", guess, guessPercent, truthPercent, contract, hasGuess)}
-        ${isMiddle ? renderMiddleOptions(round, state.screen === "revealed", state.selectedOptionId) : ""}
+        ${isMiddle ? renderMiddleOptions(round, state.screen === "revealed", state.selectedOptionId, hardMode) : ""}
+        ${hardMode ? renderHardAnswerInput(round, selectedOption, state.screen === "revealed") : ""}
         <div class="timeline-footer">
-          <p class="scale-note">${state.screen === "revealed" ? (isMiddle ? `Closest answer: ${formatValue(round.target.value, round.mode)}` : `Answer: ${formatValue(round.target.value, round.mode)}`) : isMiddle ? "Years stay hidden until you lock in." : "The exact value can sit anywhere between the anchors."}</p>
+          <p class="scale-note">${state.screen === "revealed" ? (isMiddle ? `Closest answer: ${formatValue(round.target.value, round.mode)}` : `Answer: ${formatValue(round.target.value, round.mode)}`) : isMiddle ? hardMode ? "Enter one of the listed actors or films." : "Years stay hidden until you lock in." : "The exact value can sit anywhere between the anchors."}</p>
           ${state.screen === "revealed" ? `<button class="button button-primary" id="continue-button" type="button">${state.roundIndex === puzzle.rounds.length - 1 ? "See your summary" : "Continue to next line"}</button>` : `<button class="button button-primary" id="lock-button" type="button" ${(!isMiddle && !hasGuess) || (isMiddle && !selectedOption) ? "disabled" : ""}>Lock in guess</button>`}
         </div>
         ${state.screen === "revealed" ? renderRevealNote(round, state.results[state.results.length - 1]) : ""}
@@ -272,16 +339,27 @@ function renderGame() {
 
   if (state.screen !== "revealed") {
     if (isMiddle) {
+      if (hardMode) {
+        const input = document.querySelector("#hard-answer");
+        input?.addEventListener("input", () => updateHardAnswer(round, input));
+        input?.addEventListener("keydown", (event) => {
+          if (event.key !== "Enter") return;
+          const lockButton = document.querySelector("#lock-button");
+          if (lockButton && !lockButton.disabled) lockButton.click();
+        });
+        requestAnimationFrame(() => input?.focus({ preventScroll: true }));
+      } else {
         document.querySelectorAll(".middle-option").forEach((option) => {
-        option.addEventListener("click", () => {
-          state.selectedOptionId = option.dataset.optionId;
-          state.guess = null;
-          renderGame();
-          requestAnimationFrame(() => {
-            [...document.querySelectorAll(".middle-option")].find((candidate) => candidate.dataset.optionId === state.selectedOptionId)?.focus({ preventScroll: true });
+          option.addEventListener("click", () => {
+            state.selectedOptionId = option.dataset.optionId;
+            state.guess = null;
+            renderGame();
+            requestAnimationFrame(() => {
+              [...document.querySelectorAll(".middle-option")].find((candidate) => candidate.dataset.optionId === state.selectedOptionId)?.focus({ preventScroll: true });
+            });
           });
         });
-      });
+      }
     } else {
       const input = document.querySelector("#timeline-input");
       input.addEventListener("input", (event) => {
@@ -301,8 +379,9 @@ function renderGame() {
 }
 
 function renderValueTimeline(round, revealed, guess, guessPercent, truthPercent, contract, hasGuess) {
+  const labelsClose = Math.abs(guessPercent - truthPercent) < 9;
   return `
-    <div class="timeline ${revealed ? "is-revealed" : ""} ${hasGuess ? "" : "is-unplaced"}" style="--guess:${guessPercent}%;--truth:${truthPercent}%;--contract-start:${contract.start}%;--contract-width:${contract.width}%">
+    <div class="timeline ${revealed ? "is-revealed" : ""} ${hasGuess ? "" : "is-unplaced"} ${labelsClose ? "labels-close" : ""}" style="--guess:${guessPercent}%;--truth:${truthPercent}%;--contract-start:${contract.start}%;--contract-width:${contract.width}%">
       <div class="timeline-ticks" aria-hidden="true">
         <span>${formatValue(round.range.min, round.mode)}</span>
         <span>${formatValue(midpoint(round.range.min, round.range.max), round.mode)}</span>
@@ -342,28 +421,46 @@ function renderMiddleTimeline(round, revealed, selectedOption, contract) {
     </div>`;
 }
 
-function renderMiddleOptions(round, revealed, selectedOptionId) {
+function renderMiddleOptions(round, revealed, selectedOptionId, hardMode = false) {
   return `
-    <div class="middle-options" aria-label="Middle mode answers">
+    <div class="middle-options${hardMode ? " hard-options" : ""}" aria-label="${hardMode ? "Possible middle mode answers" : "Middle mode answers"}">
       ${round.options.map((option, index) => {
         const isSelected = option.optionId === selectedOptionId;
         const isAnswer = option.optionId === round.target.optionId;
         const stateClass = revealed ? `${isSelected ? "is-selected" : ""} ${isAnswer ? "is-answer" : "is-distractor"}` : isSelected ? "is-selected" : "";
-        return `<button class="middle-option ${stateClass}" data-option-id="${escapeHtml(option.optionId)}" type="button" ${revealed ? "disabled" : ""}>
-          <span class="option-letter">${String.fromCharCode(65 + index)}</span>
+        const tag = hardMode ? "div" : "button";
+        const attributes = hardMode ? "" : ` data-option-id="${escapeHtml(option.optionId)}" type="button" ${revealed ? "disabled" : ""}`;
+        return `<${tag} class="middle-option ${hardMode ? "hard-option" : ""} ${stateClass}"${attributes}>
+          ${hardMode ? "" : `<span class="option-letter">${String.fromCharCode(65 + index)}</span>`}
           <span class="option-copy"><strong>${escapeHtml(option.name)}</strong><span><em>${escapeHtml(option.film)}</em>${option.role ? ` · as ${escapeHtml(option.role)}` : ""}</span></span>
           <span class="option-value">${revealed ? formatValue(option.value, "middle") : "?"}</span>
-        </button>`;
+        </${tag}>`;
       }).join("")}
+    </div>`;
+}
+
+function renderHardAnswerInput(round, selectedOption, revealed) {
+  const hasText = Boolean(state.hardAnswer.trim());
+  const isMatch = Boolean(selectedOption);
+  const hint = revealed
+    ? isMatch ? "Matched answer" : "No answer matched"
+    : isMatch ? "Ready to lock in" : hasText ? "Match a listed actor or film" : "Exact actor or film title";
+  return `
+    <div class="hard-answer-wrap">
+      <label class="hard-answer-label" for="hard-answer">Your answer</label>
+      <input class="hard-answer-input" id="hard-answer" type="text" value="${escapeHtml(state.hardAnswer)}" placeholder="Type an actor or film" autocomplete="off" autocapitalize="words" spellcheck="false" aria-describedby="hard-answer-hint" aria-invalid="${hasText && !isMatch ? "true" : "false"}" ${revealed ? "disabled" : ""} />
+      <span class="hard-answer-hint" id="hard-answer-hint">${hint}</span>
     </div>`;
 }
 
 function renderIntro() {
   const puzzle = state.puzzle;
   const puzzleLabel = getPuzzleLabel(puzzle);
-  const record = progress.completed?.[puzzle.date];
-  const inProgress = progress.inProgress?.[puzzle.date];
+  state.difficulty = normaliseDifficulty(state.difficulty, puzzle);
+  const record = getCompletionRecord(puzzle);
+  const inProgress = getInProgressRecord(puzzle);
   const isDaily = puzzle.date === getTodayKey();
+  const isMiddle = puzzle.mode === "middle";
   const lineDescription = isDaily ? "today's line" : "this frozen line";
   const lede = puzzle.mode === "middle"
     ? "A calm, five-round challenge about actors, films and choosing the credit closest to the middle."
@@ -380,8 +477,20 @@ function renderIntro() {
           <span>${getModeLabel(puzzle.mode)}</span>
           <span>${puzzle.rounds.length} rounds</span>
         </div>
+        ${isMiddle ? `
+          <div class="difficulty-picker" role="group" aria-label="Choose difficulty">
+            <p class="clue-label">Difficulty</p>
+            <div class="difficulty-options">
+              <button class="difficulty-option ${state.difficulty === "normal" ? "is-selected" : ""}" data-difficulty="normal" type="button" aria-pressed="${state.difficulty === "normal"}">
+                <strong>Normal</strong><span>Choose from four</span>
+              </button>
+              <button class="difficulty-option ${state.difficulty === "hard" ? "is-selected" : ""}" data-difficulty="hard" type="button" aria-pressed="${state.difficulty === "hard"}">
+                <strong>Hard</strong><span>Type an actor or film</span>
+              </button>
+            </div>
+          </div>` : ""}
         <div class="button-row">
-          <button class="button button-primary" id="start-button" type="button">${record ? "View completed line" : inProgress ? `Resume ${lineDescription}` : `Start ${lineDescription}`}</button>
+          <button class="button button-primary" id="start-button" type="button">${record ? state.difficulty === "hard" ? "View hard line" : "View completed line" : inProgress ? `Resume ${state.difficulty === "hard" ? "hard line" : lineDescription}` : `Start ${state.difficulty === "hard" ? "hard line" : lineDescription}`}</button>
           <a class="button button-quiet" href="#archive">Browse archive</a>
         </div>
       </div>
@@ -394,9 +503,23 @@ function renderIntro() {
         <div class="tip-card"><strong>One puzzle.</strong> Frozen forever once it goes live. Your record never leaves this browser.</div>
       </div>
     </section>`;
+  document.querySelectorAll("[data-difficulty]").forEach((button) => {
+    button.addEventListener("click", () => {
+      state.difficulty = normaliseDifficulty(button.dataset.difficulty, puzzle);
+      state.screen = "intro";
+      state.roundIndex = 0;
+      state.guess = null;
+      state.selectedOptionId = null;
+      state.hardAnswer = "";
+      state.results = [];
+      restorePuzzleState(puzzle);
+      renderIntro();
+      focusHeading("intro-heading");
+    });
+  });
   document.querySelector("#start-button").addEventListener("click", () => {
     if (record) return renderSummary();
-    startPuzzle(puzzle);
+    startPuzzle(puzzle, state.difficulty);
   });
 }
 
@@ -482,13 +605,27 @@ function updateGuessReadout(round) {
   if (lockButton) lockButton.disabled = false;
 }
 
+function updateHardAnswer(round, input) {
+  state.hardAnswer = input.value;
+  const selected = findHardOption(round, state.hardAnswer);
+  state.selectedOptionId = selected?.optionId || null;
+  state.guess = null;
+  const lockButton = document.querySelector("#lock-button");
+  if (lockButton) lockButton.disabled = !selected;
+  const readout = document.querySelector("#guess-readout");
+  if (readout) readout.textContent = selected ? "Answer entered" : "Type an answer";
+  const hint = document.querySelector("#hard-answer-hint");
+  if (hint) hint.textContent = selected ? "Ready to lock in" : input.value.trim() ? "Match a listed actor or film" : "Exact actor or film title";
+  input.setAttribute("aria-invalid", input.value.trim() && !selected ? "true" : "false");
+}
+
 function lockGuess() {
   const puzzle = state.puzzle;
   const round = puzzle.rounds[state.roundIndex];
   if (round.mode === "middle") {
     const selected = getSelectedOption(round);
     if (!selected) {
-      showToast("Choose an answer first");
+      showToast(state.difficulty === "hard" ? "Type one of the listed answers" : "Choose an answer first");
       return;
     }
     const middle = midpoint(round.range.min, round.range.max);
@@ -507,6 +644,7 @@ function lockGuess() {
       optionId: selected.optionId,
       optionName: selected.name,
       optionFilm: selected.film,
+      answerText: state.hardAnswer.trim(),
     }];
     state.screen = "revealed";
     saveInProgress();
@@ -540,6 +678,7 @@ function continueAfterReveal() {
   state.roundIndex += 1;
   state.guess = null;
   state.selectedOptionId = null;
+  state.hardAnswer = "";
   state.screen = "playing";
   state.roundTransition = true;
   saveInProgress();
@@ -557,17 +696,21 @@ function continueAfterReveal() {
 
 function completePuzzle() {
   const score = calculateScore(state.results);
-  progress.completed = progress.completed || {};
-  progress.completed[state.puzzle.date] = {
+  const difficulty = normaliseDifficulty(state.difficulty, state.puzzle);
+  const completionBucket = getCompletionBucket(difficulty);
+  const inProgressBucket = getInProgressBucket(difficulty);
+  progress[completionBucket] = progress[completionBucket] || {};
+  progress[completionBucket][state.puzzle.date] = {
     date: state.puzzle.date,
     mode: state.puzzle.mode,
+    difficulty,
     puzzleNumber: getPuzzleNumber(state.puzzle),
     score,
     accuracy: calculateAccuracy(score),
     results: state.results,
     completedAt: new Date().toISOString(),
   };
-  if (progress.inProgress) delete progress.inProgress[state.puzzle.date];
+  if (progress[inProgressBucket]) delete progress[inProgressBucket][state.puzzle.date];
   writeProgress();
   state.screen = "complete";
   state.roundTransition = false;
@@ -578,7 +721,7 @@ function completePuzzle() {
 function renderSummary() {
   const puzzle = state.puzzle || getDailyPuzzle();
   const puzzleLabel = getPuzzleLabel(puzzle);
-  const record = progress.completed?.[puzzle.date] || { score: calculateScore(state.results), results: state.results };
+  const record = getCompletionRecord(puzzle) || { score: calculateScore(state.results), results: state.results, difficulty: state.difficulty };
   const results = record.results || [];
   const score = getRecordScore(record, results);
   const accuracy = calculateAccuracy(score);
@@ -589,7 +732,7 @@ function renderSummary() {
     <section class="summary-shell" aria-labelledby="summary-heading">
       <div class="summary-topline">
         <span class="round-count"><strong>${puzzleLabel}</strong> · <strong>Line complete</strong> · ${formatDate(puzzle.date, { day: "numeric", month: "long", year: "numeric" })}</span>
-        <span class="round-count">${getModeLabel(puzzle.mode)}</span>
+        <span class="round-count">${getModeLabel(puzzle.mode)} · ${getDifficultyLabel(state.difficulty)}</span>
       </div>
       <div class="summary-hero">
         <div>
@@ -666,11 +809,11 @@ function renderArchive() {
       </div>
       <div class="archive-grid">
         ${puzzles.map((puzzle) => {
-          const record = progress.completed?.[puzzle.date];
+          const record = progress.completed?.[puzzle.date] || progress.hardCompleted?.[puzzle.date];
           const current = puzzle.date === today;
           return `<button class="archive-item" data-date="${puzzle.date}" type="button">
             <span class="archive-date">${current ? "Today" : formatDate(puzzle.date, { day: "numeric", month: "short" })}</span>
-            <span class="archive-status">${getPuzzleLabel(puzzle)} · ${record ? formatScore(getRecordScore(record)) : "unplayed"}</span>
+            <span class="archive-status">${getPuzzleLabel(puzzle)} · ${record ? `${formatScore(getRecordScore(record))}${record.difficulty === "hard" ? " · hard" : ""}` : "unplayed"}</span>
             <span class="archive-info"><strong>${getModeLabel(puzzle.mode)}</strong><span>${puzzle.rounds.length} rounds · ${record ? "completed" : "ready"}</span></span>
           </button>`;
         }).join("")}
@@ -681,6 +824,7 @@ function renderArchive() {
       const puzzle = getPuzzle(item.dataset.date);
       if (!puzzle) return;
       state.puzzle = puzzle;
+      state.difficulty = progress.completed?.[puzzle.date] ? "normal" : progress.hardCompleted?.[puzzle.date] ? "hard" : "normal";
       restorePuzzleState(puzzle);
       if (state.screen === "complete") return renderSummary();
       renderIntro();
@@ -689,7 +833,7 @@ function renderArchive() {
 }
 
 function renderStats() {
-  const records = Object.values(progress.completed || {}).sort((a, b) => a.date.localeCompare(b.date));
+  const records = getPrimaryCompletedRecords();
   const stats = getStats(records);
   app.innerHTML = `
     <section aria-labelledby="stats-heading">
@@ -774,7 +918,7 @@ function dayDifference(from, to) {
 async function shareCurrentResult(includeAnswers = false) {
   const puzzle = state.puzzle || getDailyPuzzle();
   const puzzleLabel = getPuzzleLabel(puzzle);
-  const record = progress.completed?.[puzzle?.date];
+  const record = getCompletionRecord(puzzle) || getCompletionRecord(puzzle, "normal") || progress.hardCompleted?.[puzzle?.date];
   if (!record) {
     const url = window.location.href.split("#")[0];
     await copyText(`${puzzleLabel} · a daily timeline game\n${url}`);
@@ -784,7 +928,7 @@ async function shareCurrentResult(includeAnswers = false) {
   const score = getRecordScore(record);
   const accuracy = calculateAccuracy(score);
   const shareText = [
-    `${puzzleLabel} · ${formatDate(puzzle.date, { day: "numeric", month: "short", year: "numeric" })} · ${getModeLabel(puzzle.mode)}`,
+    `${puzzleLabel} · ${formatDate(puzzle.date, { day: "numeric", month: "short", year: "numeric" })} · ${getModeLabel(puzzle.mode)}${record.difficulty === "hard" ? " · Hard mode" : ""}`,
     `Deviate score ${formatScore(score)}`,
     `Placement accuracy ${formatAccuracy(accuracy)}`,
     glyphs,
@@ -845,7 +989,7 @@ async function importProgress(event) {
   try {
     const imported = JSON.parse(await file.text());
     if (!isValidProgress(imported)) throw new Error("Invalid backup");
-    progress = imported;
+    progress = normaliseProgress(imported);
     writeProgress();
     showToast("Backup imported");
     renderStats();
@@ -857,15 +1001,25 @@ async function importProgress(event) {
 }
 
 function isValidProgress(value) {
-  return value && typeof value === "object" && typeof value.completed === "object" && typeof value.inProgress === "object";
+  return value
+    && typeof value === "object"
+    && value.completed && typeof value.completed === "object" && !Array.isArray(value.completed)
+    && value.inProgress && typeof value.inProgress === "object" && !Array.isArray(value.inProgress)
+    && (value.hardCompleted === undefined || (value.hardCompleted && typeof value.hardCompleted === "object" && !Array.isArray(value.hardCompleted)))
+    && (value.hardInProgress === undefined || (value.hardInProgress && typeof value.hardInProgress === "object" && !Array.isArray(value.hardInProgress)));
 }
 
 function saveInProgress() {
-  progress.inProgress = progress.inProgress || {};
-  progress.inProgress[state.puzzle.date] = {
+  const difficulty = normaliseDifficulty(state.difficulty, state.puzzle);
+  const bucket = getInProgressBucket(difficulty);
+  progress[bucket] = progress[bucket] || {};
+  progress[bucket][state.puzzle.date] = {
     roundIndex: state.roundIndex,
     results: state.results,
+    guess: state.guess,
     selectedOptionId: state.selectedOptionId,
+    hardAnswer: difficulty === "hard" ? state.hardAnswer : "",
+    difficulty,
     screen: state.screen,
     updatedAt: new Date().toISOString(),
   };
@@ -875,13 +1029,24 @@ function saveInProgress() {
 function readProgress() {
   try {
     const parsed = JSON.parse(localStorage.getItem(PROGRESS_KEY) || "{}");
-    return {
+    return normaliseProgress({
       completed: parsed.completed && typeof parsed.completed === "object" ? parsed.completed : {},
       inProgress: parsed.inProgress && typeof parsed.inProgress === "object" ? parsed.inProgress : {},
-    };
+      hardCompleted: parsed.hardCompleted && typeof parsed.hardCompleted === "object" ? parsed.hardCompleted : {},
+      hardInProgress: parsed.hardInProgress && typeof parsed.hardInProgress === "object" ? parsed.hardInProgress : {},
+    });
   } catch (error) {
-    return { completed: {}, inProgress: {} };
+    return normaliseProgress({ completed: {}, inProgress: {} });
   }
+}
+
+function normaliseProgress(value) {
+  return {
+    completed: value.completed && typeof value.completed === "object" && !Array.isArray(value.completed) ? value.completed : {},
+    inProgress: value.inProgress && typeof value.inProgress === "object" && !Array.isArray(value.inProgress) ? value.inProgress : {},
+    hardCompleted: value.hardCompleted && typeof value.hardCompleted === "object" && !Array.isArray(value.hardCompleted) ? value.hardCompleted : {},
+    hardInProgress: value.hardInProgress && typeof value.hardInProgress === "object" && !Array.isArray(value.hardInProgress) ? value.hardInProgress : {},
+  };
 }
 
 function writeProgress() {
@@ -908,6 +1073,23 @@ function getContractStyle(round) {
 
 function getSelectedOption(round) {
   return round.options?.find((option) => option.optionId === state.selectedOptionId) || null;
+}
+
+function normaliseAnswer(value) {
+  return String(value || "")
+    .normalize("NFKD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/&/g, " and ")
+    .replace(/[^a-z0-9]+/g, " ")
+    .trim()
+    .replace(/\s+/g, " ");
+}
+
+function findHardOption(round, answer) {
+  const normalised = normaliseAnswer(answer);
+  if (!normalised) return null;
+  return round?.options?.find((option) => [option.name, option.film].some((value) => normaliseAnswer(value) === normalised)) || null;
 }
 
 function optionIndex(round, option) {
