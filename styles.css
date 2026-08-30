@@ -629,7 +629,7 @@ h1[tabindex="-1"]:focus { outline: none; }
   #share-button { display: none; }
   .gamegrid-link { flex: 0 0 auto; min-height: 36px; margin-right: 4px; padding: 8px 0; }
   #app { min-height: calc(100vh - 64px); padding-top: 10px; }
-  .icon-button { width: 36px; height: 44px; }
+  .icon-button { width: 44px; height: 44px; }
   #share-button svg { width: 20px; height: 20px; }
   .intro-copy { padding-top: 48px; }
   .intro-copy h1 { font-size: clamp(3.1rem, 17vw, 5rem); }
@@ -671,7 +671,6 @@ h1[tabindex="-1"]:focus { outline: none; }
 
 @media (max-width: 340px) {
   .wordmark { font-size: 1rem; }
-  .icon-button { width: 32px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
