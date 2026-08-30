@@ -372,6 +372,507 @@
         }
       ],
       "id": 2
+    },
+    {
+      "id": 3,
+      "date": "2026-08-30",
+      "mode": "middle",
+      "generatorVersion": "v5",
+      "roundCount": 5,
+      "rounds": [
+        {
+          "number": 1,
+          "mode": "middle",
+          "range": {
+            "min": 1957,
+            "max": 2025
+          },
+          "anchor": {
+            "personId": "jan-sterling",
+            "name": "Jan Sterling",
+            "gender": "female",
+            "nationality": "American",
+            "popularityTier": "B",
+            "film": "Slaughter on 10th Avenue",
+            "year": 1957,
+            "role": "Madge Pitts",
+            "creditType": "lead",
+            "value": 1957,
+            "age": 36,
+            "valueLabel": "1957"
+          },
+          "anchorSide": "left",
+          "target": {
+            "personId": "kim-cattrall",
+            "name": "Kim Cattrall",
+            "gender": "female",
+            "nationality": "Canadian / American",
+            "popularityTier": "B",
+            "film": "Star Trek VI: The Undiscovered Country",
+            "role": "Lt. Valeris",
+            "creditType": "supporting",
+            "year": 1991,
+            "value": 1991,
+            "age": 35,
+            "optionId": "kim-cattrall:3"
+          },
+          "options": [
+            {
+              "personId": "william-shatner",
+              "name": "William Shatner",
+              "gender": "male",
+              "nationality": "Canadian / American",
+              "popularityTier": "B",
+              "film": "Star Trek III: The Search for Spock",
+              "role": "Kirk",
+              "creditType": "lead",
+              "year": 1984,
+              "value": 1984,
+              "age": 53,
+              "optionId": "william-shatner:3"
+            },
+            {
+              "personId": "chris-pratt",
+              "name": "Chris Pratt",
+              "gender": "male",
+              "nationality": "American",
+              "popularityTier": "A",
+              "film": "Jurassic World: Fallen Kingdom",
+              "role": "Owen Grady",
+              "creditType": "lead",
+              "year": 2018,
+              "value": 2018,
+              "age": 39,
+              "optionId": "chris-pratt:5"
+            },
+            {
+              "personId": "kim-cattrall",
+              "name": "Kim Cattrall",
+              "gender": "female",
+              "nationality": "Canadian / American",
+              "popularityTier": "B",
+              "film": "Star Trek VI: The Undiscovered Country",
+              "role": "Lt. Valeris",
+              "creditType": "supporting",
+              "year": 1991,
+              "value": 1991,
+              "age": 35,
+              "optionId": "kim-cattrall:3"
+            },
+            {
+              "personId": "ron-perlman",
+              "name": "Ron Perlman",
+              "gender": "male",
+              "nationality": "American",
+              "popularityTier": "B",
+              "film": "Hellboy",
+              "role": "Hellboy",
+              "creditType": "lead",
+              "year": 2004,
+              "value": 2004,
+              "age": 54,
+              "optionId": "ron-perlman:2"
+            }
+          ],
+          "nextRange": {
+            "min": 1991,
+            "max": 2025
+          }
+        },
+        {
+          "number": 2,
+          "mode": "middle",
+          "range": {
+            "min": 1991,
+            "max": 2025
+          },
+          "anchor": {
+            "personId": "kim-cattrall",
+            "name": "Kim Cattrall",
+            "gender": "female",
+            "nationality": "Canadian / American",
+            "popularityTier": "B",
+            "film": "Star Trek VI: The Undiscovered Country",
+            "year": 1991,
+            "role": "Lt. Valeris",
+            "creditType": "supporting",
+            "value": 1991,
+            "age": 35,
+            "valueLabel": "1991"
+          },
+          "anchorSide": "left",
+          "target": {
+            "personId": "anne-hathaway",
+            "name": "Anne Hathaway",
+            "gender": "female",
+            "nationality": "American",
+            "popularityTier": "A",
+            "film": "Get Smart",
+            "role": "Agent 99",
+            "creditType": "lead",
+            "year": 2008,
+            "value": 2008,
+            "age": 26,
+            "optionId": "anne-hathaway:1"
+          },
+          "options": [
+            {
+              "personId": "olivia-wilde",
+              "name": "Olivia Wilde",
+              "gender": "female",
+              "nationality": "Irish / American",
+              "popularityTier": "B",
+              "film": "Cowboys & Aliens",
+              "role": "Ella Swenson",
+              "creditType": "supporting",
+              "year": 2011,
+              "value": 2011,
+              "age": 27,
+              "optionId": "olivia-wilde:2"
+            },
+            {
+              "personId": "scarlett-johansson",
+              "name": "Scarlett Johansson",
+              "gender": "female",
+              "nationality": "American",
+              "popularityTier": "A",
+              "film": "Lost in Translation",
+              "role": "Charlotte",
+              "creditType": "lead",
+              "year": 2003,
+              "value": 2003,
+              "age": 19,
+              "optionId": "scarlett-johansson:1"
+            },
+            {
+              "personId": "anne-hathaway",
+              "name": "Anne Hathaway",
+              "gender": "female",
+              "nationality": "American",
+              "popularityTier": "A",
+              "film": "Get Smart",
+              "role": "Agent 99",
+              "creditType": "lead",
+              "year": 2008,
+              "value": 2008,
+              "age": 26,
+              "optionId": "anne-hathaway:1"
+            },
+            {
+              "personId": "helen-mirren",
+              "name": "Helen Mirren",
+              "gender": "female",
+              "nationality": "American / British",
+              "popularityTier": "A",
+              "film": "Hitchcock",
+              "role": "Alma Reville",
+              "creditType": "lead",
+              "year": 2012,
+              "value": 2012,
+              "age": 67,
+              "optionId": "helen-mirren:6"
+            }
+          ],
+          "nextRange": {
+            "min": 2008,
+            "max": 2025
+          }
+        },
+        {
+          "number": 3,
+          "mode": "middle",
+          "range": {
+            "min": 2008,
+            "max": 2025
+          },
+          "anchor": {
+            "personId": "anne-hathaway",
+            "name": "Anne Hathaway",
+            "gender": "female",
+            "nationality": "American",
+            "popularityTier": "A",
+            "film": "Get Smart",
+            "year": 2008,
+            "role": "Agent 99",
+            "creditType": "lead",
+            "value": 2008,
+            "age": 26,
+            "valueLabel": "2008"
+          },
+          "anchorSide": "left",
+          "target": {
+            "personId": "emma-stone",
+            "name": "Emma Stone",
+            "gender": "female",
+            "nationality": "American",
+            "popularityTier": "B",
+            "film": "La La Land",
+            "role": "Mia",
+            "creditType": "lead",
+            "year": 2016,
+            "value": 2016,
+            "age": 28,
+            "optionId": "emma-stone:5"
+          },
+          "options": [
+            {
+              "personId": "leonard-nimoy",
+              "name": "Leonard Nimoy",
+              "gender": "male",
+              "nationality": "American",
+              "popularityTier": "A",
+              "film": "Star Trek",
+              "role": "Spock Prime",
+              "creditType": "supporting",
+              "year": 2009,
+              "value": 2009,
+              "age": 78,
+              "optionId": "leonard-nimoy:7"
+            },
+            {
+              "personId": "mark-ruffalo",
+              "name": "Mark Ruffalo",
+              "gender": "male",
+              "nationality": "American",
+              "popularityTier": "A",
+              "film": "The Avengers",
+              "role": "Bruce Banner",
+              "creditType": "supporting",
+              "year": 2012,
+              "value": 2012,
+              "age": 45,
+              "optionId": "mark-ruffalo:4"
+            },
+            {
+              "personId": "jeremy-sumpter",
+              "name": "Jeremy Sumpter",
+              "gender": "male",
+              "nationality": "American",
+              "popularityTier": "B",
+              "film": "The Fall",
+              "role": "Travis Humphrey",
+              "creditType": "lead",
+              "year": 2024,
+              "value": 2024,
+              "age": 35,
+              "optionId": "jeremy-sumpter:7"
+            },
+            {
+              "personId": "emma-stone",
+              "name": "Emma Stone",
+              "gender": "female",
+              "nationality": "American",
+              "popularityTier": "B",
+              "film": "La La Land",
+              "role": "Mia",
+              "creditType": "lead",
+              "year": 2016,
+              "value": 2016,
+              "age": 28,
+              "optionId": "emma-stone:5"
+            }
+          ],
+          "nextRange": {
+            "min": 2008,
+            "max": 2016
+          }
+        },
+        {
+          "number": 4,
+          "mode": "middle",
+          "range": {
+            "min": 2008,
+            "max": 2016
+          },
+          "anchor": {
+            "personId": "emma-stone",
+            "name": "Emma Stone",
+            "gender": "female",
+            "nationality": "American",
+            "popularityTier": "B",
+            "film": "La La Land",
+            "year": 2016,
+            "role": "Mia",
+            "creditType": "lead",
+            "value": 2016,
+            "age": 28,
+            "valueLabel": "2016"
+          },
+          "anchorSide": "right",
+          "target": {
+            "personId": "amanda-seyfried",
+            "name": "Amanda Seyfried",
+            "gender": "female",
+            "nationality": "American",
+            "popularityTier": "B",
+            "film": "Les Misérables",
+            "role": "Cosette",
+            "creditType": "supporting",
+            "year": 2012,
+            "value": 2012,
+            "age": 27,
+            "optionId": "amanda-seyfried:4"
+          },
+          "options": [
+            {
+              "personId": "rene-russo",
+              "name": "Rene Russo",
+              "gender": "female",
+              "nationality": "American",
+              "popularityTier": "B",
+              "film": "Nightcrawler",
+              "role": "Nina Romina",
+              "creditType": "lead",
+              "year": 2014,
+              "value": 2014,
+              "age": 60,
+              "optionId": "rene-russo:7"
+            },
+            {
+              "personId": "sam-worthington",
+              "name": "Sam Worthington",
+              "gender": "male",
+              "nationality": "Australian",
+              "popularityTier": "B",
+              "film": "Avatar",
+              "role": "Jake Sully",
+              "creditType": "lead",
+              "year": 2009,
+              "value": 2009,
+              "age": 33,
+              "optionId": "sam-worthington:1"
+            },
+            {
+              "personId": "michelle-rodriguez",
+              "name": "Michelle Rodriguez",
+              "gender": "female",
+              "nationality": "American",
+              "popularityTier": "A",
+              "film": "Furious 7",
+              "role": "Letty",
+              "creditType": "supporting",
+              "year": 2015,
+              "value": 2015,
+              "age": 37,
+              "optionId": "michelle-rodriguez:6"
+            },
+            {
+              "personId": "amanda-seyfried",
+              "name": "Amanda Seyfried",
+              "gender": "female",
+              "nationality": "American",
+              "popularityTier": "B",
+              "film": "Les Misérables",
+              "role": "Cosette",
+              "creditType": "supporting",
+              "year": 2012,
+              "value": 2012,
+              "age": 27,
+              "optionId": "amanda-seyfried:4"
+            }
+          ],
+          "nextRange": {
+            "min": 2012,
+            "max": 2016
+          }
+        },
+        {
+          "number": 5,
+          "mode": "middle",
+          "range": {
+            "min": 2012,
+            "max": 2016
+          },
+          "anchor": {
+            "personId": "amanda-seyfried",
+            "name": "Amanda Seyfried",
+            "gender": "female",
+            "nationality": "American",
+            "popularityTier": "B",
+            "film": "Les Misérables",
+            "year": 2012,
+            "role": "Cosette",
+            "creditType": "supporting",
+            "value": 2012,
+            "age": 27,
+            "valueLabel": "2012"
+          },
+          "anchorSide": "left",
+          "target": {
+            "personId": "jonah-hill",
+            "name": "Jonah Hill",
+            "gender": "male",
+            "nationality": "American",
+            "popularityTier": "B",
+            "film": "22 Jump Street",
+            "role": "Schmidt",
+            "creditType": "lead",
+            "year": 2014,
+            "value": 2014,
+            "age": 31,
+            "optionId": "jonah-hill:6"
+          },
+          "options": [
+            {
+              "personId": "jonah-hill",
+              "name": "Jonah Hill",
+              "gender": "male",
+              "nationality": "American",
+              "popularityTier": "B",
+              "film": "22 Jump Street",
+              "role": "Schmidt",
+              "creditType": "lead",
+              "year": 2014,
+              "value": 2014,
+              "age": 31,
+              "optionId": "jonah-hill:6"
+            },
+            {
+              "personId": "gwyneth-paltrow",
+              "name": "Gwyneth Paltrow",
+              "gender": "female",
+              "nationality": "American",
+              "popularityTier": "B",
+              "film": "Iron Man 3",
+              "role": "Pepper Potts",
+              "creditType": "supporting",
+              "year": 2013,
+              "value": 2013,
+              "age": 41,
+              "optionId": "gwyneth-paltrow:7"
+            },
+            {
+              "personId": "kate-mara",
+              "name": "Kate Mara",
+              "gender": "female",
+              "nationality": "American",
+              "popularityTier": "B",
+              "film": "Fantastic Four",
+              "role": "Sue Storm",
+              "creditType": "lead",
+              "year": 2015,
+              "value": 2015,
+              "age": 32,
+              "optionId": "kate-mara:4"
+            },
+            {
+              "personId": "daniel-craig",
+              "name": "Daniel Craig",
+              "gender": "male",
+              "nationality": "American / British",
+              "popularityTier": "B",
+              "film": "Spectre",
+              "role": "James Bond",
+              "creditType": "lead",
+              "year": 2015,
+              "value": 2015,
+              "age": 47,
+              "optionId": "daniel-craig:6"
+            }
+          ],
+          "nextRange": null
+        }
+      ]
     }
   ]
 }
