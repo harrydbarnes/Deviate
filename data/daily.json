@@ -873,6 +873,507 @@
           "nextRange": null
         }
       ]
+    },
+    {
+      "id": 4,
+      "date": "2026-08-31",
+      "mode": "middle",
+      "generatorVersion": "v6",
+      "roundCount": 5,
+      "rounds": [
+        {
+          "number": 1,
+          "mode": "middle",
+          "range": {
+            "min": 1957,
+            "max": 2025
+          },
+          "anchor": {
+            "personId": "jan-sterling",
+            "name": "Jan Sterling",
+            "gender": "female",
+            "nationality": "American",
+            "popularityTier": "B",
+            "film": "Slaughter on 10th Avenue",
+            "year": 1957,
+            "role": "Madge Pitts",
+            "creditType": "lead",
+            "value": 1957,
+            "age": 36,
+            "valueLabel": "1957"
+          },
+          "anchorSide": "left",
+          "target": {
+            "personId": "edward-furlong",
+            "name": "Edward Furlong",
+            "gender": "male",
+            "nationality": "American",
+            "popularityTier": "B",
+            "film": "Terminator 2: Judgment Day",
+            "role": "John Connor",
+            "creditType": "supporting",
+            "year": 1991,
+            "value": 1991,
+            "age": 14,
+            "optionId": "edward-furlong:0"
+          },
+          "options": [
+            {
+              "personId": "edward-furlong",
+              "name": "Edward Furlong",
+              "gender": "male",
+              "nationality": "American",
+              "popularityTier": "B",
+              "film": "Terminator 2: Judgment Day",
+              "role": "John Connor",
+              "creditType": "supporting",
+              "year": 1991,
+              "value": 1991,
+              "age": 14,
+              "optionId": "edward-furlong:0"
+            },
+            {
+              "personId": "olga-kurylenko",
+              "name": "Olga Kurylenko",
+              "gender": "female",
+              "nationality": "French / Ukraine",
+              "popularityTier": "B",
+              "film": "Quantum of Solace",
+              "role": "Camille",
+              "creditType": "lead",
+              "year": 2008,
+              "value": 2008,
+              "age": 29,
+              "optionId": "olga-kurylenko:2"
+            },
+            {
+              "personId": "sylvester-stallone",
+              "name": "Sylvester Stallone",
+              "gender": "male",
+              "nationality": "American",
+              "popularityTier": "A",
+              "film": "Rambo: First Blood Part II",
+              "role": "Rambo",
+              "creditType": "lead",
+              "year": 1985,
+              "value": 1985,
+              "age": 39,
+              "optionId": "sylvester-stallone:2"
+            },
+            {
+              "personId": "jennifer-lawrence",
+              "name": "Jennifer Lawrence",
+              "gender": "female",
+              "nationality": "American",
+              "popularityTier": "B",
+              "film": "X-Men: Dark Phoenix",
+              "role": "Raven",
+              "creditType": "supporting",
+              "year": 2019,
+              "value": 2019,
+              "age": 29,
+              "optionId": "jennifer-lawrence:7"
+            }
+          ],
+          "nextRange": {
+            "min": 1991,
+            "max": 2025
+          }
+        },
+        {
+          "number": 2,
+          "mode": "middle",
+          "range": {
+            "min": 1991,
+            "max": 2025
+          },
+          "anchor": {
+            "personId": "edward-furlong",
+            "name": "Edward Furlong",
+            "gender": "male",
+            "nationality": "American",
+            "popularityTier": "B",
+            "film": "Terminator 2: Judgment Day",
+            "year": 1991,
+            "role": "John Connor",
+            "creditType": "supporting",
+            "value": 1991,
+            "age": 14,
+            "valueLabel": "1991"
+          },
+          "anchorSide": "left",
+          "target": {
+            "personId": "amanda-seyfried",
+            "name": "Amanda Seyfried",
+            "gender": "female",
+            "nationality": "American",
+            "popularityTier": "B",
+            "film": "Mamma Mia!",
+            "role": "Sophie",
+            "creditType": "supporting",
+            "year": 2008,
+            "value": 2008,
+            "age": 23,
+            "optionId": "amanda-seyfried:1"
+          },
+          "options": [
+            {
+              "personId": "brad-pitt",
+              "name": "Brad Pitt",
+              "gender": "male",
+              "nationality": "American",
+              "popularityTier": "A",
+              "film": "Moneyball",
+              "role": "Billy Beane",
+              "creditType": "lead",
+              "year": 2011,
+              "value": 2011,
+              "age": 48,
+              "optionId": "brad-pitt:6"
+            },
+            {
+              "personId": "amanda-seyfried",
+              "name": "Amanda Seyfried",
+              "gender": "female",
+              "nationality": "American",
+              "popularityTier": "B",
+              "film": "Mamma Mia!",
+              "role": "Sophie",
+              "creditType": "supporting",
+              "year": 2008,
+              "value": 2008,
+              "age": 23,
+              "optionId": "amanda-seyfried:1"
+            },
+            {
+              "personId": "bill-murray",
+              "name": "Bill Murray",
+              "gender": "male",
+              "nationality": "American",
+              "popularityTier": "B",
+              "film": "The Life Aquatic with Steve Zissou",
+              "role": "Steve Zissou",
+              "creditType": "lead",
+              "year": 2004,
+              "value": 2004,
+              "age": 54,
+              "optionId": "bill-murray:4"
+            },
+            {
+              "personId": "robert-downey-jr",
+              "name": "Robert Downey Jr.",
+              "gender": "male",
+              "nationality": "American",
+              "popularityTier": "A",
+              "film": "Iron Man 3",
+              "role": "Tony Stark",
+              "creditType": "lead",
+              "year": 2013,
+              "value": 2013,
+              "age": 48,
+              "optionId": "robert-downey-jr:7"
+            }
+          ],
+          "nextRange": {
+            "min": 2008,
+            "max": 2025
+          }
+        },
+        {
+          "number": 3,
+          "mode": "middle",
+          "range": {
+            "min": 2008,
+            "max": 2025
+          },
+          "anchor": {
+            "personId": "amanda-seyfried",
+            "name": "Amanda Seyfried",
+            "gender": "female",
+            "nationality": "American",
+            "popularityTier": "B",
+            "film": "Mamma Mia!",
+            "year": 2008,
+            "role": "Sophie",
+            "creditType": "supporting",
+            "value": 2008,
+            "age": 23,
+            "valueLabel": "2008"
+          },
+          "anchorSide": "left",
+          "target": {
+            "personId": "edward-norton",
+            "name": "Edward Norton",
+            "gender": "male",
+            "nationality": "American",
+            "popularityTier": "A",
+            "film": "Collateral Beauty",
+            "role": "Whit",
+            "creditType": "lead",
+            "year": 2016,
+            "value": 2016,
+            "age": 47,
+            "optionId": "edward-norton:7"
+          },
+          "options": [
+            {
+              "personId": "rene-russo",
+              "name": "Rene Russo",
+              "gender": "female",
+              "nationality": "American",
+              "popularityTier": "B",
+              "film": "Nightcrawler",
+              "role": "Nina Romina",
+              "creditType": "lead",
+              "year": 2014,
+              "value": 2014,
+              "age": 60,
+              "optionId": "rene-russo:7"
+            },
+            {
+              "personId": "viola-davis",
+              "name": "Viola Davis",
+              "gender": "female",
+              "nationality": "American",
+              "popularityTier": "B",
+              "film": "The Help",
+              "role": "Aibileen Clark",
+              "creditType": "lead",
+              "year": 2011,
+              "value": 2011,
+              "age": 46,
+              "optionId": "viola-davis:3"
+            },
+            {
+              "personId": "edward-norton",
+              "name": "Edward Norton",
+              "gender": "male",
+              "nationality": "American",
+              "popularityTier": "A",
+              "film": "Collateral Beauty",
+              "role": "Whit",
+              "creditType": "lead",
+              "year": 2016,
+              "value": 2016,
+              "age": 47,
+              "optionId": "edward-norton:7"
+            },
+            {
+              "personId": "channing-tatum",
+              "name": "Channing Tatum",
+              "gender": "male",
+              "nationality": "American",
+              "popularityTier": "B",
+              "film": "America: The Motion Picture",
+              "role": "George Washington",
+              "creditType": "lead",
+              "year": 2021,
+              "value": 2021,
+              "age": 41,
+              "optionId": "channing-tatum:7"
+            }
+          ],
+          "nextRange": {
+            "min": 2008,
+            "max": 2016
+          }
+        },
+        {
+          "number": 4,
+          "mode": "middle",
+          "range": {
+            "min": 2008,
+            "max": 2016
+          },
+          "anchor": {
+            "personId": "edward-norton",
+            "name": "Edward Norton",
+            "gender": "male",
+            "nationality": "American",
+            "popularityTier": "A",
+            "film": "Collateral Beauty",
+            "year": 2016,
+            "role": "Whit",
+            "creditType": "lead",
+            "value": 2016,
+            "age": 47,
+            "valueLabel": "2016"
+          },
+          "anchorSide": "right",
+          "target": {
+            "personId": "anne-hathaway",
+            "name": "Anne Hathaway",
+            "gender": "female",
+            "nationality": "American",
+            "popularityTier": "A",
+            "film": "The Dark Knight Rises",
+            "role": "Selina",
+            "creditType": "supporting",
+            "year": 2012,
+            "value": 2012,
+            "age": 30,
+            "optionId": "anne-hathaway:4"
+          },
+          "options": [
+            {
+              "personId": "mark-ruffalo",
+              "name": "Mark Ruffalo",
+              "gender": "male",
+              "nationality": "American",
+              "popularityTier": "A",
+              "film": "Spotlight",
+              "role": "Mike Rezendes",
+              "creditType": "lead",
+              "year": 2015,
+              "value": 2015,
+              "age": 48,
+              "optionId": "mark-ruffalo:5"
+            },
+            {
+              "personId": "anne-hathaway",
+              "name": "Anne Hathaway",
+              "gender": "female",
+              "nationality": "American",
+              "popularityTier": "A",
+              "film": "The Dark Knight Rises",
+              "role": "Selina",
+              "creditType": "supporting",
+              "year": 2012,
+              "value": 2012,
+              "age": 30,
+              "optionId": "anne-hathaway:4"
+            },
+            {
+              "personId": "chris-pine",
+              "name": "Chris Pine",
+              "gender": "male",
+              "nationality": "American",
+              "popularityTier": "B",
+              "film": "Star Trek",
+              "role": "Kirk",
+              "creditType": "lead",
+              "year": 2009,
+              "value": 2009,
+              "age": 29,
+              "optionId": "chris-pine:1"
+            },
+            {
+              "personId": "vin-diesel",
+              "name": "Vin Diesel",
+              "gender": "male",
+              "nationality": "American",
+              "popularityTier": "A",
+              "film": "Guardians of the Galaxy",
+              "role": "Groot",
+              "creditType": "lead",
+              "year": 2014,
+              "value": 2014,
+              "age": 47,
+              "optionId": "vin-diesel:5"
+            }
+          ],
+          "nextRange": {
+            "min": 2012,
+            "max": 2016
+          }
+        },
+        {
+          "number": 5,
+          "mode": "middle",
+          "range": {
+            "min": 2012,
+            "max": 2016
+          },
+          "anchor": {
+            "personId": "anne-hathaway",
+            "name": "Anne Hathaway",
+            "gender": "female",
+            "nationality": "American",
+            "popularityTier": "A",
+            "film": "The Dark Knight Rises",
+            "year": 2012,
+            "role": "Selina",
+            "creditType": "supporting",
+            "value": 2012,
+            "age": 30,
+            "valueLabel": "2012"
+          },
+          "anchorSide": "left",
+          "target": {
+            "personId": "aaron-paul",
+            "name": "Aaron Paul",
+            "gender": "male",
+            "nationality": "American",
+            "popularityTier": "B",
+            "film": "Need for Speed",
+            "role": "Tobey Marshall",
+            "creditType": "lead",
+            "year": 2014,
+            "value": 2014,
+            "age": 35,
+            "optionId": "aaron-paul:4"
+          },
+          "options": [
+            {
+              "personId": "aaron-paul",
+              "name": "Aaron Paul",
+              "gender": "male",
+              "nationality": "American",
+              "popularityTier": "B",
+              "film": "Need for Speed",
+              "role": "Tobey Marshall",
+              "creditType": "lead",
+              "year": 2014,
+              "value": 2014,
+              "age": 35,
+              "optionId": "aaron-paul:4"
+            },
+            {
+              "personId": "jordana-brewster",
+              "name": "Jordana Brewster",
+              "gender": "female",
+              "nationality": "American / Panama",
+              "popularityTier": "A",
+              "film": "Furious 7",
+              "role": "Mia",
+              "creditType": "supporting",
+              "year": 2015,
+              "value": 2015,
+              "age": 35,
+              "optionId": "jordana-brewster:5"
+            },
+            {
+              "personId": "sandra-bullock",
+              "name": "Sandra Bullock",
+              "gender": "female",
+              "nationality": "American / German",
+              "popularityTier": "A",
+              "film": "Gravity",
+              "role": "Ryan Stone",
+              "creditType": "lead",
+              "year": 2013,
+              "value": 2013,
+              "age": 49,
+              "optionId": "sandra-bullock:7"
+            },
+            {
+              "personId": "channing-tatum",
+              "name": "Channing Tatum",
+              "gender": "male",
+              "nationality": "American",
+              "popularityTier": "B",
+              "film": "White House Down",
+              "role": "Cale",
+              "creditType": "lead",
+              "year": 2013,
+              "value": 2013,
+              "age": 33,
+              "optionId": "channing-tatum:4"
+            }
+          ],
+          "nextRange": null
+        }
+      ]
     }
   ]
 }
