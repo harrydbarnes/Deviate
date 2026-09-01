@@ -1374,6 +1374,212 @@
           "nextRange": null
         }
       ]
+    },
+    {
+      "id": 5,
+      "date": "2026-09-01",
+      "mode": "year",
+      "generatorVersion": "v6",
+      "roundCount": 5,
+      "rounds": [
+        {
+          "number": 1,
+          "mode": "year",
+          "range": {
+            "min": 1957,
+            "max": 2025
+          },
+          "anchor": {
+            "personId": "jan-sterling",
+            "name": "Jan Sterling",
+            "gender": "female",
+            "nationality": "American",
+            "popularityTier": "B",
+            "film": "Slaughter on 10th Avenue",
+            "year": 1957,
+            "role": "Madge Pitts",
+            "creditType": "lead",
+            "value": 1957,
+            "age": 36,
+            "valueLabel": "1957"
+          },
+          "anchorSide": "left",
+          "target": {
+            "personId": "anthony-hopkins",
+            "name": "Anthony Hopkins",
+            "gender": "male",
+            "nationality": "American / British",
+            "popularityTier": "A",
+            "film": "Hearts in Atlantis",
+            "role": "Ted Brautigan",
+            "creditType": "lead",
+            "year": 2001,
+            "value": 2001,
+            "age": 64
+          },
+          "nextRange": {
+            "min": 2001,
+            "max": 2025
+          }
+        },
+        {
+          "number": 2,
+          "mode": "year",
+          "range": {
+            "min": 2001,
+            "max": 2025
+          },
+          "anchor": {
+            "personId": "anthony-hopkins",
+            "name": "Anthony Hopkins",
+            "gender": "male",
+            "nationality": "American / British",
+            "popularityTier": "A",
+            "film": "Hearts in Atlantis",
+            "year": 2001,
+            "role": "Ted Brautigan",
+            "creditType": "lead",
+            "value": 2001,
+            "age": 64,
+            "valueLabel": "2001"
+          },
+          "anchorSide": "left",
+          "target": {
+            "personId": "tom-cruise",
+            "name": "Tom Cruise",
+            "gender": "male",
+            "nationality": "American",
+            "popularityTier": "A",
+            "film": "Oblivion",
+            "role": "Jack",
+            "creditType": "lead",
+            "year": 2013,
+            "value": 2013,
+            "age": 51
+          },
+          "nextRange": {
+            "min": 2013,
+            "max": 2025
+          }
+        },
+        {
+          "number": 3,
+          "mode": "year",
+          "range": {
+            "min": 2013,
+            "max": 2025
+          },
+          "anchor": {
+            "personId": "tom-cruise",
+            "name": "Tom Cruise",
+            "gender": "male",
+            "nationality": "American",
+            "popularityTier": "A",
+            "film": "Oblivion",
+            "year": 2013,
+            "role": "Jack",
+            "creditType": "lead",
+            "value": 2013,
+            "age": 51,
+            "valueLabel": "2013"
+          },
+          "anchorSide": "left",
+          "target": {
+            "personId": "jason-statham",
+            "name": "Jason Statham",
+            "gender": "male",
+            "nationality": "British",
+            "popularityTier": "A",
+            "film": "Fast & Furious Presents: Hobbs & Shaw",
+            "role": "Shaw",
+            "creditType": "lead",
+            "year": 2019,
+            "value": 2019,
+            "age": 52
+          },
+          "nextRange": {
+            "min": 2019,
+            "max": 2025
+          }
+        },
+        {
+          "number": 4,
+          "mode": "year",
+          "range": {
+            "min": 2019,
+            "max": 2025
+          },
+          "anchor": {
+            "personId": "jason-statham",
+            "name": "Jason Statham",
+            "gender": "male",
+            "nationality": "British",
+            "popularityTier": "A",
+            "film": "Fast & Furious Presents: Hobbs & Shaw",
+            "year": 2019,
+            "role": "Shaw",
+            "creditType": "lead",
+            "value": 2019,
+            "age": 52,
+            "valueLabel": "2019"
+          },
+          "anchorSide": "left",
+          "target": {
+            "personId": "chris-hemsworth",
+            "name": "Chris Hemsworth",
+            "gender": "male",
+            "nationality": "Australian",
+            "popularityTier": "A",
+            "film": "Spiderhead",
+            "role": "Abnesti",
+            "creditType": "lead",
+            "year": 2022,
+            "value": 2022,
+            "age": 39
+          },
+          "nextRange": {
+            "min": 2022,
+            "max": 2025
+          }
+        },
+        {
+          "number": 5,
+          "mode": "year",
+          "range": {
+            "min": 2022,
+            "max": 2025
+          },
+          "anchor": {
+            "personId": "chris-hemsworth",
+            "name": "Chris Hemsworth",
+            "gender": "male",
+            "nationality": "Australian",
+            "popularityTier": "A",
+            "film": "Spiderhead",
+            "year": 2022,
+            "role": "Abnesti",
+            "creditType": "lead",
+            "value": 2022,
+            "age": 39,
+            "valueLabel": "2022"
+          },
+          "anchorSide": "left",
+          "target": {
+            "personId": "ryan-reynolds",
+            "name": "Ryan Reynolds",
+            "gender": "male",
+            "nationality": "Canadian / American",
+            "popularityTier": "B",
+            "film": "Deadpool & Wolverine",
+            "role": "Wade Wilson",
+            "creditType": "lead",
+            "year": 2024,
+            "value": 2024,
+            "age": 48
+          },
+          "nextRange": null
+        }
+      ]
     }
   ]
 }
