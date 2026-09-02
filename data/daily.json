@@ -1580,6 +1580,507 @@
           "nextRange": null
         }
       ]
+    },
+    {
+      "id": 6,
+      "date": "2026-09-02",
+      "mode": "middle",
+      "generatorVersion": "v6",
+      "roundCount": 5,
+      "rounds": [
+        {
+          "number": 1,
+          "mode": "middle",
+          "range": {
+            "min": 1957,
+            "max": 2025
+          },
+          "anchor": {
+            "personId": "jan-sterling",
+            "name": "Jan Sterling",
+            "gender": "female",
+            "nationality": "American",
+            "popularityTier": "B",
+            "film": "Slaughter on 10th Avenue",
+            "year": 1957,
+            "role": "Madge Pitts",
+            "creditType": "lead",
+            "value": 1957,
+            "age": 36,
+            "valueLabel": "1957"
+          },
+          "anchorSide": "left",
+          "target": {
+            "personId": "arnold-schwarzenegger",
+            "name": "Arnold Schwarzenegger",
+            "gender": "male",
+            "nationality": "American / Austrian",
+            "popularityTier": "A",
+            "film": "Terminator 2: Judgment Day",
+            "role": "The Terminator",
+            "creditType": "lead",
+            "year": 1991,
+            "value": 1991,
+            "age": 44,
+            "optionId": "arnold-schwarzenegger:3"
+          },
+          "options": [
+            {
+              "personId": "sigourney-weaver",
+              "name": "Sigourney Weaver",
+              "gender": "female",
+              "nationality": "American",
+              "popularityTier": "A",
+              "film": "Alien",
+              "role": "Ripley",
+              "creditType": "lead",
+              "year": 1979,
+              "value": 1979,
+              "age": 30,
+              "optionId": "sigourney-weaver:1"
+            },
+            {
+              "personId": "elijah-wood",
+              "name": "Elijah Wood",
+              "gender": "male",
+              "nationality": "American",
+              "popularityTier": "B",
+              "film": "The Lord of the Rings: The Two Towers",
+              "role": "Frodo",
+              "creditType": "lead",
+              "year": 2002,
+              "value": 2002,
+              "age": 21,
+              "optionId": "elijah-wood:3"
+            },
+            {
+              "personId": "arnold-schwarzenegger",
+              "name": "Arnold Schwarzenegger",
+              "gender": "male",
+              "nationality": "American / Austrian",
+              "popularityTier": "A",
+              "film": "Terminator 2: Judgment Day",
+              "role": "The Terminator",
+              "creditType": "lead",
+              "year": 1991,
+              "value": 1991,
+              "age": 44,
+              "optionId": "arnold-schwarzenegger:3"
+            },
+            {
+              "personId": "jonah-hill",
+              "name": "Jonah Hill",
+              "gender": "male",
+              "nationality": "American",
+              "popularityTier": "B",
+              "film": "The Wolf of Wall Street",
+              "role": "Donnie Azoff",
+              "creditType": "lead",
+              "year": 2013,
+              "value": 2013,
+              "age": 30,
+              "optionId": "jonah-hill:5"
+            }
+          ],
+          "nextRange": {
+            "min": 1991,
+            "max": 2025
+          }
+        },
+        {
+          "number": 2,
+          "mode": "middle",
+          "range": {
+            "min": 1991,
+            "max": 2025
+          },
+          "anchor": {
+            "personId": "arnold-schwarzenegger",
+            "name": "Arnold Schwarzenegger",
+            "gender": "male",
+            "nationality": "American / Austrian",
+            "popularityTier": "A",
+            "film": "Terminator 2: Judgment Day",
+            "year": 1991,
+            "role": "The Terminator",
+            "creditType": "lead",
+            "value": 1991,
+            "age": 44,
+            "valueLabel": "1991"
+          },
+          "anchorSide": "left",
+          "target": {
+            "personId": "seth-rogen",
+            "name": "Seth Rogen",
+            "gender": "male",
+            "nationality": "Canadian / American",
+            "popularityTier": "B",
+            "film": "Pineapple Express",
+            "role": "Dale Denton",
+            "creditType": "lead",
+            "year": 2008,
+            "value": 2008,
+            "age": 26,
+            "optionId": "seth-rogen:2"
+          },
+          "options": [
+            {
+              "personId": "seth-rogen",
+              "name": "Seth Rogen",
+              "gender": "male",
+              "nationality": "Canadian / American",
+              "popularityTier": "B",
+              "film": "Pineapple Express",
+              "role": "Dale Denton",
+              "creditType": "lead",
+              "year": 2008,
+              "value": 2008,
+              "age": 26,
+              "optionId": "seth-rogen:2"
+            },
+            {
+              "personId": "aaron-paul",
+              "name": "Aaron Paul",
+              "gender": "male",
+              "nationality": "American",
+              "popularityTier": "B",
+              "film": "Kingsglaive: Final Fantasy XV",
+              "role": "Nyx Ulric",
+              "creditType": "lead",
+              "year": 2016,
+              "value": 2016,
+              "age": 37,
+              "optionId": "aaron-paul:5"
+            },
+            {
+              "personId": "owen-wilson",
+              "name": "Owen Wilson",
+              "gender": "male",
+              "nationality": "American",
+              "popularityTier": "B",
+              "film": "The Life Aquatic with Steve Zissou",
+              "role": "Ned Plimpton",
+              "creditType": "lead",
+              "year": 2004,
+              "value": 2004,
+              "age": 36,
+              "optionId": "owen-wilson:4"
+            },
+            {
+              "personId": "jennifer-lawrence",
+              "name": "Jennifer Lawrence",
+              "gender": "female",
+              "nationality": "American",
+              "popularityTier": "B",
+              "film": "X-Men: First Class",
+              "role": "Raven",
+              "creditType": "supporting",
+              "year": 2011,
+              "value": 2011,
+              "age": 21,
+              "optionId": "jennifer-lawrence:1"
+            }
+          ],
+          "nextRange": {
+            "min": 2008,
+            "max": 2025
+          }
+        },
+        {
+          "number": 3,
+          "mode": "middle",
+          "range": {
+            "min": 2008,
+            "max": 2025
+          },
+          "anchor": {
+            "personId": "seth-rogen",
+            "name": "Seth Rogen",
+            "gender": "male",
+            "nationality": "Canadian / American",
+            "popularityTier": "B",
+            "film": "Pineapple Express",
+            "year": 2008,
+            "role": "Dale Denton",
+            "creditType": "lead",
+            "value": 2008,
+            "age": 26,
+            "valueLabel": "2008"
+          },
+          "anchorSide": "left",
+          "target": {
+            "personId": "ryan-reynolds",
+            "name": "Ryan Reynolds",
+            "gender": "male",
+            "nationality": "Canadian / American",
+            "popularityTier": "B",
+            "film": "Deadpool",
+            "role": "Wade",
+            "creditType": "lead",
+            "year": 2016,
+            "value": 2016,
+            "age": 40,
+            "optionId": "ryan-reynolds:4"
+          },
+          "options": [
+            {
+              "personId": "ryan-reynolds",
+              "name": "Ryan Reynolds",
+              "gender": "male",
+              "nationality": "Canadian / American",
+              "popularityTier": "B",
+              "film": "Deadpool",
+              "role": "Wade",
+              "creditType": "lead",
+              "year": 2016,
+              "value": 2016,
+              "age": 40,
+              "optionId": "ryan-reynolds:4"
+            },
+            {
+              "personId": "carice-van-houten",
+              "name": "Carice van Houten",
+              "gender": "female",
+              "nationality": "Dutch",
+              "popularityTier": "A",
+              "film": "Jackie",
+              "role": "Sofie",
+              "creditType": "lead",
+              "year": 2012,
+              "value": 2012,
+              "age": 36,
+              "optionId": "carice-van-houten:6"
+            },
+            {
+              "personId": "chris-hemsworth",
+              "name": "Chris Hemsworth",
+              "gender": "male",
+              "nationality": "Australian",
+              "popularityTier": "A",
+              "film": "Thor: Love and Thunder",
+              "role": "Thor",
+              "creditType": "lead",
+              "year": 2022,
+              "value": 2022,
+              "age": 39,
+              "optionId": "chris-hemsworth:7"
+            },
+            {
+              "personId": "noomi-rapace",
+              "name": "Noomi Rapace",
+              "gender": "female",
+              "nationality": "Swedish",
+              "popularityTier": "B",
+              "film": "Passion",
+              "role": "Isabelle",
+              "creditType": "lead",
+              "year": 2012,
+              "value": 2012,
+              "age": 33,
+              "optionId": "noomi-rapace:4"
+            }
+          ],
+          "nextRange": {
+            "min": 2008,
+            "max": 2016
+          }
+        },
+        {
+          "number": 4,
+          "mode": "middle",
+          "range": {
+            "min": 2008,
+            "max": 2016
+          },
+          "anchor": {
+            "personId": "ryan-reynolds",
+            "name": "Ryan Reynolds",
+            "gender": "male",
+            "nationality": "Canadian / American",
+            "popularityTier": "B",
+            "film": "Deadpool",
+            "year": 2016,
+            "role": "Wade",
+            "creditType": "lead",
+            "value": 2016,
+            "age": 40,
+            "valueLabel": "2016"
+          },
+          "anchorSide": "right",
+          "target": {
+            "personId": "jennifer-lawrence",
+            "name": "Jennifer Lawrence",
+            "gender": "female",
+            "nationality": "American",
+            "popularityTier": "B",
+            "film": "The Hunger Games",
+            "role": "Katniss Everdeen",
+            "creditType": "lead",
+            "year": 2012,
+            "value": 2012,
+            "age": 22,
+            "optionId": "jennifer-lawrence:3"
+          },
+          "options": [
+            {
+              "personId": "emma-roberts",
+              "name": "Emma Roberts",
+              "gender": "female",
+              "nationality": "American",
+              "popularityTier": "B",
+              "film": "Twelve",
+              "role": "Molly",
+              "creditType": "lead",
+              "year": 2010,
+              "value": 2010,
+              "age": 19,
+              "optionId": "emma-roberts:3"
+            },
+            {
+              "personId": "jennifer-lawrence",
+              "name": "Jennifer Lawrence",
+              "gender": "female",
+              "nationality": "American",
+              "popularityTier": "B",
+              "film": "The Hunger Games",
+              "role": "Katniss Everdeen",
+              "creditType": "lead",
+              "year": 2012,
+              "value": 2012,
+              "age": 22,
+              "optionId": "jennifer-lawrence:3"
+            },
+            {
+              "personId": "jennifer-lawrence",
+              "name": "Jennifer Lawrence",
+              "gender": "female",
+              "nationality": "American",
+              "popularityTier": "B",
+              "film": "The Hunger Games: Mockingjay - Part 2",
+              "role": "Katniss Everdeen",
+              "creditType": "lead",
+              "year": 2015,
+              "value": 2015,
+              "age": 25,
+              "optionId": "jennifer-lawrence:6"
+            },
+            {
+              "personId": "shailene-woodley",
+              "name": "Shailene Woodley",
+              "gender": "female",
+              "nationality": "American",
+              "popularityTier": "B",
+              "film": "Divergent",
+              "role": "Tris",
+              "creditType": "lead",
+              "year": 2014,
+              "value": 2014,
+              "age": 23,
+              "optionId": "shailene-woodley:2"
+            }
+          ],
+          "nextRange": {
+            "min": 2012,
+            "max": 2016
+          }
+        },
+        {
+          "number": 5,
+          "mode": "middle",
+          "range": {
+            "min": 2012,
+            "max": 2016
+          },
+          "anchor": {
+            "personId": "jennifer-lawrence",
+            "name": "Jennifer Lawrence",
+            "gender": "female",
+            "nationality": "American",
+            "popularityTier": "B",
+            "film": "The Hunger Games",
+            "year": 2012,
+            "role": "Katniss Everdeen",
+            "creditType": "lead",
+            "value": 2012,
+            "age": 22,
+            "valueLabel": "2012"
+          },
+          "anchorSide": "left",
+          "target": {
+            "personId": "chloe-grace-moretz",
+            "name": "Chloë Grace Moretz",
+            "gender": "female",
+            "nationality": "American",
+            "popularityTier": "A",
+            "film": "If I Stay",
+            "role": "Mia Hall",
+            "creditType": "lead",
+            "year": 2014,
+            "value": 2014,
+            "age": 17,
+            "optionId": "chloe-grace-moretz:5"
+          },
+          "options": [
+            {
+              "personId": "rose-byrne",
+              "name": "Rose Byrne",
+              "gender": "female",
+              "nationality": "Australian",
+              "popularityTier": "A",
+              "film": "Spy",
+              "role": "Rayna Boyanov",
+              "creditType": "lead",
+              "year": 2015,
+              "value": 2015,
+              "age": 36,
+              "optionId": "rose-byrne:5"
+            },
+            {
+              "personId": "chloe-grace-moretz",
+              "name": "Chloë Grace Moretz",
+              "gender": "female",
+              "nationality": "American",
+              "popularityTier": "A",
+              "film": "If I Stay",
+              "role": "Mia Hall",
+              "creditType": "lead",
+              "year": 2014,
+              "value": 2014,
+              "age": 17,
+              "optionId": "chloe-grace-moretz:5"
+            },
+            {
+              "personId": "matt-damon",
+              "name": "Matt Damon",
+              "gender": "male",
+              "nationality": "American",
+              "popularityTier": "B",
+              "film": "The Martian",
+              "role": "Mark Watney",
+              "creditType": "lead",
+              "year": 2015,
+              "value": 2015,
+              "age": 45,
+              "optionId": "matt-damon:6"
+            },
+            {
+              "personId": "alexandra-daddario",
+              "name": "Alexandra Daddario",
+              "gender": "female",
+              "nationality": "American",
+              "popularityTier": "A",
+              "film": "Texas Chainsaw",
+              "role": "Heather Miller",
+              "creditType": "lead",
+              "year": 2013,
+              "value": 2013,
+              "age": 27,
+              "optionId": "alexandra-daddario:2"
+            }
+          ],
+          "nextRange": null
+        }
+      ]
     }
   ]
 }
