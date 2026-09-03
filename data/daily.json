@@ -2081,6 +2081,507 @@
           "nextRange": null
         }
       ]
+    },
+    {
+      "id": 7,
+      "date": "2026-09-03",
+      "mode": "middle",
+      "generatorVersion": "v6",
+      "roundCount": 5,
+      "rounds": [
+        {
+          "number": 1,
+          "mode": "middle",
+          "range": {
+            "min": 1957,
+            "max": 2025
+          },
+          "anchor": {
+            "personId": "jan-sterling",
+            "name": "Jan Sterling",
+            "gender": "female",
+            "nationality": "American",
+            "popularityTier": "B",
+            "film": "Slaughter on 10th Avenue",
+            "year": 1957,
+            "role": "Madge Pitts",
+            "creditType": "lead",
+            "value": 1957,
+            "age": 36,
+            "valueLabel": "1957"
+          },
+          "anchorSide": "left",
+          "target": {
+            "personId": "linda-hamilton",
+            "name": "Linda Hamilton",
+            "gender": "female",
+            "nationality": "American",
+            "popularityTier": "B",
+            "film": "Terminator 2: Judgment Day",
+            "role": "Sarah Connor",
+            "creditType": "lead",
+            "year": 1991,
+            "value": 1991,
+            "age": 35,
+            "optionId": "linda-hamilton:2"
+          },
+          "options": [
+            {
+              "personId": "michael-fassbender",
+              "name": "Michael Fassbender",
+              "gender": "male",
+              "nationality": "Irish / German",
+              "popularityTier": "A",
+              "film": "X-Men: Days of Future Past",
+              "role": "Erik Lehnsherr",
+              "creditType": "supporting",
+              "year": 2014,
+              "value": 2014,
+              "age": 37,
+              "optionId": "michael-fassbender:5"
+            },
+            {
+              "personId": "linda-hamilton",
+              "name": "Linda Hamilton",
+              "gender": "female",
+              "nationality": "American",
+              "popularityTier": "B",
+              "film": "Terminator 2: Judgment Day",
+              "role": "Sarah Connor",
+              "creditType": "lead",
+              "year": 1991,
+              "value": 1991,
+              "age": 35,
+              "optionId": "linda-hamilton:2"
+            },
+            {
+              "personId": "bruce-willis",
+              "name": "Bruce Willis",
+              "gender": "male",
+              "nationality": "American",
+              "popularityTier": "A",
+              "film": "Blind Date",
+              "role": "Walter Davis",
+              "creditType": "lead",
+              "year": 1987,
+              "value": 1987,
+              "age": 32,
+              "optionId": "bruce-willis:0"
+            },
+            {
+              "personId": "colin-firth",
+              "name": "Colin Firth",
+              "gender": "male",
+              "nationality": "Italian / British",
+              "popularityTier": "A",
+              "film": "The King's Speech",
+              "role": "King George VI",
+              "creditType": "lead",
+              "year": 2010,
+              "value": 2010,
+              "age": 50,
+              "optionId": "colin-firth:5"
+            }
+          ],
+          "nextRange": {
+            "min": 1991,
+            "max": 2025
+          }
+        },
+        {
+          "number": 2,
+          "mode": "middle",
+          "range": {
+            "min": 1991,
+            "max": 2025
+          },
+          "anchor": {
+            "personId": "linda-hamilton",
+            "name": "Linda Hamilton",
+            "gender": "female",
+            "nationality": "American",
+            "popularityTier": "B",
+            "film": "Terminator 2: Judgment Day",
+            "year": 1991,
+            "role": "Sarah Connor",
+            "creditType": "lead",
+            "value": 1991,
+            "age": 35,
+            "valueLabel": "1991"
+          },
+          "anchorSide": "left",
+          "target": {
+            "personId": "ron-perlman",
+            "name": "Ron Perlman",
+            "gender": "male",
+            "nationality": "American",
+            "popularityTier": "B",
+            "film": "Hellboy II: The Golden Army",
+            "role": "Hellboy",
+            "creditType": "lead",
+            "year": 2008,
+            "value": 2008,
+            "age": 58,
+            "optionId": "ron-perlman:4"
+          },
+          "options": [
+            {
+              "personId": "julia-roberts",
+              "name": "Julia Roberts",
+              "gender": "female",
+              "nationality": "American",
+              "popularityTier": "B",
+              "film": "My Best Friend's Wedding",
+              "role": "Julianne Potter",
+              "creditType": "lead",
+              "year": 1997,
+              "value": 1997,
+              "age": 30,
+              "optionId": "julia-roberts:3"
+            },
+            {
+              "personId": "adam-sandler",
+              "name": "Adam Sandler",
+              "gender": "male",
+              "nationality": "American",
+              "popularityTier": "A",
+              "film": "The Waterboy",
+              "role": "Bobby Boucher",
+              "creditType": "lead",
+              "year": 1998,
+              "value": 1998,
+              "age": 32,
+              "optionId": "adam-sandler:1"
+            },
+            {
+              "personId": "natalie-portman",
+              "name": "Natalie Portman",
+              "gender": "female",
+              "nationality": "American / Israeli",
+              "popularityTier": "B",
+              "film": "Black Swan",
+              "role": "Nina Sayers",
+              "creditType": "lead",
+              "year": 2010,
+              "value": 2010,
+              "age": 29,
+              "optionId": "natalie-portman:4"
+            },
+            {
+              "personId": "ron-perlman",
+              "name": "Ron Perlman",
+              "gender": "male",
+              "nationality": "American",
+              "popularityTier": "B",
+              "film": "Hellboy II: The Golden Army",
+              "role": "Hellboy",
+              "creditType": "lead",
+              "year": 2008,
+              "value": 2008,
+              "age": 58,
+              "optionId": "ron-perlman:4"
+            }
+          ],
+          "nextRange": {
+            "min": 2008,
+            "max": 2025
+          }
+        },
+        {
+          "number": 3,
+          "mode": "middle",
+          "range": {
+            "min": 2008,
+            "max": 2025
+          },
+          "anchor": {
+            "personId": "ron-perlman",
+            "name": "Ron Perlman",
+            "gender": "male",
+            "nationality": "American",
+            "popularityTier": "B",
+            "film": "Hellboy II: The Golden Army",
+            "year": 2008,
+            "role": "Hellboy",
+            "creditType": "lead",
+            "value": 2008,
+            "age": 58,
+            "valueLabel": "2008"
+          },
+          "anchorSide": "left",
+          "target": {
+            "personId": "aaron-paul",
+            "name": "Aaron Paul",
+            "gender": "male",
+            "nationality": "American",
+            "popularityTier": "B",
+            "film": "Kingsglaive: Final Fantasy XV",
+            "role": "Nyx Ulric",
+            "creditType": "lead",
+            "year": 2016,
+            "value": 2016,
+            "age": 37,
+            "optionId": "aaron-paul:5"
+          },
+          "options": [
+            {
+              "personId": "jennifer-lawrence",
+              "name": "Jennifer Lawrence",
+              "gender": "female",
+              "nationality": "American",
+              "popularityTier": "B",
+              "film": "X-Men: Dark Phoenix",
+              "role": "Raven",
+              "creditType": "supporting",
+              "year": 2019,
+              "value": 2019,
+              "age": 29,
+              "optionId": "jennifer-lawrence:7"
+            },
+            {
+              "personId": "anton-yelchin",
+              "name": "Anton Yelchin",
+              "gender": "male",
+              "nationality": "American",
+              "popularityTier": "B",
+              "film": "Star Trek",
+              "role": "Chekov",
+              "creditType": "supporting",
+              "year": 2009,
+              "value": 2009,
+              "age": 20,
+              "optionId": "anton-yelchin:3"
+            },
+            {
+              "personId": "hugh-jackman",
+              "name": "Hugh Jackman",
+              "gender": "male",
+              "nationality": "British / Australian",
+              "popularityTier": "A",
+              "film": "X-Men Origins: Wolverine",
+              "role": "Logan",
+              "creditType": "lead",
+              "year": 2009,
+              "value": 2009,
+              "age": 41,
+              "optionId": "hugh-jackman:3"
+            },
+            {
+              "personId": "aaron-paul",
+              "name": "Aaron Paul",
+              "gender": "male",
+              "nationality": "American",
+              "popularityTier": "B",
+              "film": "Kingsglaive: Final Fantasy XV",
+              "role": "Nyx Ulric",
+              "creditType": "lead",
+              "year": 2016,
+              "value": 2016,
+              "age": 37,
+              "optionId": "aaron-paul:5"
+            }
+          ],
+          "nextRange": {
+            "min": 2008,
+            "max": 2016
+          }
+        },
+        {
+          "number": 4,
+          "mode": "middle",
+          "range": {
+            "min": 2008,
+            "max": 2016
+          },
+          "anchor": {
+            "personId": "aaron-paul",
+            "name": "Aaron Paul",
+            "gender": "male",
+            "nationality": "American",
+            "popularityTier": "B",
+            "film": "Kingsglaive: Final Fantasy XV",
+            "year": 2016,
+            "role": "Nyx Ulric",
+            "creditType": "lead",
+            "value": 2016,
+            "age": 37,
+            "valueLabel": "2016"
+          },
+          "anchorSide": "right",
+          "target": {
+            "personId": "john-goodman",
+            "name": "John Goodman",
+            "gender": "male",
+            "nationality": "American",
+            "popularityTier": "B",
+            "film": "Argo",
+            "role": "John Chambers",
+            "creditType": "supporting",
+            "year": 2012,
+            "value": 2012,
+            "age": 60,
+            "optionId": "john-goodman:5"
+          },
+          "options": [
+            {
+              "personId": "john-goodman",
+              "name": "John Goodman",
+              "gender": "male",
+              "nationality": "American",
+              "popularityTier": "B",
+              "film": "Argo",
+              "role": "John Chambers",
+              "creditType": "supporting",
+              "year": 2012,
+              "value": 2012,
+              "age": 60,
+              "optionId": "john-goodman:5"
+            },
+            {
+              "personId": "paul-walker",
+              "name": "Paul Walker",
+              "gender": "male",
+              "nationality": "American",
+              "popularityTier": "A",
+              "film": "Furious 7",
+              "role": "Brian O'Conner",
+              "creditType": "lead",
+              "year": 2015,
+              "value": 2015,
+              "age": 42,
+              "optionId": "paul-walker:7"
+            },
+            {
+              "personId": "gerard-butler",
+              "name": "Gerard Butler",
+              "gender": "male",
+              "nationality": "British",
+              "popularityTier": "B",
+              "film": "Law Abiding Citizen",
+              "role": "Clyde Shelton",
+              "creditType": "lead",
+              "year": 2009,
+              "value": 2009,
+              "age": 40,
+              "optionId": "gerard-butler:4"
+            },
+            {
+              "personId": "channing-tatum",
+              "name": "Channing Tatum",
+              "gender": "male",
+              "nationality": "American",
+              "popularityTier": "B",
+              "film": "Dear John",
+              "role": "John Tyree",
+              "creditType": "lead",
+              "year": 2010,
+              "value": 2010,
+              "age": 30,
+              "optionId": "channing-tatum:1"
+            }
+          ],
+          "nextRange": {
+            "min": 2012,
+            "max": 2016
+          }
+        },
+        {
+          "number": 5,
+          "mode": "middle",
+          "range": {
+            "min": 2012,
+            "max": 2016
+          },
+          "anchor": {
+            "personId": "john-goodman",
+            "name": "John Goodman",
+            "gender": "male",
+            "nationality": "American",
+            "popularityTier": "B",
+            "film": "Argo",
+            "year": 2012,
+            "role": "John Chambers",
+            "creditType": "supporting",
+            "value": 2012,
+            "age": 60,
+            "valueLabel": "2012"
+          },
+          "anchorSide": "left",
+          "target": {
+            "personId": "dominic-cooper",
+            "name": "Dominic Cooper",
+            "gender": "male",
+            "nationality": "British",
+            "popularityTier": "A",
+            "film": "Need for Speed",
+            "role": "Dino Brewster",
+            "creditType": "lead",
+            "year": 2014,
+            "value": 2014,
+            "age": 36,
+            "optionId": "dominic-cooper:6"
+          },
+          "options": [
+            {
+              "personId": "mila-kunis",
+              "name": "Mila Kunis",
+              "gender": "female",
+              "nationality": "American",
+              "popularityTier": "B",
+              "film": "Jupiter Ascending",
+              "role": "Jupiter Jones",
+              "creditType": "lead",
+              "year": 2015,
+              "value": 2015,
+              "age": 32,
+              "optionId": "mila-kunis:5"
+            },
+            {
+              "personId": "colin-farrell",
+              "name": "Colin Farrell",
+              "gender": "male",
+              "nationality": "Irish",
+              "popularityTier": "B",
+              "film": "The Lobster",
+              "role": "David",
+              "creditType": "lead",
+              "year": 2015,
+              "value": 2015,
+              "age": 39,
+              "optionId": "colin-farrell:6"
+            },
+            {
+              "personId": "dwayne-johnson",
+              "name": "Dwayne Johnson",
+              "gender": "male",
+              "nationality": "Canadian / American",
+              "popularityTier": "A",
+              "film": "Fast & Furious 6",
+              "role": "Hobbs",
+              "creditType": "supporting",
+              "year": 2013,
+              "value": 2013,
+              "age": 41,
+              "optionId": "dwayne-johnson:3"
+            },
+            {
+              "personId": "dominic-cooper",
+              "name": "Dominic Cooper",
+              "gender": "male",
+              "nationality": "British",
+              "popularityTier": "A",
+              "film": "Need for Speed",
+              "role": "Dino Brewster",
+              "creditType": "lead",
+              "year": 2014,
+              "value": 2014,
+              "age": 36,
+              "optionId": "dominic-cooper:6"
+            }
+          ],
+          "nextRange": null
+        }
+      ]
     }
   ]
 }
