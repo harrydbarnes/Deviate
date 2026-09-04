@@ -2582,6 +2582,212 @@
           "nextRange": null
         }
       ]
+    },
+    {
+      "id": 8,
+      "date": "2026-09-04",
+      "mode": "year",
+      "generatorVersion": "v6",
+      "roundCount": 5,
+      "rounds": [
+        {
+          "number": 1,
+          "mode": "year",
+          "range": {
+            "min": 1957,
+            "max": 2025
+          },
+          "anchor": {
+            "personId": "jan-sterling",
+            "name": "Jan Sterling",
+            "gender": "female",
+            "nationality": "American",
+            "popularityTier": "B",
+            "film": "Slaughter on 10th Avenue",
+            "year": 1957,
+            "role": "Madge Pitts",
+            "creditType": "lead",
+            "value": 1957,
+            "age": 36,
+            "valueLabel": "1957"
+          },
+          "anchorSide": "left",
+          "target": {
+            "personId": "eric-roberts",
+            "name": "Eric Roberts",
+            "gender": "male",
+            "nationality": "American",
+            "popularityTier": "A",
+            "film": "Runaway Train",
+            "role": "Buck",
+            "creditType": "lead",
+            "year": 1985,
+            "value": 1985,
+            "age": 29
+          },
+          "nextRange": {
+            "min": 1957,
+            "max": 1985
+          }
+        },
+        {
+          "number": 2,
+          "mode": "year",
+          "range": {
+            "min": 1957,
+            "max": 1985
+          },
+          "anchor": {
+            "personId": "eric-roberts",
+            "name": "Eric Roberts",
+            "gender": "male",
+            "nationality": "American",
+            "popularityTier": "A",
+            "film": "Runaway Train",
+            "year": 1985,
+            "role": "Buck",
+            "creditType": "lead",
+            "value": 1985,
+            "age": 29,
+            "valueLabel": "1985"
+          },
+          "anchorSide": "right",
+          "target": {
+            "personId": "raquel-welch",
+            "name": "Raquel Welch",
+            "gender": "female",
+            "nationality": "American",
+            "popularityTier": "B",
+            "film": "The Three Musketeers",
+            "role": "Constance de Bonacieux",
+            "creditType": "lead",
+            "year": 1973,
+            "value": 1973,
+            "age": 33
+          },
+          "nextRange": {
+            "min": 1973,
+            "max": 1985
+          }
+        },
+        {
+          "number": 3,
+          "mode": "year",
+          "range": {
+            "min": 1973,
+            "max": 1985
+          },
+          "anchor": {
+            "personId": "raquel-welch",
+            "name": "Raquel Welch",
+            "gender": "female",
+            "nationality": "American",
+            "popularityTier": "B",
+            "film": "The Three Musketeers",
+            "year": 1973,
+            "role": "Constance de Bonacieux",
+            "creditType": "lead",
+            "value": 1973,
+            "age": 33,
+            "valueLabel": "1973"
+          },
+          "anchorSide": "left",
+          "target": {
+            "personId": "sigourney-weaver",
+            "name": "Sigourney Weaver",
+            "gender": "female",
+            "nationality": "American",
+            "popularityTier": "A",
+            "film": "Alien",
+            "role": "Ripley",
+            "creditType": "lead",
+            "year": 1979,
+            "value": 1979,
+            "age": 30
+          },
+          "nextRange": {
+            "min": 1979,
+            "max": 1985
+          }
+        },
+        {
+          "number": 4,
+          "mode": "year",
+          "range": {
+            "min": 1979,
+            "max": 1985
+          },
+          "anchor": {
+            "personId": "sigourney-weaver",
+            "name": "Sigourney Weaver",
+            "gender": "female",
+            "nationality": "American",
+            "popularityTier": "A",
+            "film": "Alien",
+            "year": 1979,
+            "role": "Ripley",
+            "creditType": "lead",
+            "value": 1979,
+            "age": 30,
+            "valueLabel": "1979"
+          },
+          "anchorSide": "left",
+          "target": {
+            "personId": "william-shatner",
+            "name": "William Shatner",
+            "gender": "male",
+            "nationality": "Canadian / American",
+            "popularityTier": "B",
+            "film": "Star Trek II: The Wrath of Khan",
+            "role": "Kirk",
+            "creditType": "lead",
+            "year": 1982,
+            "value": 1982,
+            "age": 51
+          },
+          "nextRange": {
+            "min": 1982,
+            "max": 1985
+          }
+        },
+        {
+          "number": 5,
+          "mode": "year",
+          "range": {
+            "min": 1982,
+            "max": 1985
+          },
+          "anchor": {
+            "personId": "william-shatner",
+            "name": "William Shatner",
+            "gender": "male",
+            "nationality": "Canadian / American",
+            "popularityTier": "B",
+            "film": "Star Trek II: The Wrath of Khan",
+            "year": 1982,
+            "role": "Kirk",
+            "creditType": "lead",
+            "value": 1982,
+            "age": 51,
+            "valueLabel": "1982"
+          },
+          "anchorSide": "left",
+          "target": {
+            "personId": "arnold-schwarzenegger",
+            "name": "Arnold Schwarzenegger",
+            "gender": "male",
+            "nationality": "American / Austrian",
+            "popularityTier": "A",
+            "film": "The Terminator",
+            "role": "Terminator",
+            "creditType": "lead",
+            "year": 1984,
+            "value": 1984,
+            "age": 37
+          },
+          "nextRange": null
+        }
+      ]
     }
   ]
 }
