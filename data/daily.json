@@ -2788,6 +2788,212 @@
           "nextRange": null
         }
       ]
+    },
+    {
+      "id": 9,
+      "date": "2026-09-05",
+      "mode": "age",
+      "generatorVersion": "v6",
+      "roundCount": 5,
+      "rounds": [
+        {
+          "number": 1,
+          "mode": "age",
+          "range": {
+            "min": 12,
+            "max": 80
+          },
+          "anchor": {
+            "personId": "anton-yelchin",
+            "name": "Anton Yelchin",
+            "gender": "male",
+            "nationality": "American",
+            "popularityTier": "B",
+            "film": "Hearts in Atlantis",
+            "year": 2001,
+            "role": "Bobby Garfield",
+            "creditType": "lead",
+            "value": 12,
+            "age": 12,
+            "valueLabel": "12.0 yrs"
+          },
+          "anchorSide": "left",
+          "target": {
+            "personId": "leonard-nimoy",
+            "name": "Leonard Nimoy",
+            "gender": "male",
+            "nationality": "American",
+            "popularityTier": "A",
+            "film": "Star Trek IV: The Voyage Home",
+            "role": "Spock",
+            "creditType": "lead",
+            "year": 1986,
+            "value": 55,
+            "age": 55
+          },
+          "nextRange": {
+            "min": 55,
+            "max": 80
+          }
+        },
+        {
+          "number": 2,
+          "mode": "age",
+          "range": {
+            "min": 55,
+            "max": 80
+          },
+          "anchor": {
+            "personId": "leonard-nimoy",
+            "name": "Leonard Nimoy",
+            "gender": "male",
+            "nationality": "American",
+            "popularityTier": "A",
+            "film": "Star Trek IV: The Voyage Home",
+            "year": 1986,
+            "role": "Spock",
+            "creditType": "lead",
+            "value": 55,
+            "age": 55,
+            "valueLabel": "55.0 yrs"
+          },
+          "anchorSide": "left",
+          "target": {
+            "personId": "samuel-l-jackson",
+            "name": "Samuel L. Jackson",
+            "gender": "male",
+            "nationality": "American / Gabon",
+            "popularityTier": "A",
+            "film": "The Hateful Eight",
+            "role": "Major Marquis Warren",
+            "creditType": "lead",
+            "year": 2015,
+            "value": 67,
+            "age": 67
+          },
+          "nextRange": {
+            "min": 55,
+            "max": 67
+          }
+        },
+        {
+          "number": 3,
+          "mode": "age",
+          "range": {
+            "min": 55,
+            "max": 67
+          },
+          "anchor": {
+            "personId": "samuel-l-jackson",
+            "name": "Samuel L. Jackson",
+            "gender": "male",
+            "nationality": "American / Gabon",
+            "popularityTier": "A",
+            "film": "The Hateful Eight",
+            "year": 2015,
+            "role": "Major Marquis Warren",
+            "creditType": "lead",
+            "value": 67,
+            "age": 67,
+            "valueLabel": "67.0 yrs"
+          },
+          "anchorSide": "right",
+          "target": {
+            "personId": "tommy-lee-jones",
+            "name": "Tommy Lee Jones",
+            "gender": "male",
+            "nationality": "American",
+            "popularityTier": "A",
+            "film": "No Country for Old Men",
+            "role": "Ed Tom Bell",
+            "creditType": "lead",
+            "year": 2007,
+            "value": 61,
+            "age": 61
+          },
+          "nextRange": {
+            "min": 61,
+            "max": 67
+          }
+        },
+        {
+          "number": 4,
+          "mode": "age",
+          "range": {
+            "min": 61,
+            "max": 67
+          },
+          "anchor": {
+            "personId": "tommy-lee-jones",
+            "name": "Tommy Lee Jones",
+            "gender": "male",
+            "nationality": "American",
+            "popularityTier": "A",
+            "film": "No Country for Old Men",
+            "year": 2007,
+            "role": "Ed Tom Bell",
+            "creditType": "lead",
+            "value": 61,
+            "age": 61,
+            "valueLabel": "61.0 yrs"
+          },
+          "anchorSide": "left",
+          "target": {
+            "personId": "john-goodman",
+            "name": "John Goodman",
+            "gender": "male",
+            "nationality": "American",
+            "popularityTier": "B",
+            "film": "10 Cloverfield Lane",
+            "role": "Howard",
+            "creditType": "lead",
+            "year": 2016,
+            "value": 64,
+            "age": 64
+          },
+          "nextRange": {
+            "min": 64,
+            "max": 67
+          }
+        },
+        {
+          "number": 5,
+          "mode": "age",
+          "range": {
+            "min": 64,
+            "max": 67
+          },
+          "anchor": {
+            "personId": "john-goodman",
+            "name": "John Goodman",
+            "gender": "male",
+            "nationality": "American",
+            "popularityTier": "B",
+            "film": "10 Cloverfield Lane",
+            "year": 2016,
+            "role": "Howard",
+            "creditType": "lead",
+            "value": 64,
+            "age": 64,
+            "valueLabel": "64.0 yrs"
+          },
+          "anchorSide": "left",
+          "target": {
+            "personId": "sean-connery",
+            "name": "Sean Connery",
+            "gender": "male",
+            "nationality": "British",
+            "popularityTier": "A",
+            "film": "The Rock",
+            "role": "John Patrick Mason",
+            "creditType": "lead",
+            "year": 1996,
+            "value": 66,
+            "age": 66
+          },
+          "nextRange": null
+        }
+      ]
     }
   ]
 }
