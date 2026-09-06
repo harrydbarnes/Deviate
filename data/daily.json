@@ -2994,6 +2994,507 @@
           "nextRange": null
         }
       ]
+    },
+    {
+      "id": 10,
+      "date": "2026-09-06",
+      "mode": "middle",
+      "generatorVersion": "v6",
+      "roundCount": 5,
+      "rounds": [
+        {
+          "number": 1,
+          "mode": "middle",
+          "range": {
+            "min": 1957,
+            "max": 2025
+          },
+          "anchor": {
+            "personId": "jan-sterling",
+            "name": "Jan Sterling",
+            "gender": "female",
+            "nationality": "American",
+            "popularityTier": "B",
+            "film": "Slaughter on 10th Avenue",
+            "year": 1957,
+            "role": "Madge Pitts",
+            "creditType": "lead",
+            "value": 1957,
+            "age": 36,
+            "valueLabel": "1957"
+          },
+          "anchorSide": "left",
+          "target": {
+            "personId": "william-shatner",
+            "name": "William Shatner",
+            "gender": "male",
+            "nationality": "Canadian / American",
+            "popularityTier": "B",
+            "film": "Star Trek VI: The Undiscovered Country",
+            "role": "Kirk",
+            "creditType": "lead",
+            "year": 1991,
+            "value": 1991,
+            "age": 60,
+            "optionId": "william-shatner:5"
+          },
+          "options": [
+            {
+              "personId": "charlize-theron",
+              "name": "Charlize Theron",
+              "gender": "female",
+              "nationality": "American / South African",
+              "popularityTier": "A",
+              "film": "Mad Max: Fury Road",
+              "role": "Imperator Furiosa",
+              "creditType": "lead",
+              "year": 2015,
+              "value": 2015,
+              "age": 40,
+              "optionId": "charlize-theron:5"
+            },
+            {
+              "personId": "sylvester-stallone",
+              "name": "Sylvester Stallone",
+              "gender": "male",
+              "nationality": "American",
+              "popularityTier": "A",
+              "film": "Rambo: First Blood Part II",
+              "role": "Rambo",
+              "creditType": "lead",
+              "year": 1985,
+              "value": 1985,
+              "age": 39,
+              "optionId": "sylvester-stallone:2"
+            },
+            {
+              "personId": "william-shatner",
+              "name": "William Shatner",
+              "gender": "male",
+              "nationality": "Canadian / American",
+              "popularityTier": "B",
+              "film": "Star Trek VI: The Undiscovered Country",
+              "role": "Kirk",
+              "creditType": "lead",
+              "year": 1991,
+              "value": 1991,
+              "age": 60,
+              "optionId": "william-shatner:5"
+            },
+            {
+              "personId": "emilia-clarke",
+              "name": "Emilia Clarke",
+              "gender": "female",
+              "nationality": "British",
+              "popularityTier": "A",
+              "film": "Solo: A Star Wars Story",
+              "role": "Qi'ra",
+              "creditType": "supporting",
+              "year": 2018,
+              "value": 2018,
+              "age": 32,
+              "optionId": "emilia-clarke:4"
+            }
+          ],
+          "nextRange": {
+            "min": 1991,
+            "max": 2025
+          }
+        },
+        {
+          "number": 2,
+          "mode": "middle",
+          "range": {
+            "min": 1991,
+            "max": 2025
+          },
+          "anchor": {
+            "personId": "william-shatner",
+            "name": "William Shatner",
+            "gender": "male",
+            "nationality": "Canadian / American",
+            "popularityTier": "B",
+            "film": "Star Trek VI: The Undiscovered Country",
+            "year": 1991,
+            "role": "Kirk",
+            "creditType": "lead",
+            "value": 1991,
+            "age": 60,
+            "valueLabel": "1991"
+          },
+          "anchorSide": "left",
+          "target": {
+            "personId": "pierce-brosnan",
+            "name": "Pierce Brosnan",
+            "gender": "male",
+            "nationality": "Irish / American",
+            "popularityTier": "A",
+            "film": "Mamma Mia!",
+            "role": "Sam",
+            "creditType": "lead",
+            "year": 2008,
+            "value": 2008,
+            "age": 55,
+            "optionId": "pierce-brosnan:5"
+          },
+          "options": [
+            {
+              "personId": "rene-russo",
+              "name": "Rene Russo",
+              "gender": "female",
+              "nationality": "American",
+              "popularityTier": "B",
+              "film": "Lethal Weapon 4",
+              "role": "Lorna Cole",
+              "creditType": "supporting",
+              "year": 1998,
+              "value": 1998,
+              "age": 44,
+              "optionId": "rene-russo:4"
+            },
+            {
+              "personId": "jude-law",
+              "name": "Jude Law",
+              "gender": "male",
+              "nationality": "British",
+              "popularityTier": "A",
+              "film": "Enemy at the Gates",
+              "role": "Vasily Zaitsev",
+              "creditType": "lead",
+              "year": 2001,
+              "value": 2001,
+              "age": 29,
+              "optionId": "jude-law:2"
+            },
+            {
+              "personId": "pierce-brosnan",
+              "name": "Pierce Brosnan",
+              "gender": "male",
+              "nationality": "Irish / American",
+              "popularityTier": "A",
+              "film": "Mamma Mia!",
+              "role": "Sam",
+              "creditType": "lead",
+              "year": 2008,
+              "value": 2008,
+              "age": 55,
+              "optionId": "pierce-brosnan:5"
+            },
+            {
+              "personId": "robert-downey-jr",
+              "name": "Robert Downey Jr.",
+              "gender": "male",
+              "nationality": "American",
+              "popularityTier": "A",
+              "film": "Iron Man 3",
+              "role": "Tony Stark",
+              "creditType": "lead",
+              "year": 2013,
+              "value": 2013,
+              "age": 48,
+              "optionId": "robert-downey-jr:7"
+            }
+          ],
+          "nextRange": {
+            "min": 2008,
+            "max": 2025
+          }
+        },
+        {
+          "number": 3,
+          "mode": "middle",
+          "range": {
+            "min": 2008,
+            "max": 2025
+          },
+          "anchor": {
+            "personId": "pierce-brosnan",
+            "name": "Pierce Brosnan",
+            "gender": "male",
+            "nationality": "Irish / American",
+            "popularityTier": "A",
+            "film": "Mamma Mia!",
+            "year": 2008,
+            "role": "Sam",
+            "creditType": "lead",
+            "value": 2008,
+            "age": 55,
+            "valueLabel": "2008"
+          },
+          "anchorSide": "left",
+          "target": {
+            "personId": "bryan-cranston",
+            "name": "Bryan Cranston",
+            "gender": "male",
+            "nationality": "American",
+            "popularityTier": "B",
+            "film": "The Upside",
+            "role": "Philip Lacasse",
+            "creditType": "lead",
+            "year": 2017,
+            "value": 2017,
+            "age": 61,
+            "optionId": "bryan-cranston:6"
+          },
+          "options": [
+            {
+              "personId": "emily-blunt",
+              "name": "Emily Blunt",
+              "gender": "female",
+              "nationality": "American / British",
+              "popularityTier": "B",
+              "film": "A Quiet Place Part II",
+              "role": "Evelyn Abbott",
+              "creditType": "lead",
+              "year": 2020,
+              "value": 2020,
+              "age": 37,
+              "optionId": "emily-blunt:7"
+            },
+            {
+              "personId": "tom-hardy",
+              "name": "Tom Hardy",
+              "gender": "male",
+              "nationality": "British",
+              "popularityTier": "A",
+              "film": "The Dark Knight Rises",
+              "role": "Bane",
+              "creditType": "lead",
+              "year": 2012,
+              "value": 2012,
+              "age": 35,
+              "optionId": "tom-hardy:4"
+            },
+            {
+              "personId": "gerard-butler",
+              "name": "Gerard Butler",
+              "gender": "male",
+              "nationality": "British",
+              "popularityTier": "B",
+              "film": "Law Abiding Citizen",
+              "role": "Clyde Shelton",
+              "creditType": "lead",
+              "year": 2009,
+              "value": 2009,
+              "age": 40,
+              "optionId": "gerard-butler:4"
+            },
+            {
+              "personId": "bryan-cranston",
+              "name": "Bryan Cranston",
+              "gender": "male",
+              "nationality": "American",
+              "popularityTier": "B",
+              "film": "The Upside",
+              "role": "Philip Lacasse",
+              "creditType": "lead",
+              "year": 2017,
+              "value": 2017,
+              "age": 61,
+              "optionId": "bryan-cranston:6"
+            }
+          ],
+          "nextRange": {
+            "min": 2017,
+            "max": 2025
+          }
+        },
+        {
+          "number": 4,
+          "mode": "middle",
+          "range": {
+            "min": 2017,
+            "max": 2025
+          },
+          "anchor": {
+            "personId": "bryan-cranston",
+            "name": "Bryan Cranston",
+            "gender": "male",
+            "nationality": "American",
+            "popularityTier": "B",
+            "film": "The Upside",
+            "year": 2017,
+            "role": "Philip Lacasse",
+            "creditType": "lead",
+            "value": 2017,
+            "age": 61,
+            "valueLabel": "2017"
+          },
+          "anchorSide": "left",
+          "target": {
+            "personId": "lea-seydoux",
+            "name": "Léa Seydoux",
+            "gender": "female",
+            "nationality": "French",
+            "popularityTier": "B",
+            "film": "No Time to Die",
+            "role": "Madeleine",
+            "creditType": "supporting",
+            "year": 2021,
+            "value": 2021,
+            "age": 36,
+            "optionId": "lea-seydoux:6"
+          },
+          "options": [
+            {
+              "personId": "kristen-bell",
+              "name": "Kristen Bell",
+              "gender": "female",
+              "nationality": "American",
+              "popularityTier": "B",
+              "film": "Frozen II",
+              "role": "Anna",
+              "creditType": "lead",
+              "year": 2019,
+              "value": 2019,
+              "age": 39,
+              "optionId": "kristen-bell:7"
+            },
+            {
+              "personId": "emma-stone",
+              "name": "Emma Stone",
+              "gender": "female",
+              "nationality": "American",
+              "popularityTier": "B",
+              "film": "Poor Things",
+              "role": "Bella Baxter",
+              "creditType": "lead",
+              "year": 2023,
+              "value": 2023,
+              "age": 35,
+              "optionId": "emma-stone:7"
+            },
+            {
+              "personId": "lea-seydoux",
+              "name": "Léa Seydoux",
+              "gender": "female",
+              "nationality": "French",
+              "popularityTier": "B",
+              "film": "No Time to Die",
+              "role": "Madeleine",
+              "creditType": "supporting",
+              "year": 2021,
+              "value": 2021,
+              "age": 36,
+              "optionId": "lea-seydoux:6"
+            },
+            {
+              "personId": "cliff-curtis",
+              "name": "Cliff Curtis",
+              "gender": "male",
+              "nationality": "New Zealander",
+              "popularityTier": "B",
+              "film": "Fast & Furious Presents: Hobbs & Shaw",
+              "role": "Jonah",
+              "creditType": "supporting",
+              "year": 2019,
+              "value": 2019,
+              "age": 51,
+              "optionId": "cliff-curtis:7"
+            }
+          ],
+          "nextRange": {
+            "min": 2021,
+            "max": 2025
+          }
+        },
+        {
+          "number": 5,
+          "mode": "middle",
+          "range": {
+            "min": 2021,
+            "max": 2025
+          },
+          "anchor": {
+            "personId": "lea-seydoux",
+            "name": "Léa Seydoux",
+            "gender": "female",
+            "nationality": "French",
+            "popularityTier": "B",
+            "film": "No Time to Die",
+            "year": 2021,
+            "role": "Madeleine",
+            "creditType": "supporting",
+            "value": 2021,
+            "age": 36,
+            "valueLabel": "2021"
+          },
+          "anchorSide": "left",
+          "target": {
+            "personId": "emma-stone",
+            "name": "Emma Stone",
+            "gender": "female",
+            "nationality": "American",
+            "popularityTier": "B",
+            "film": "Poor Things",
+            "role": "Bella Baxter",
+            "creditType": "lead",
+            "year": 2023,
+            "value": 2023,
+            "age": 35,
+            "optionId": "emma-stone:7"
+          },
+          "options": [
+            {
+              "personId": "miles-teller",
+              "name": "Miles Teller",
+              "gender": "male",
+              "nationality": "American",
+              "popularityTier": "B",
+              "film": "Spiderhead",
+              "role": "Jeff",
+              "creditType": "lead",
+              "year": 2022,
+              "value": 2022,
+              "age": 35,
+              "optionId": "miles-teller:7"
+            },
+            {
+              "personId": "jeremy-sumpter",
+              "name": "Jeremy Sumpter",
+              "gender": "male",
+              "nationality": "American",
+              "popularityTier": "B",
+              "film": "The Fall",
+              "role": "Travis Humphrey",
+              "creditType": "lead",
+              "year": 2024,
+              "value": 2024,
+              "age": 35,
+              "optionId": "jeremy-sumpter:7"
+            },
+            {
+              "personId": "emma-stone",
+              "name": "Emma Stone",
+              "gender": "female",
+              "nationality": "American",
+              "popularityTier": "B",
+              "film": "Poor Things",
+              "role": "Bella Baxter",
+              "creditType": "lead",
+              "year": 2023,
+              "value": 2023,
+              "age": 35,
+              "optionId": "emma-stone:7"
+            },
+            {
+              "personId": "chris-hemsworth",
+              "name": "Chris Hemsworth",
+              "gender": "male",
+              "nationality": "Australian",
+              "popularityTier": "A",
+              "film": "Thor: Love and Thunder",
+              "role": "Thor",
+              "creditType": "lead",
+              "year": 2022,
+              "value": 2022,
+              "age": 39,
+              "optionId": "chris-hemsworth:7"
+            }
+          ],
+          "nextRange": null
+        }
+      ]
     }
   ]
 }
