@@ -3996,6 +3996,212 @@
           "nextRange": null
         }
       ]
+    },
+    {
+      "id": 12,
+      "date": "2026-09-08",
+      "mode": "year",
+      "generatorVersion": "v6",
+      "roundCount": 5,
+      "rounds": [
+        {
+          "number": 1,
+          "mode": "year",
+          "range": {
+            "min": 1957,
+            "max": 2025
+          },
+          "anchor": {
+            "personId": "jan-sterling",
+            "name": "Jan Sterling",
+            "gender": "female",
+            "nationality": "American",
+            "popularityTier": "B",
+            "film": "Slaughter on 10th Avenue",
+            "year": 1957,
+            "role": "Madge Pitts",
+            "creditType": "lead",
+            "value": 1957,
+            "age": 36,
+            "valueLabel": "1957"
+          },
+          "anchorSide": "left",
+          "target": {
+            "personId": "sylvester-stallone",
+            "name": "Sylvester Stallone",
+            "gender": "male",
+            "nationality": "American",
+            "popularityTier": "A",
+            "film": "Rambo: First Blood Part II",
+            "role": "Rambo",
+            "creditType": "lead",
+            "year": 1985,
+            "value": 1985,
+            "age": 39
+          },
+          "nextRange": {
+            "min": 1957,
+            "max": 1985
+          }
+        },
+        {
+          "number": 2,
+          "mode": "year",
+          "range": {
+            "min": 1957,
+            "max": 1985
+          },
+          "anchor": {
+            "personId": "sylvester-stallone",
+            "name": "Sylvester Stallone",
+            "gender": "male",
+            "nationality": "American",
+            "popularityTier": "A",
+            "film": "Rambo: First Blood Part II",
+            "year": 1985,
+            "role": "Rambo",
+            "creditType": "lead",
+            "value": 1985,
+            "age": 39,
+            "valueLabel": "1985"
+          },
+          "anchorSide": "right",
+          "target": {
+            "personId": "al-pacino",
+            "name": "Al Pacino",
+            "gender": "male",
+            "nationality": "American",
+            "popularityTier": "B",
+            "film": "The Godfather",
+            "role": "Michael",
+            "creditType": "lead",
+            "year": 1972,
+            "value": 1972,
+            "age": 32
+          },
+          "nextRange": {
+            "min": 1972,
+            "max": 1985
+          }
+        },
+        {
+          "number": 3,
+          "mode": "year",
+          "range": {
+            "min": 1972,
+            "max": 1985
+          },
+          "anchor": {
+            "personId": "al-pacino",
+            "name": "Al Pacino",
+            "gender": "male",
+            "nationality": "American",
+            "popularityTier": "B",
+            "film": "The Godfather",
+            "year": 1972,
+            "role": "Michael",
+            "creditType": "lead",
+            "value": 1972,
+            "age": 32,
+            "valueLabel": "1972"
+          },
+          "anchorSide": "left",
+          "target": {
+            "personId": "jamie-lee-curtis",
+            "name": "Jamie Lee Curtis",
+            "gender": "female",
+            "nationality": "American",
+            "popularityTier": "B",
+            "film": "Halloween",
+            "role": "Laurie Strode",
+            "creditType": "lead",
+            "year": 1978,
+            "value": 1978,
+            "age": 20
+          },
+          "nextRange": {
+            "min": 1972,
+            "max": 1978
+          }
+        },
+        {
+          "number": 4,
+          "mode": "year",
+          "range": {
+            "min": 1972,
+            "max": 1978
+          },
+          "anchor": {
+            "personId": "jamie-lee-curtis",
+            "name": "Jamie Lee Curtis",
+            "gender": "female",
+            "nationality": "American",
+            "popularityTier": "B",
+            "film": "Halloween",
+            "year": 1978,
+            "role": "Laurie Strode",
+            "creditType": "lead",
+            "value": 1978,
+            "age": 20,
+            "valueLabel": "1978"
+          },
+          "anchorSide": "right",
+          "target": {
+            "personId": "stella-stevens",
+            "name": "Stella Stevens",
+            "gender": "female",
+            "nationality": "American",
+            "popularityTier": "B",
+            "film": "Cleopatra Jones and the Casino of Gold",
+            "role": "Dragon Lady",
+            "creditType": "lead",
+            "year": 1975,
+            "value": 1975,
+            "age": 37
+          },
+          "nextRange": {
+            "min": 1975,
+            "max": 1978
+          }
+        },
+        {
+          "number": 5,
+          "mode": "year",
+          "range": {
+            "min": 1975,
+            "max": 1978
+          },
+          "anchor": {
+            "personId": "stella-stevens",
+            "name": "Stella Stevens",
+            "gender": "female",
+            "nationality": "American",
+            "popularityTier": "B",
+            "film": "Cleopatra Jones and the Casino of Gold",
+            "year": 1975,
+            "role": "Dragon Lady",
+            "creditType": "lead",
+            "value": 1975,
+            "age": 37,
+            "valueLabel": "1975"
+          },
+          "anchorSide": "left",
+          "target": {
+            "personId": "kris-kristofferson",
+            "name": "Kris Kristofferson",
+            "gender": "male",
+            "nationality": "American",
+            "popularityTier": "B",
+            "film": "A Star Is Born",
+            "role": "John Norman Howard",
+            "creditType": "lead",
+            "year": 1976,
+            "value": 1976,
+            "age": 40
+          },
+          "nextRange": null
+        }
+      ]
     }
   ]
 }
