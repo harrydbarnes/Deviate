@@ -4202,6 +4202,507 @@
           "nextRange": null
         }
       ]
+    },
+    {
+      "id": 13,
+      "date": "2026-09-09",
+      "mode": "middle",
+      "generatorVersion": "v6",
+      "roundCount": 5,
+      "rounds": [
+        {
+          "number": 1,
+          "mode": "middle",
+          "range": {
+            "min": 1957,
+            "max": 2025
+          },
+          "anchor": {
+            "personId": "jan-sterling",
+            "name": "Jan Sterling",
+            "gender": "female",
+            "nationality": "American",
+            "popularityTier": "B",
+            "film": "Slaughter on 10th Avenue",
+            "year": 1957,
+            "role": "Madge Pitts",
+            "creditType": "lead",
+            "value": 1957,
+            "age": 36,
+            "valueLabel": "1957"
+          },
+          "anchorSide": "left",
+          "target": {
+            "personId": "anthony-hopkins",
+            "name": "Anthony Hopkins",
+            "gender": "male",
+            "nationality": "American / British",
+            "popularityTier": "A",
+            "film": "The Silence of the Lambs",
+            "role": "Dr. Hannibal Lecter",
+            "creditType": "lead",
+            "year": 1991,
+            "value": 1991,
+            "age": 54,
+            "optionId": "anthony-hopkins:1"
+          },
+          "options": [
+            {
+              "personId": "orlando-bloom",
+              "name": "Orlando Bloom",
+              "gender": "male",
+              "nationality": "British",
+              "popularityTier": "B",
+              "film": "The Lord of the Rings: The Return of the King",
+              "role": "Legolas",
+              "creditType": "supporting",
+              "year": 2003,
+              "value": 2003,
+              "age": 26,
+              "optionId": "orlando-bloom:3"
+            },
+            {
+              "personId": "harrison-ford",
+              "name": "Harrison Ford",
+              "gender": "male",
+              "nationality": "American",
+              "popularityTier": "B",
+              "film": "Star Wars: Episode IV - A New Hope",
+              "role": "Han Solo",
+              "creditType": "lead",
+              "year": 1977,
+              "value": 1977,
+              "age": 35,
+              "optionId": "harrison-ford:1"
+            },
+            {
+              "personId": "anthony-hopkins",
+              "name": "Anthony Hopkins",
+              "gender": "male",
+              "nationality": "American / British",
+              "popularityTier": "A",
+              "film": "The Silence of the Lambs",
+              "role": "Dr. Hannibal Lecter",
+              "creditType": "lead",
+              "year": 1991,
+              "value": 1991,
+              "age": 54,
+              "optionId": "anthony-hopkins:1"
+            },
+            {
+              "personId": "justin-timberlake",
+              "name": "Justin Timberlake",
+              "gender": "male",
+              "nationality": "American",
+              "popularityTier": "A",
+              "film": "Trolls",
+              "role": "Branch",
+              "creditType": "lead",
+              "year": 2016,
+              "value": 2016,
+              "age": 35,
+              "optionId": "justin-timberlake:5"
+            }
+          ],
+          "nextRange": {
+            "min": 1991,
+            "max": 2025
+          }
+        },
+        {
+          "number": 2,
+          "mode": "middle",
+          "range": {
+            "min": 1991,
+            "max": 2025
+          },
+          "anchor": {
+            "personId": "anthony-hopkins",
+            "name": "Anthony Hopkins",
+            "gender": "male",
+            "nationality": "American / British",
+            "popularityTier": "A",
+            "film": "The Silence of the Lambs",
+            "year": 1991,
+            "role": "Dr. Hannibal Lecter",
+            "creditType": "lead",
+            "value": 1991,
+            "age": 54,
+            "valueLabel": "1991"
+          },
+          "anchorSide": "left",
+          "target": {
+            "personId": "mila-kunis",
+            "name": "Mila Kunis",
+            "gender": "female",
+            "nationality": "American",
+            "popularityTier": "B",
+            "film": "Max Payne",
+            "role": "Mona Sax",
+            "creditType": "lead",
+            "year": 2008,
+            "value": 2008,
+            "age": 25,
+            "optionId": "mila-kunis:2"
+          },
+          "options": [
+            {
+              "personId": "jennifer-aniston",
+              "name": "Jennifer Aniston",
+              "gender": "female",
+              "nationality": "American",
+              "popularityTier": "A",
+              "film": "The Good Girl",
+              "role": "Justine Last",
+              "creditType": "lead",
+              "year": 2002,
+              "value": 2002,
+              "age": 33,
+              "optionId": "jennifer-aniston:2"
+            },
+            {
+              "personId": "mila-kunis",
+              "name": "Mila Kunis",
+              "gender": "female",
+              "nationality": "American",
+              "popularityTier": "B",
+              "film": "Max Payne",
+              "role": "Mona Sax",
+              "creditType": "lead",
+              "year": 2008,
+              "value": 2008,
+              "age": 25,
+              "optionId": "mila-kunis:2"
+            },
+            {
+              "personId": "danny-glover",
+              "name": "Danny Glover",
+              "gender": "male",
+              "nationality": "American",
+              "popularityTier": "B",
+              "film": "Lethal Weapon 4",
+              "role": "Roger Murtaugh",
+              "creditType": "lead",
+              "year": 1998,
+              "value": 1998,
+              "age": 52,
+              "optionId": "danny-glover:4"
+            },
+            {
+              "personId": "dwayne-johnson",
+              "name": "Dwayne Johnson",
+              "gender": "male",
+              "nationality": "Canadian / American",
+              "popularityTier": "A",
+              "film": "Journey 2: The Mysterious Island",
+              "role": "Hank",
+              "creditType": "lead",
+              "year": 2012,
+              "value": 2012,
+              "age": 40,
+              "optionId": "dwayne-johnson:2"
+            }
+          ],
+          "nextRange": {
+            "min": 2008,
+            "max": 2025
+          }
+        },
+        {
+          "number": 3,
+          "mode": "middle",
+          "range": {
+            "min": 2008,
+            "max": 2025
+          },
+          "anchor": {
+            "personId": "mila-kunis",
+            "name": "Mila Kunis",
+            "gender": "female",
+            "nationality": "American",
+            "popularityTier": "B",
+            "film": "Max Payne",
+            "year": 2008,
+            "role": "Mona Sax",
+            "creditType": "lead",
+            "value": 2008,
+            "age": 25,
+            "valueLabel": "2008"
+          },
+          "anchorSide": "left",
+          "target": {
+            "personId": "laura-harring",
+            "name": "Laura Harring",
+            "gender": "female",
+            "nationality": "Mexican",
+            "popularityTier": "B",
+            "film": "Ice Scream",
+            "role": "Wendy",
+            "creditType": "lead",
+            "year": 2016,
+            "value": 2016,
+            "age": 52,
+            "optionId": "laura-harring:7"
+          },
+          "options": [
+            {
+              "personId": "kristen-stewart",
+              "name": "Kristen Stewart",
+              "gender": "female",
+              "nationality": "American",
+              "popularityTier": "A",
+              "film": "Charlie's Angels",
+              "role": "Sabina Wilson",
+              "creditType": "lead",
+              "year": 2019,
+              "value": 2019,
+              "age": 29,
+              "optionId": "kristen-stewart:7"
+            },
+            {
+              "personId": "sharon-stone",
+              "name": "Sharon Stone",
+              "gender": "female",
+              "nationality": "American",
+              "popularityTier": "A",
+              "film": "Largo Winch II",
+              "role": "Diane Francken",
+              "creditType": "lead",
+              "year": 2011,
+              "value": 2011,
+              "age": 53,
+              "optionId": "sharon-stone:7"
+            },
+            {
+              "personId": "chris-hemsworth",
+              "name": "Chris Hemsworth",
+              "gender": "male",
+              "nationality": "Australian",
+              "popularityTier": "A",
+              "film": "Rush",
+              "role": "James Hunt",
+              "creditType": "lead",
+              "year": 2013,
+              "value": 2013,
+              "age": 30,
+              "optionId": "chris-hemsworth:3"
+            },
+            {
+              "personId": "laura-harring",
+              "name": "Laura Harring",
+              "gender": "female",
+              "nationality": "Mexican",
+              "popularityTier": "B",
+              "film": "Ice Scream",
+              "role": "Wendy",
+              "creditType": "lead",
+              "year": 2016,
+              "value": 2016,
+              "age": 52,
+              "optionId": "laura-harring:7"
+            }
+          ],
+          "nextRange": {
+            "min": 2008,
+            "max": 2016
+          }
+        },
+        {
+          "number": 4,
+          "mode": "middle",
+          "range": {
+            "min": 2008,
+            "max": 2016
+          },
+          "anchor": {
+            "personId": "laura-harring",
+            "name": "Laura Harring",
+            "gender": "female",
+            "nationality": "Mexican",
+            "popularityTier": "B",
+            "film": "Ice Scream",
+            "year": 2016,
+            "role": "Wendy",
+            "creditType": "lead",
+            "value": 2016,
+            "age": 52,
+            "valueLabel": "2016"
+          },
+          "anchorSide": "right",
+          "target": {
+            "personId": "carice-van-houten",
+            "name": "Carice van Houten",
+            "gender": "female",
+            "nationality": "Dutch",
+            "popularityTier": "A",
+            "film": "Jackie",
+            "role": "Sofie",
+            "creditType": "lead",
+            "year": 2012,
+            "value": 2012,
+            "age": 36,
+            "optionId": "carice-van-houten:6"
+          },
+          "options": [
+            {
+              "personId": "carice-van-houten",
+              "name": "Carice van Houten",
+              "gender": "female",
+              "nationality": "Dutch",
+              "popularityTier": "A",
+              "film": "Jackie",
+              "role": "Sofie",
+              "creditType": "lead",
+              "year": 2012,
+              "value": 2012,
+              "age": 36,
+              "optionId": "carice-van-houten:6"
+            },
+            {
+              "personId": "christian-bale",
+              "name": "Christian Bale",
+              "gender": "male",
+              "nationality": "American / British",
+              "popularityTier": "A",
+              "film": "The Fighter",
+              "role": "Dicky Eklund",
+              "creditType": "lead",
+              "year": 2010,
+              "value": 2010,
+              "age": 36,
+              "optionId": "christian-bale:5"
+            },
+            {
+              "personId": "hugh-jackman",
+              "name": "Hugh Jackman",
+              "gender": "male",
+              "nationality": "British / Australian",
+              "popularityTier": "A",
+              "film": "X-Men Origins: Wolverine",
+              "role": "Logan",
+              "creditType": "lead",
+              "year": 2009,
+              "value": 2009,
+              "age": 41,
+              "optionId": "hugh-jackman:3"
+            },
+            {
+              "personId": "jennifer-lawrence",
+              "name": "Jennifer Lawrence",
+              "gender": "female",
+              "nationality": "American",
+              "popularityTier": "B",
+              "film": "The Hunger Games: Mockingjay - Part 2",
+              "role": "Katniss Everdeen",
+              "creditType": "lead",
+              "year": 2015,
+              "value": 2015,
+              "age": 25,
+              "optionId": "jennifer-lawrence:6"
+            }
+          ],
+          "nextRange": {
+            "min": 2012,
+            "max": 2016
+          }
+        },
+        {
+          "number": 5,
+          "mode": "middle",
+          "range": {
+            "min": 2012,
+            "max": 2016
+          },
+          "anchor": {
+            "personId": "carice-van-houten",
+            "name": "Carice van Houten",
+            "gender": "female",
+            "nationality": "Dutch",
+            "popularityTier": "A",
+            "film": "Jackie",
+            "year": 2012,
+            "role": "Sofie",
+            "creditType": "lead",
+            "value": 2012,
+            "age": 36,
+            "valueLabel": "2012"
+          },
+          "anchorSide": "left",
+          "target": {
+            "personId": "rosamund-pike",
+            "name": "Rosamund Pike",
+            "gender": "female",
+            "nationality": "British",
+            "popularityTier": "A",
+            "film": "Gone Girl",
+            "role": "Amy Dunne",
+            "creditType": "lead",
+            "year": 2014,
+            "value": 2014,
+            "age": 35,
+            "optionId": "rosamund-pike:5"
+          },
+          "options": [
+            {
+              "personId": "rosamund-pike",
+              "name": "Rosamund Pike",
+              "gender": "female",
+              "nationality": "British",
+              "popularityTier": "A",
+              "film": "Gone Girl",
+              "role": "Amy Dunne",
+              "creditType": "lead",
+              "year": 2014,
+              "value": 2014,
+              "age": 35,
+              "optionId": "rosamund-pike:5"
+            },
+            {
+              "personId": "daniel-craig",
+              "name": "Daniel Craig",
+              "gender": "male",
+              "nationality": "American / British",
+              "popularityTier": "B",
+              "film": "Spectre",
+              "role": "James Bond",
+              "creditType": "lead",
+              "year": 2015,
+              "value": 2015,
+              "age": 47,
+              "optionId": "daniel-craig:6"
+            },
+            {
+              "personId": "joaquin-phoenix",
+              "name": "Joaquin Phoenix",
+              "gender": "male",
+              "nationality": "American",
+              "popularityTier": "B",
+              "film": "Her",
+              "role": "Theodore",
+              "creditType": "lead",
+              "year": 2013,
+              "value": 2013,
+              "age": 39,
+              "optionId": "joaquin-phoenix:6"
+            },
+            {
+              "personId": "channing-tatum",
+              "name": "Channing Tatum",
+              "gender": "male",
+              "nationality": "American",
+              "popularityTier": "B",
+              "film": "White House Down",
+              "role": "Cale",
+              "creditType": "lead",
+              "year": 2013,
+              "value": 2013,
+              "age": 33,
+              "optionId": "channing-tatum:4"
+            }
+          ],
+          "nextRange": null
+        }
+      ]
     }
   ]
 }
