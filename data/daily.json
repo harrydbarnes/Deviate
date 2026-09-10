@@ -4703,6 +4703,507 @@
           "nextRange": null
         }
       ]
+    },
+    {
+      "id": 14,
+      "date": "2026-09-10",
+      "mode": "middle",
+      "generatorVersion": "v6",
+      "roundCount": 5,
+      "rounds": [
+        {
+          "number": 1,
+          "mode": "middle",
+          "range": {
+            "min": 1957,
+            "max": 2025
+          },
+          "anchor": {
+            "personId": "jan-sterling",
+            "name": "Jan Sterling",
+            "gender": "female",
+            "nationality": "American",
+            "popularityTier": "B",
+            "film": "Slaughter on 10th Avenue",
+            "year": 1957,
+            "role": "Madge Pitts",
+            "creditType": "lead",
+            "value": 1957,
+            "age": 36,
+            "valueLabel": "1957"
+          },
+          "anchorSide": "left",
+          "target": {
+            "personId": "jodie-foster",
+            "name": "Jodie Foster",
+            "gender": "female",
+            "nationality": "American",
+            "popularityTier": "B",
+            "film": "The Silence of the Lambs",
+            "role": "Clarice Starling",
+            "creditType": "lead",
+            "year": 1991,
+            "value": 1991,
+            "age": 29,
+            "optionId": "jodie-foster:4"
+          },
+          "options": [
+            {
+              "personId": "jodie-foster",
+              "name": "Jodie Foster",
+              "gender": "female",
+              "nationality": "American",
+              "popularityTier": "B",
+              "film": "The Silence of the Lambs",
+              "role": "Clarice Starling",
+              "creditType": "lead",
+              "year": 1991,
+              "value": 1991,
+              "age": 29,
+              "optionId": "jodie-foster:4"
+            },
+            {
+              "personId": "eva-green",
+              "name": "Eva Green",
+              "gender": "female",
+              "nationality": "French",
+              "popularityTier": "B",
+              "film": "Casino Royale",
+              "role": "Vesper Lynd",
+              "creditType": "lead",
+              "year": 2006,
+              "value": 2006,
+              "age": 26,
+              "optionId": "eva-green:2"
+            },
+            {
+              "personId": "lacey-chabert",
+              "name": "Lacey Chabert",
+              "gender": "female",
+              "nationality": "American",
+              "popularityTier": "A",
+              "film": "Mean Girls",
+              "role": "Gretchen Wieners",
+              "creditType": "supporting",
+              "year": 2004,
+              "value": 2004,
+              "age": 22,
+              "optionId": "lacey-chabert:3"
+            },
+            {
+              "personId": "julie-andrews",
+              "name": "Julie Andrews",
+              "gender": "female",
+              "nationality": "British",
+              "popularityTier": "B",
+              "film": "Thoroughly Modern Millie",
+              "role": "Millie Dillmount",
+              "creditType": "lead",
+              "year": 1967,
+              "value": 1967,
+              "age": 32,
+              "optionId": "julie-andrews:3"
+            }
+          ],
+          "nextRange": {
+            "min": 1991,
+            "max": 2025
+          }
+        },
+        {
+          "number": 2,
+          "mode": "middle",
+          "range": {
+            "min": 1991,
+            "max": 2025
+          },
+          "anchor": {
+            "personId": "jodie-foster",
+            "name": "Jodie Foster",
+            "gender": "female",
+            "nationality": "American",
+            "popularityTier": "B",
+            "film": "The Silence of the Lambs",
+            "year": 1991,
+            "role": "Clarice Starling",
+            "creditType": "lead",
+            "value": 1991,
+            "age": 29,
+            "valueLabel": "1991"
+          },
+          "anchorSide": "left",
+          "target": {
+            "personId": "michael-caine",
+            "name": "Michael Caine",
+            "gender": "male",
+            "nationality": "British",
+            "popularityTier": "A",
+            "film": "The Dark Knight",
+            "role": "Alfred",
+            "creditType": "supporting",
+            "year": 2008,
+            "value": 2008,
+            "age": 75,
+            "optionId": "michael-caine:6"
+          },
+          "options": [
+            {
+              "personId": "michael-caine",
+              "name": "Michael Caine",
+              "gender": "male",
+              "nationality": "British",
+              "popularityTier": "A",
+              "film": "The Dark Knight",
+              "role": "Alfred",
+              "creditType": "supporting",
+              "year": 2008,
+              "value": 2008,
+              "age": 75,
+              "optionId": "michael-caine:6"
+            },
+            {
+              "personId": "channing-tatum",
+              "name": "Channing Tatum",
+              "gender": "male",
+              "nationality": "American",
+              "popularityTier": "B",
+              "film": "Dear John",
+              "role": "John Tyree",
+              "creditType": "lead",
+              "year": 2010,
+              "value": 2010,
+              "age": 30,
+              "optionId": "channing-tatum:1"
+            },
+            {
+              "personId": "sigourney-weaver",
+              "name": "Sigourney Weaver",
+              "gender": "female",
+              "nationality": "American",
+              "popularityTier": "A",
+              "film": "Alien: Resurrection",
+              "role": "Ripley",
+              "creditType": "lead",
+              "year": 1997,
+              "value": 1997,
+              "age": 48,
+              "optionId": "sigourney-weaver:4"
+            },
+            {
+              "personId": "sienna-guillory",
+              "name": "Sienna Guillory",
+              "gender": "female",
+              "nationality": "British",
+              "popularityTier": "A",
+              "film": "Eragon",
+              "role": "Arya",
+              "creditType": "lead",
+              "year": 2006,
+              "value": 2006,
+              "age": 31,
+              "optionId": "sienna-guillory:4"
+            }
+          ],
+          "nextRange": {
+            "min": 2008,
+            "max": 2025
+          }
+        },
+        {
+          "number": 3,
+          "mode": "middle",
+          "range": {
+            "min": 2008,
+            "max": 2025
+          },
+          "anchor": {
+            "personId": "michael-caine",
+            "name": "Michael Caine",
+            "gender": "male",
+            "nationality": "British",
+            "popularityTier": "A",
+            "film": "The Dark Knight",
+            "year": 2008,
+            "role": "Alfred",
+            "creditType": "supporting",
+            "value": 2008,
+            "age": 75,
+            "valueLabel": "2008"
+          },
+          "anchorSide": "left",
+          "target": {
+            "personId": "emma-watson",
+            "name": "Emma Watson",
+            "gender": "female",
+            "nationality": "British",
+            "popularityTier": "B",
+            "film": "Beauty and the Beast",
+            "role": "Belle",
+            "creditType": "lead",
+            "year": 2017,
+            "value": 2017,
+            "age": 27,
+            "optionId": "emma-watson:7"
+          },
+          "options": [
+            {
+              "personId": "keanu-reeves",
+              "name": "Keanu Reeves",
+              "gender": "male",
+              "nationality": "Canadian",
+              "popularityTier": "A",
+              "film": "John Wick: Chapter 4",
+              "role": "John Wick",
+              "creditType": "lead",
+              "year": 2023,
+              "value": 2023,
+              "age": 59,
+              "optionId": "keanu-reeves:7"
+            },
+            {
+              "personId": "emma-watson",
+              "name": "Emma Watson",
+              "gender": "female",
+              "nationality": "British",
+              "popularityTier": "B",
+              "film": "Beauty and the Beast",
+              "role": "Belle",
+              "creditType": "lead",
+              "year": 2017,
+              "value": 2017,
+              "age": 27,
+              "optionId": "emma-watson:7"
+            },
+            {
+              "personId": "lucy-hale",
+              "name": "Lucy Hale",
+              "gender": "female",
+              "nationality": "American",
+              "popularityTier": "B",
+              "film": "Secret of the Wings",
+              "role": "Periwinkle",
+              "creditType": "lead",
+              "year": 2012,
+              "value": 2012,
+              "age": 23,
+              "optionId": "lucy-hale:1"
+            },
+            {
+              "personId": "jeremy-renner",
+              "name": "Jeremy Renner",
+              "gender": "male",
+              "nationality": "American",
+              "popularityTier": "A",
+              "film": "The Avengers",
+              "role": "Clint Barton",
+              "creditType": "supporting",
+              "year": 2012,
+              "value": 2012,
+              "age": 41,
+              "optionId": "jeremy-renner:5"
+            }
+          ],
+          "nextRange": {
+            "min": 2017,
+            "max": 2025
+          }
+        },
+        {
+          "number": 4,
+          "mode": "middle",
+          "range": {
+            "min": 2017,
+            "max": 2025
+          },
+          "anchor": {
+            "personId": "emma-watson",
+            "name": "Emma Watson",
+            "gender": "female",
+            "nationality": "British",
+            "popularityTier": "B",
+            "film": "Beauty and the Beast",
+            "year": 2017,
+            "role": "Belle",
+            "creditType": "lead",
+            "value": 2017,
+            "age": 27,
+            "valueLabel": "2017"
+          },
+          "anchorSide": "left",
+          "target": {
+            "personId": "channing-tatum",
+            "name": "Channing Tatum",
+            "gender": "male",
+            "nationality": "American",
+            "popularityTier": "B",
+            "film": "America: The Motion Picture",
+            "role": "George Washington",
+            "creditType": "lead",
+            "year": 2021,
+            "value": 2021,
+            "age": 41,
+            "optionId": "channing-tatum:7"
+          },
+          "options": [
+            {
+              "personId": "linda-hamilton",
+              "name": "Linda Hamilton",
+              "gender": "female",
+              "nationality": "American",
+              "popularityTier": "B",
+              "film": "Terminator: Dark Fate",
+              "role": "Sarah Connor",
+              "creditType": "lead",
+              "year": 2019,
+              "value": 2019,
+              "age": 63,
+              "optionId": "linda-hamilton:7"
+            },
+            {
+              "personId": "chris-evans",
+              "name": "Chris Evans",
+              "gender": "male",
+              "nationality": "American",
+              "popularityTier": "A",
+              "film": "Avengers: Endgame",
+              "role": "Steve Rogers",
+              "creditType": "supporting",
+              "year": 2019,
+              "value": 2019,
+              "age": 38,
+              "optionId": "chris-evans:7"
+            },
+            {
+              "personId": "channing-tatum",
+              "name": "Channing Tatum",
+              "gender": "male",
+              "nationality": "American",
+              "popularityTier": "B",
+              "film": "America: The Motion Picture",
+              "role": "George Washington",
+              "creditType": "lead",
+              "year": 2021,
+              "value": 2021,
+              "age": 41,
+              "optionId": "channing-tatum:7"
+            },
+            {
+              "personId": "mark-ruffalo",
+              "name": "Mark Ruffalo",
+              "gender": "male",
+              "nationality": "American",
+              "popularityTier": "A",
+              "film": "Poor Things",
+              "role": "Duncan Wedderburn",
+              "creditType": "lead",
+              "year": 2023,
+              "value": 2023,
+              "age": 56,
+              "optionId": "mark-ruffalo:7"
+            }
+          ],
+          "nextRange": {
+            "min": 2021,
+            "max": 2025
+          }
+        },
+        {
+          "number": 5,
+          "mode": "middle",
+          "range": {
+            "min": 2021,
+            "max": 2025
+          },
+          "anchor": {
+            "personId": "channing-tatum",
+            "name": "Channing Tatum",
+            "gender": "male",
+            "nationality": "American",
+            "popularityTier": "B",
+            "film": "America: The Motion Picture",
+            "year": 2021,
+            "role": "George Washington",
+            "creditType": "lead",
+            "value": 2021,
+            "age": 41,
+            "valueLabel": "2021"
+          },
+          "anchorSide": "left",
+          "target": {
+            "personId": "mark-ruffalo",
+            "name": "Mark Ruffalo",
+            "gender": "male",
+            "nationality": "American",
+            "popularityTier": "A",
+            "film": "Poor Things",
+            "role": "Duncan Wedderburn",
+            "creditType": "lead",
+            "year": 2023,
+            "value": 2023,
+            "age": 56,
+            "optionId": "mark-ruffalo:7"
+          },
+          "options": [
+            {
+              "personId": "miles-teller",
+              "name": "Miles Teller",
+              "gender": "male",
+              "nationality": "American",
+              "popularityTier": "B",
+              "film": "Spiderhead",
+              "role": "Jeff",
+              "creditType": "lead",
+              "year": 2022,
+              "value": 2022,
+              "age": 35,
+              "optionId": "miles-teller:7"
+            },
+            {
+              "personId": "mark-ruffalo",
+              "name": "Mark Ruffalo",
+              "gender": "male",
+              "nationality": "American",
+              "popularityTier": "A",
+              "film": "Poor Things",
+              "role": "Duncan Wedderburn",
+              "creditType": "lead",
+              "year": 2023,
+              "value": 2023,
+              "age": 56,
+              "optionId": "mark-ruffalo:7"
+            },
+            {
+              "personId": "jeremy-sumpter",
+              "name": "Jeremy Sumpter",
+              "gender": "male",
+              "nationality": "American",
+              "popularityTier": "B",
+              "film": "The Fall",
+              "role": "Travis Humphrey",
+              "creditType": "lead",
+              "year": 2024,
+              "value": 2024,
+              "age": 35,
+              "optionId": "jeremy-sumpter:7"
+            },
+            {
+              "personId": "chris-hemsworth",
+              "name": "Chris Hemsworth",
+              "gender": "male",
+              "nationality": "Australian",
+              "popularityTier": "A",
+              "film": "Thor: Love and Thunder",
+              "role": "Thor",
+              "creditType": "lead",
+              "year": 2022,
+              "value": 2022,
+              "age": 39,
+              "optionId": "chris-hemsworth:7"
+            }
+          ],
+          "nextRange": null
+        }
+      ]
     }
   ]
 }
