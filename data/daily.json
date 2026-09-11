@@ -5204,6 +5204,212 @@
           "nextRange": null
         }
       ]
+    },
+    {
+      "id": 15,
+      "date": "2026-09-11",
+      "mode": "year",
+      "generatorVersion": "v6",
+      "roundCount": 5,
+      "rounds": [
+        {
+          "number": 1,
+          "mode": "year",
+          "range": {
+            "min": 1957,
+            "max": 2025
+          },
+          "anchor": {
+            "personId": "jan-sterling",
+            "name": "Jan Sterling",
+            "gender": "female",
+            "nationality": "American",
+            "popularityTier": "B",
+            "film": "Slaughter on 10th Avenue",
+            "year": 1957,
+            "role": "Madge Pitts",
+            "creditType": "lead",
+            "value": 1957,
+            "age": 36,
+            "valueLabel": "1957"
+          },
+          "anchorSide": "left",
+          "target": {
+            "personId": "linda-fiorentino",
+            "name": "Linda Fiorentino",
+            "gender": "female",
+            "nationality": "American",
+            "popularityTier": "A",
+            "film": "Men in Black",
+            "role": "Laurel",
+            "creditType": "supporting",
+            "year": 1997,
+            "value": 1997,
+            "age": 39
+          },
+          "nextRange": {
+            "min": 1997,
+            "max": 2025
+          }
+        },
+        {
+          "number": 2,
+          "mode": "year",
+          "range": {
+            "min": 1997,
+            "max": 2025
+          },
+          "anchor": {
+            "personId": "linda-fiorentino",
+            "name": "Linda Fiorentino",
+            "gender": "female",
+            "nationality": "American",
+            "popularityTier": "A",
+            "film": "Men in Black",
+            "year": 1997,
+            "role": "Laurel",
+            "creditType": "supporting",
+            "value": 1997,
+            "age": 39,
+            "valueLabel": "1997"
+          },
+          "anchorSide": "left",
+          "target": {
+            "personId": "dwayne-johnson",
+            "name": "Dwayne Johnson",
+            "gender": "male",
+            "nationality": "Canadian / American",
+            "popularityTier": "A",
+            "film": "Fast & Furious 6",
+            "role": "Hobbs",
+            "creditType": "supporting",
+            "year": 2013,
+            "value": 2013,
+            "age": 41
+          },
+          "nextRange": {
+            "min": 2013,
+            "max": 2025
+          }
+        },
+        {
+          "number": 3,
+          "mode": "year",
+          "range": {
+            "min": 2013,
+            "max": 2025
+          },
+          "anchor": {
+            "personId": "dwayne-johnson",
+            "name": "Dwayne Johnson",
+            "gender": "male",
+            "nationality": "Canadian / American",
+            "popularityTier": "A",
+            "film": "Fast & Furious 6",
+            "year": 2013,
+            "role": "Hobbs",
+            "creditType": "supporting",
+            "value": 2013,
+            "age": 41,
+            "valueLabel": "2013"
+          },
+          "anchorSide": "left",
+          "target": {
+            "personId": "emilia-clarke",
+            "name": "Emilia Clarke",
+            "gender": "female",
+            "nationality": "British",
+            "popularityTier": "A",
+            "film": "Above Suspicion",
+            "role": "Susan Smith",
+            "creditType": "lead",
+            "year": 2019,
+            "value": 2019,
+            "age": 33
+          },
+          "nextRange": {
+            "min": 2019,
+            "max": 2025
+          }
+        },
+        {
+          "number": 4,
+          "mode": "year",
+          "range": {
+            "min": 2019,
+            "max": 2025
+          },
+          "anchor": {
+            "personId": "emilia-clarke",
+            "name": "Emilia Clarke",
+            "gender": "female",
+            "nationality": "British",
+            "popularityTier": "A",
+            "film": "Above Suspicion",
+            "year": 2019,
+            "role": "Susan Smith",
+            "creditType": "lead",
+            "value": 2019,
+            "age": 33,
+            "valueLabel": "2019"
+          },
+          "anchorSide": "left",
+          "target": {
+            "personId": "chris-hemsworth",
+            "name": "Chris Hemsworth",
+            "gender": "male",
+            "nationality": "Australian",
+            "popularityTier": "A",
+            "film": "Thor: Love and Thunder",
+            "role": "Thor",
+            "creditType": "lead",
+            "year": 2022,
+            "value": 2022,
+            "age": 39
+          },
+          "nextRange": {
+            "min": 2022,
+            "max": 2025
+          }
+        },
+        {
+          "number": 5,
+          "mode": "year",
+          "range": {
+            "min": 2022,
+            "max": 2025
+          },
+          "anchor": {
+            "personId": "chris-hemsworth",
+            "name": "Chris Hemsworth",
+            "gender": "male",
+            "nationality": "Australian",
+            "popularityTier": "A",
+            "film": "Thor: Love and Thunder",
+            "year": 2022,
+            "role": "Thor",
+            "creditType": "lead",
+            "value": 2022,
+            "age": 39,
+            "valueLabel": "2022"
+          },
+          "anchorSide": "left",
+          "target": {
+            "personId": "keanu-reeves",
+            "name": "Keanu Reeves",
+            "gender": "male",
+            "nationality": "Canadian",
+            "popularityTier": "A",
+            "film": "John Wick: Chapter 4",
+            "role": "John Wick",
+            "creditType": "lead",
+            "year": 2023,
+            "value": 2023,
+            "age": 59
+          },
+          "nextRange": null
+        }
+      ]
     }
   ]
 }
