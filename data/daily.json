@@ -5410,6 +5410,212 @@
           "nextRange": null
         }
       ]
+    },
+    {
+      "id": 16,
+      "date": "2026-09-12",
+      "mode": "age",
+      "generatorVersion": "v6",
+      "roundCount": 5,
+      "rounds": [
+        {
+          "number": 1,
+          "mode": "age",
+          "range": {
+            "min": 12,
+            "max": 80
+          },
+          "anchor": {
+            "personId": "anton-yelchin",
+            "name": "Anton Yelchin",
+            "gender": "male",
+            "nationality": "American",
+            "popularityTier": "B",
+            "film": "Hearts in Atlantis",
+            "year": 2001,
+            "role": "Bobby Garfield",
+            "creditType": "lead",
+            "value": 12,
+            "age": 12,
+            "valueLabel": "12.0 yrs"
+          },
+          "anchorSide": "left",
+          "target": {
+            "personId": "colin-firth",
+            "name": "Colin Firth",
+            "gender": "male",
+            "nationality": "Italian / British",
+            "popularityTier": "A",
+            "film": "Kingsman: The Secret Service",
+            "role": "Harry Hart",
+            "creditType": "lead",
+            "year": 2014,
+            "value": 54,
+            "age": 54
+          },
+          "nextRange": {
+            "min": 54,
+            "max": 80
+          }
+        },
+        {
+          "number": 2,
+          "mode": "age",
+          "range": {
+            "min": 54,
+            "max": 80
+          },
+          "anchor": {
+            "personId": "colin-firth",
+            "name": "Colin Firth",
+            "gender": "male",
+            "nationality": "Italian / British",
+            "popularityTier": "A",
+            "film": "Kingsman: The Secret Service",
+            "year": 2014,
+            "role": "Harry Hart",
+            "creditType": "lead",
+            "value": 54,
+            "age": 54,
+            "valueLabel": "54.0 yrs"
+          },
+          "anchorSide": "left",
+          "target": {
+            "personId": "danny-trejo",
+            "name": "Danny Trejo",
+            "gender": "male",
+            "nationality": "American",
+            "popularityTier": "A",
+            "film": "Machete",
+            "role": "Machete",
+            "creditType": "lead",
+            "year": 2010,
+            "value": 66,
+            "age": 66
+          },
+          "nextRange": {
+            "min": 54,
+            "max": 66
+          }
+        },
+        {
+          "number": 3,
+          "mode": "age",
+          "range": {
+            "min": 54,
+            "max": 66
+          },
+          "anchor": {
+            "personId": "danny-trejo",
+            "name": "Danny Trejo",
+            "gender": "male",
+            "nationality": "American",
+            "popularityTier": "A",
+            "film": "Machete",
+            "year": 2010,
+            "role": "Machete",
+            "creditType": "lead",
+            "value": 66,
+            "age": 66,
+            "valueLabel": "66.0 yrs"
+          },
+          "anchorSide": "right",
+          "target": {
+            "personId": "jamie-lee-curtis",
+            "name": "Jamie Lee Curtis",
+            "gender": "female",
+            "nationality": "American",
+            "popularityTier": "B",
+            "film": "Halloween",
+            "role": "Laurie Strode",
+            "creditType": "lead",
+            "year": 2018,
+            "value": 60,
+            "age": 60
+          },
+          "nextRange": {
+            "min": 60,
+            "max": 66
+          }
+        },
+        {
+          "number": 4,
+          "mode": "age",
+          "range": {
+            "min": 60,
+            "max": 66
+          },
+          "anchor": {
+            "personId": "jamie-lee-curtis",
+            "name": "Jamie Lee Curtis",
+            "gender": "female",
+            "nationality": "American",
+            "popularityTier": "B",
+            "film": "Halloween",
+            "year": 2018,
+            "role": "Laurie Strode",
+            "creditType": "lead",
+            "value": 60,
+            "age": 60,
+            "valueLabel": "60.0 yrs"
+          },
+          "anchorSide": "left",
+          "target": {
+            "personId": "linda-hamilton",
+            "name": "Linda Hamilton",
+            "gender": "female",
+            "nationality": "American",
+            "popularityTier": "B",
+            "film": "Terminator: Dark Fate",
+            "role": "Sarah Connor",
+            "creditType": "lead",
+            "year": 2019,
+            "value": 63,
+            "age": 63
+          },
+          "nextRange": {
+            "min": 63,
+            "max": 66
+          }
+        },
+        {
+          "number": 5,
+          "mode": "age",
+          "range": {
+            "min": 63,
+            "max": 66
+          },
+          "anchor": {
+            "personId": "linda-hamilton",
+            "name": "Linda Hamilton",
+            "gender": "female",
+            "nationality": "American",
+            "popularityTier": "B",
+            "film": "Terminator: Dark Fate",
+            "year": 2019,
+            "role": "Sarah Connor",
+            "creditType": "lead",
+            "value": 63,
+            "age": 63,
+            "valueLabel": "63.0 yrs"
+          },
+          "anchorSide": "left",
+          "target": {
+            "personId": "ian-mckellen",
+            "name": "Ian McKellen",
+            "gender": "male",
+            "nationality": "British",
+            "popularityTier": "B",
+            "film": "The Lord of the Rings: The Return of the King",
+            "role": "Gandalf",
+            "creditType": "supporting",
+            "year": 2003,
+            "value": 64,
+            "age": 64
+          },
+          "nextRange": null
+        }
+      ]
     }
   ]
 }
