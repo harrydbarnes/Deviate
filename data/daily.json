@@ -5616,6 +5616,507 @@
           "nextRange": null
         }
       ]
+    },
+    {
+      "id": 17,
+      "date": "2026-09-13",
+      "mode": "middle",
+      "generatorVersion": "v6",
+      "roundCount": 5,
+      "rounds": [
+        {
+          "number": 1,
+          "mode": "middle",
+          "range": {
+            "min": 1957,
+            "max": 2025
+          },
+          "anchor": {
+            "personId": "jan-sterling",
+            "name": "Jan Sterling",
+            "gender": "female",
+            "nationality": "American",
+            "popularityTier": "B",
+            "film": "Slaughter on 10th Avenue",
+            "year": 1957,
+            "role": "Madge Pitts",
+            "creditType": "lead",
+            "value": 1957,
+            "age": 36,
+            "valueLabel": "1957"
+          },
+          "anchorSide": "left",
+          "target": {
+            "personId": "quentin-tarantino",
+            "name": "Quentin Tarantino",
+            "gender": "male",
+            "nationality": "American",
+            "popularityTier": "B",
+            "film": "Reservoir Dogs",
+            "role": "Mr. Brown",
+            "creditType": "supporting",
+            "year": 1992,
+            "value": 1992,
+            "age": 29,
+            "optionId": "quentin-tarantino:1"
+          },
+          "options": [
+            {
+              "personId": "justin-timberlake",
+              "name": "Justin Timberlake",
+              "gender": "male",
+              "nationality": "American",
+              "popularityTier": "A",
+              "film": "Trolls",
+              "role": "Branch",
+              "creditType": "lead",
+              "year": 2016,
+              "value": 2016,
+              "age": 35,
+              "optionId": "justin-timberlake:5"
+            },
+            {
+              "personId": "brigitte-nielsen",
+              "name": "Brigitte Nielsen",
+              "gender": "female",
+              "nationality": "Danish",
+              "popularityTier": "B",
+              "film": "Rocky IV",
+              "role": "Ludmilla",
+              "creditType": "supporting",
+              "year": 1985,
+              "value": 1985,
+              "age": 22,
+              "optionId": "brigitte-nielsen:1"
+            },
+            {
+              "personId": "quentin-tarantino",
+              "name": "Quentin Tarantino",
+              "gender": "male",
+              "nationality": "American",
+              "popularityTier": "B",
+              "film": "Reservoir Dogs",
+              "role": "Mr. Brown",
+              "creditType": "supporting",
+              "year": 1992,
+              "value": 1992,
+              "age": 29,
+              "optionId": "quentin-tarantino:1"
+            },
+            {
+              "personId": "chris-hemsworth",
+              "name": "Chris Hemsworth",
+              "gender": "male",
+              "nationality": "Australian",
+              "popularityTier": "A",
+              "film": "The Avengers",
+              "role": "Thor",
+              "creditType": "supporting",
+              "year": 2012,
+              "value": 2012,
+              "age": 29,
+              "optionId": "chris-hemsworth:2"
+            }
+          ],
+          "nextRange": {
+            "min": 1992,
+            "max": 2025
+          }
+        },
+        {
+          "number": 2,
+          "mode": "middle",
+          "range": {
+            "min": 1992,
+            "max": 2025
+          },
+          "anchor": {
+            "personId": "quentin-tarantino",
+            "name": "Quentin Tarantino",
+            "gender": "male",
+            "nationality": "American",
+            "popularityTier": "B",
+            "film": "Reservoir Dogs",
+            "year": 1992,
+            "role": "Mr. Brown",
+            "creditType": "supporting",
+            "value": 1992,
+            "age": 29,
+            "valueLabel": "1992"
+          },
+          "anchorSide": "left",
+          "target": {
+            "personId": "jeremy-renner",
+            "name": "Jeremy Renner",
+            "gender": "male",
+            "nationality": "American",
+            "popularityTier": "A",
+            "film": "The Hurt Locker",
+            "role": "Staff Sergeant William James",
+            "creditType": "lead",
+            "year": 2008,
+            "value": 2008,
+            "age": 37,
+            "optionId": "jeremy-renner:2"
+          },
+          "options": [
+            {
+              "personId": "denise-richards",
+              "name": "Denise Richards",
+              "gender": "female",
+              "nationality": "American",
+              "popularityTier": "A",
+              "film": "The World Is Not Enough",
+              "role": "Dr. Christmas Jones",
+              "creditType": "supporting",
+              "year": 1999,
+              "value": 1999,
+              "age": 28,
+              "optionId": "denise-richards:3"
+            },
+            {
+              "personId": "jessica-chastain",
+              "name": "Jessica Chastain",
+              "gender": "female",
+              "nationality": "American",
+              "popularityTier": "B",
+              "film": "Zero Dark Thirty",
+              "role": "Maya",
+              "creditType": "lead",
+              "year": 2012,
+              "value": 2012,
+              "age": 35,
+              "optionId": "jessica-chastain:3"
+            },
+            {
+              "personId": "jeremy-renner",
+              "name": "Jeremy Renner",
+              "gender": "male",
+              "nationality": "American",
+              "popularityTier": "A",
+              "film": "The Hurt Locker",
+              "role": "Staff Sergeant William James",
+              "creditType": "lead",
+              "year": 2008,
+              "value": 2008,
+              "age": 37,
+              "optionId": "jeremy-renner:2"
+            },
+            {
+              "personId": "orlando-bloom",
+              "name": "Orlando Bloom",
+              "gender": "male",
+              "nationality": "British",
+              "popularityTier": "B",
+              "film": "The Lord of the Rings: The Two Towers",
+              "role": "Legolas",
+              "creditType": "supporting",
+              "year": 2002,
+              "value": 2002,
+              "age": 25,
+              "optionId": "orlando-bloom:1"
+            }
+          ],
+          "nextRange": {
+            "min": 1992,
+            "max": 2008
+          }
+        },
+        {
+          "number": 3,
+          "mode": "middle",
+          "range": {
+            "min": 1992,
+            "max": 2008
+          },
+          "anchor": {
+            "personId": "jeremy-renner",
+            "name": "Jeremy Renner",
+            "gender": "male",
+            "nationality": "American",
+            "popularityTier": "A",
+            "film": "The Hurt Locker",
+            "year": 2008,
+            "role": "Staff Sergeant William James",
+            "creditType": "lead",
+            "value": 2008,
+            "age": 37,
+            "valueLabel": "2008"
+          },
+          "anchorSide": "right",
+          "target": {
+            "personId": "hugh-jackman",
+            "name": "Hugh Jackman",
+            "gender": "male",
+            "nationality": "British / Australian",
+            "popularityTier": "A",
+            "film": "X-Men",
+            "role": "Logan",
+            "creditType": "lead",
+            "year": 2000,
+            "value": 2000,
+            "age": 32,
+            "optionId": "hugh-jackman:1"
+          },
+          "options": [
+            {
+              "personId": "hugh-jackman",
+              "name": "Hugh Jackman",
+              "gender": "male",
+              "nationality": "British / Australian",
+              "popularityTier": "A",
+              "film": "X-Men",
+              "role": "Logan",
+              "creditType": "lead",
+              "year": 2000,
+              "value": 2000,
+              "age": 32,
+              "optionId": "hugh-jackman:1"
+            },
+            {
+              "personId": "sam-neill",
+              "name": "Sam Neill",
+              "gender": "male",
+              "nationality": "Irish / British",
+              "popularityTier": "B",
+              "film": "Jurassic Park",
+              "role": "Grant",
+              "creditType": "lead",
+              "year": 1993,
+              "value": 1993,
+              "age": 46,
+              "optionId": "sam-neill:3"
+            },
+            {
+              "personId": "will-ferrell",
+              "name": "Will Ferrell",
+              "gender": "male",
+              "nationality": "American",
+              "popularityTier": "B",
+              "film": "Anchorman: The Legend of Ron Burgundy",
+              "role": "Ron Burgundy",
+              "creditType": "lead",
+              "year": 2004,
+              "value": 2004,
+              "age": 37,
+              "optionId": "will-ferrell:1"
+            },
+            {
+              "personId": "elijah-wood",
+              "name": "Elijah Wood",
+              "gender": "male",
+              "nationality": "American",
+              "popularityTier": "B",
+              "film": "The Lord of the Rings: The Two Towers",
+              "role": "Frodo",
+              "creditType": "lead",
+              "year": 2002,
+              "value": 2002,
+              "age": 21,
+              "optionId": "elijah-wood:3"
+            }
+          ],
+          "nextRange": {
+            "min": 2000,
+            "max": 2008
+          }
+        },
+        {
+          "number": 4,
+          "mode": "middle",
+          "range": {
+            "min": 2000,
+            "max": 2008
+          },
+          "anchor": {
+            "personId": "hugh-jackman",
+            "name": "Hugh Jackman",
+            "gender": "male",
+            "nationality": "British / Australian",
+            "popularityTier": "A",
+            "film": "X-Men",
+            "year": 2000,
+            "role": "Logan",
+            "creditType": "lead",
+            "value": 2000,
+            "age": 32,
+            "valueLabel": "2000"
+          },
+          "anchorSide": "left",
+          "target": {
+            "personId": "lacey-chabert",
+            "name": "Lacey Chabert",
+            "gender": "female",
+            "nationality": "American",
+            "popularityTier": "A",
+            "film": "Mean Girls",
+            "role": "Gretchen Wieners",
+            "creditType": "supporting",
+            "year": 2004,
+            "value": 2004,
+            "age": 22,
+            "optionId": "lacey-chabert:3"
+          },
+          "options": [
+            {
+              "personId": "lacey-chabert",
+              "name": "Lacey Chabert",
+              "gender": "female",
+              "nationality": "American",
+              "popularityTier": "A",
+              "film": "Mean Girls",
+              "role": "Gretchen Wieners",
+              "creditType": "supporting",
+              "year": 2004,
+              "value": 2004,
+              "age": 22,
+              "optionId": "lacey-chabert:3"
+            },
+            {
+              "personId": "megan-fox",
+              "name": "Megan Fox",
+              "gender": "female",
+              "nationality": "American",
+              "popularityTier": "A",
+              "film": "Transformers",
+              "role": "Mikaela Banes",
+              "creditType": "lead",
+              "year": 2007,
+              "value": 2007,
+              "age": 21,
+              "optionId": "megan-fox:1"
+            },
+            {
+              "personId": "kirsten-dunst",
+              "name": "Kirsten Dunst",
+              "gender": "female",
+              "nationality": "American / German",
+              "popularityTier": "A",
+              "film": "Spider-Man",
+              "role": "Mary Jane Watson",
+              "creditType": "supporting",
+              "year": 2002,
+              "value": 2002,
+              "age": 20,
+              "optionId": "kirsten-dunst:4"
+            },
+            {
+              "personId": "orlando-bloom",
+              "name": "Orlando Bloom",
+              "gender": "male",
+              "nationality": "British",
+              "popularityTier": "B",
+              "film": "The Lord of the Rings: The Two Towers",
+              "role": "Legolas",
+              "creditType": "supporting",
+              "year": 2002,
+              "value": 2002,
+              "age": 25,
+              "optionId": "orlando-bloom:1"
+            }
+          ],
+          "nextRange": {
+            "min": 2004,
+            "max": 2008
+          }
+        },
+        {
+          "number": 5,
+          "mode": "middle",
+          "range": {
+            "min": 2004,
+            "max": 2008
+          },
+          "anchor": {
+            "personId": "lacey-chabert",
+            "name": "Lacey Chabert",
+            "gender": "female",
+            "nationality": "American",
+            "popularityTier": "A",
+            "film": "Mean Girls",
+            "year": 2004,
+            "role": "Gretchen Wieners",
+            "creditType": "supporting",
+            "value": 2004,
+            "age": 22,
+            "valueLabel": "2004"
+          },
+          "anchorSide": "left",
+          "target": {
+            "personId": "eva-green",
+            "name": "Eva Green",
+            "gender": "female",
+            "nationality": "French",
+            "popularityTier": "B",
+            "film": "Casino Royale",
+            "role": "Vesper Lynd",
+            "creditType": "lead",
+            "year": 2006,
+            "value": 2006,
+            "age": 26,
+            "optionId": "eva-green:2"
+          },
+          "options": [
+            {
+              "personId": "orlando-bloom",
+              "name": "Orlando Bloom",
+              "gender": "male",
+              "nationality": "British",
+              "popularityTier": "B",
+              "film": "Pirates of the Caribbean: At World's End",
+              "role": "Will Turner",
+              "creditType": "lead",
+              "year": 2007,
+              "value": 2007,
+              "age": 30,
+              "optionId": "orlando-bloom:5"
+            },
+            {
+              "personId": "eva-green",
+              "name": "Eva Green",
+              "gender": "female",
+              "nationality": "French",
+              "popularityTier": "B",
+              "film": "Casino Royale",
+              "role": "Vesper Lynd",
+              "creditType": "lead",
+              "year": 2006,
+              "value": 2006,
+              "age": 26,
+              "optionId": "eva-green:2"
+            },
+            {
+              "personId": "dougray-scott",
+              "name": "Dougray Scott",
+              "gender": "male",
+              "nationality": "British",
+              "popularityTier": "B",
+              "film": "Hitman",
+              "role": "Mike Whittier",
+              "creditType": "lead",
+              "year": 2007,
+              "value": 2007,
+              "age": 42,
+              "optionId": "dougray-scott:5"
+            },
+            {
+              "personId": "jake-gyllenhaal",
+              "name": "Jake Gyllenhaal",
+              "gender": "male",
+              "nationality": "American",
+              "popularityTier": "A",
+              "film": "Brokeback Mountain",
+              "role": "Jack Twist",
+              "creditType": "lead",
+              "year": 2005,
+              "value": 2005,
+              "age": 25,
+              "optionId": "jake-gyllenhaal:2"
+            }
+          ],
+          "nextRange": null
+        }
+      ]
     }
   ]
 }
