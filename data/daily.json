@@ -6117,6 +6117,507 @@
           "nextRange": null
         }
       ]
+    },
+    {
+      "id": 18,
+      "date": "2026-09-14",
+      "mode": "middle",
+      "generatorVersion": "v6",
+      "roundCount": 5,
+      "rounds": [
+        {
+          "number": 1,
+          "mode": "middle",
+          "range": {
+            "min": 1957,
+            "max": 2025
+          },
+          "anchor": {
+            "personId": "jan-sterling",
+            "name": "Jan Sterling",
+            "gender": "female",
+            "nationality": "American",
+            "popularityTier": "B",
+            "film": "Slaughter on 10th Avenue",
+            "year": 1957,
+            "role": "Madge Pitts",
+            "creditType": "lead",
+            "value": 1957,
+            "age": 36,
+            "valueLabel": "1957"
+          },
+          "anchorSide": "left",
+          "target": {
+            "personId": "rene-russo",
+            "name": "Rene Russo",
+            "gender": "female",
+            "nationality": "American",
+            "popularityTier": "B",
+            "film": "Lethal Weapon 3",
+            "role": "Lorna Cole",
+            "creditType": "supporting",
+            "year": 1992,
+            "value": 1992,
+            "age": 38,
+            "optionId": "rene-russo:1"
+          },
+          "options": [
+            {
+              "personId": "anna-faris",
+              "name": "Anna Faris",
+              "gender": "female",
+              "nationality": "American",
+              "popularityTier": "A",
+              "film": "Scary Movie",
+              "role": "Cindy Campbell",
+              "creditType": "lead",
+              "year": 2000,
+              "value": 2000,
+              "age": 24,
+              "optionId": "anna-faris:0"
+            },
+            {
+              "personId": "rene-russo",
+              "name": "Rene Russo",
+              "gender": "female",
+              "nationality": "American",
+              "popularityTier": "B",
+              "film": "Lethal Weapon 3",
+              "role": "Lorna Cole",
+              "creditType": "supporting",
+              "year": 1992,
+              "value": 1992,
+              "age": 38,
+              "optionId": "rene-russo:1"
+            },
+            {
+              "personId": "leonard-nimoy",
+              "name": "Leonard Nimoy",
+              "gender": "male",
+              "nationality": "American",
+              "popularityTier": "A",
+              "film": "Star Trek III: The Search for Spock",
+              "role": "Spock",
+              "creditType": "lead",
+              "year": 1984,
+              "value": 1984,
+              "age": 53,
+              "optionId": "leonard-nimoy:2"
+            },
+            {
+              "personId": "sandra-bullock",
+              "name": "Sandra Bullock",
+              "gender": "female",
+              "nationality": "American / German",
+              "popularityTier": "A",
+              "film": "The Blind Side",
+              "role": "Leigh Anne Tuohy",
+              "creditType": "lead",
+              "year": 2009,
+              "value": 2009,
+              "age": 45,
+              "optionId": "sandra-bullock:5"
+            }
+          ],
+          "nextRange": {
+            "min": 1992,
+            "max": 2025
+          }
+        },
+        {
+          "number": 2,
+          "mode": "middle",
+          "range": {
+            "min": 1992,
+            "max": 2025
+          },
+          "anchor": {
+            "personId": "rene-russo",
+            "name": "Rene Russo",
+            "gender": "female",
+            "nationality": "American",
+            "popularityTier": "B",
+            "film": "Lethal Weapon 3",
+            "year": 1992,
+            "role": "Lorna Cole",
+            "creditType": "supporting",
+            "value": 1992,
+            "age": 38,
+            "valueLabel": "1992"
+          },
+          "anchorSide": "left",
+          "target": {
+            "personId": "olga-kurylenko",
+            "name": "Olga Kurylenko",
+            "gender": "female",
+            "nationality": "French / Ukraine",
+            "popularityTier": "B",
+            "film": "Quantum of Solace",
+            "role": "Camille",
+            "creditType": "lead",
+            "year": 2008,
+            "value": 2008,
+            "age": 29,
+            "optionId": "olga-kurylenko:2"
+          },
+          "options": [
+            {
+              "personId": "olga-kurylenko",
+              "name": "Olga Kurylenko",
+              "gender": "female",
+              "nationality": "French / Ukraine",
+              "popularityTier": "B",
+              "film": "Quantum of Solace",
+              "role": "Camille",
+              "creditType": "lead",
+              "year": 2008,
+              "value": 2008,
+              "age": 29,
+              "optionId": "olga-kurylenko:2"
+            },
+            {
+              "personId": "helen-mirren",
+              "name": "Helen Mirren",
+              "gender": "female",
+              "nationality": "American / British",
+              "popularityTier": "A",
+              "film": "Hitchcock",
+              "role": "Alma Reville",
+              "creditType": "lead",
+              "year": 2012,
+              "value": 2012,
+              "age": 67,
+              "optionId": "helen-mirren:6"
+            },
+            {
+              "personId": "jason-statham",
+              "name": "Jason Statham",
+              "gender": "male",
+              "nationality": "British",
+              "popularityTier": "A",
+              "film": "Crank",
+              "role": "Chev Chelios",
+              "creditType": "lead",
+              "year": 2006,
+              "value": 2006,
+              "age": 39,
+              "optionId": "jason-statham:2"
+            },
+            {
+              "personId": "rachel-mcadams",
+              "name": "Rachel McAdams",
+              "gender": "female",
+              "nationality": "Canadian",
+              "popularityTier": "A",
+              "film": "Mean Girls",
+              "role": "Regina George",
+              "creditType": "supporting",
+              "year": 2004,
+              "value": 2004,
+              "age": 26,
+              "optionId": "rachel-mcadams:1"
+            }
+          ],
+          "nextRange": {
+            "min": 1992,
+            "max": 2008
+          }
+        },
+        {
+          "number": 3,
+          "mode": "middle",
+          "range": {
+            "min": 1992,
+            "max": 2008
+          },
+          "anchor": {
+            "personId": "olga-kurylenko",
+            "name": "Olga Kurylenko",
+            "gender": "female",
+            "nationality": "French / Ukraine",
+            "popularityTier": "B",
+            "film": "Quantum of Solace",
+            "year": 2008,
+            "role": "Camille",
+            "creditType": "lead",
+            "value": 2008,
+            "age": 29,
+            "valueLabel": "2008"
+          },
+          "anchorSide": "right",
+          "target": {
+            "personId": "mark-boone-junior",
+            "name": "Mark Boone Junior",
+            "gender": "male",
+            "nationality": "American",
+            "popularityTier": "B",
+            "film": "Memento",
+            "role": "Burt",
+            "creditType": "supporting",
+            "year": 2000,
+            "value": 2000,
+            "age": 45,
+            "optionId": "mark-boone-junior:2"
+          },
+          "options": [
+            {
+              "personId": "clive-owen",
+              "name": "Clive Owen",
+              "gender": "male",
+              "nationality": "British",
+              "popularityTier": "B",
+              "film": "Sin City",
+              "role": "Dwight",
+              "creditType": "lead",
+              "year": 2005,
+              "value": 2005,
+              "age": 41,
+              "optionId": "clive-owen:3"
+            },
+            {
+              "personId": "liam-neeson",
+              "name": "Liam Neeson",
+              "gender": "male",
+              "nationality": "Irish / American",
+              "popularityTier": "A",
+              "film": "Schindler's List",
+              "role": "Oskar Schindler",
+              "creditType": "lead",
+              "year": 1993,
+              "value": 1993,
+              "age": 41,
+              "optionId": "liam-neeson:1"
+            },
+            {
+              "personId": "mark-boone-junior",
+              "name": "Mark Boone Junior",
+              "gender": "male",
+              "nationality": "American",
+              "popularityTier": "B",
+              "film": "Memento",
+              "role": "Burt",
+              "creditType": "supporting",
+              "year": 2000,
+              "value": 2000,
+              "age": 45,
+              "optionId": "mark-boone-junior:2"
+            },
+            {
+              "personId": "winona-ryder",
+              "name": "Winona Ryder",
+              "gender": "female",
+              "nationality": "American",
+              "popularityTier": "A",
+              "film": "Little Women",
+              "role": "Jo March",
+              "creditType": "lead",
+              "year": 1994,
+              "value": 1994,
+              "age": 23,
+              "optionId": "winona-ryder:4"
+            }
+          ],
+          "nextRange": {
+            "min": 2000,
+            "max": 2008
+          }
+        },
+        {
+          "number": 4,
+          "mode": "middle",
+          "range": {
+            "min": 2000,
+            "max": 2008
+          },
+          "anchor": {
+            "personId": "mark-boone-junior",
+            "name": "Mark Boone Junior",
+            "gender": "male",
+            "nationality": "American",
+            "popularityTier": "B",
+            "film": "Memento",
+            "year": 2000,
+            "role": "Burt",
+            "creditType": "supporting",
+            "value": 2000,
+            "age": 45,
+            "valueLabel": "2000"
+          },
+          "anchorSide": "left",
+          "target": {
+            "personId": "cate-blanchett",
+            "name": "Cate Blanchett",
+            "gender": "female",
+            "nationality": "American / Australian",
+            "popularityTier": "A",
+            "film": "The Aviator",
+            "role": "Katharine Hepburn",
+            "creditType": "lead",
+            "year": 2004,
+            "value": 2004,
+            "age": 35,
+            "optionId": "cate-blanchett:2"
+          },
+          "options": [
+            {
+              "personId": "emma-watson",
+              "name": "Emma Watson",
+              "gender": "female",
+              "nationality": "British",
+              "popularityTier": "B",
+              "film": "Harry Potter and the Chamber of Secrets",
+              "role": "Hermione Granger",
+              "creditType": "supporting",
+              "year": 2002,
+              "value": 2002,
+              "age": 12,
+              "optionId": "emma-watson:1"
+            },
+            {
+              "personId": "cate-blanchett",
+              "name": "Cate Blanchett",
+              "gender": "female",
+              "nationality": "American / Australian",
+              "popularityTier": "A",
+              "film": "The Aviator",
+              "role": "Katharine Hepburn",
+              "creditType": "lead",
+              "year": 2004,
+              "value": 2004,
+              "age": 35,
+              "optionId": "cate-blanchett:2"
+            },
+            {
+              "personId": "jordana-brewster",
+              "name": "Jordana Brewster",
+              "gender": "female",
+              "nationality": "American / Panama",
+              "popularityTier": "A",
+              "film": "The Fast and the Furious",
+              "role": "Mia Toretto",
+              "creditType": "supporting",
+              "year": 2001,
+              "value": 2001,
+              "age": 21,
+              "optionId": "jordana-brewster:1"
+            },
+            {
+              "personId": "emma-roberts",
+              "name": "Emma Roberts",
+              "gender": "female",
+              "nationality": "American",
+              "popularityTier": "B",
+              "film": "Aquamarine",
+              "role": "Claire",
+              "creditType": "lead",
+              "year": 2006,
+              "value": 2006,
+              "age": 15,
+              "optionId": "emma-roberts:1"
+            }
+          ],
+          "nextRange": {
+            "min": 2004,
+            "max": 2008
+          }
+        },
+        {
+          "number": 5,
+          "mode": "middle",
+          "range": {
+            "min": 2004,
+            "max": 2008
+          },
+          "anchor": {
+            "personId": "cate-blanchett",
+            "name": "Cate Blanchett",
+            "gender": "female",
+            "nationality": "American / Australian",
+            "popularityTier": "A",
+            "film": "The Aviator",
+            "year": 2004,
+            "role": "Katharine Hepburn",
+            "creditType": "lead",
+            "value": 2004,
+            "age": 35,
+            "valueLabel": "2004"
+          },
+          "anchorSide": "left",
+          "target": {
+            "personId": "emma-roberts",
+            "name": "Emma Roberts",
+            "gender": "female",
+            "nationality": "American",
+            "popularityTier": "B",
+            "film": "Aquamarine",
+            "role": "Claire",
+            "creditType": "lead",
+            "year": 2006,
+            "value": 2006,
+            "age": 15,
+            "optionId": "emma-roberts:1"
+          },
+          "options": [
+            {
+              "personId": "emma-roberts",
+              "name": "Emma Roberts",
+              "gender": "female",
+              "nationality": "American",
+              "popularityTier": "B",
+              "film": "Aquamarine",
+              "role": "Claire",
+              "creditType": "lead",
+              "year": 2006,
+              "value": 2006,
+              "age": 15,
+              "optionId": "emma-roberts:1"
+            },
+            {
+              "personId": "clive-owen",
+              "name": "Clive Owen",
+              "gender": "male",
+              "nationality": "British",
+              "popularityTier": "B",
+              "film": "Sin City",
+              "role": "Dwight",
+              "creditType": "lead",
+              "year": 2005,
+              "value": 2005,
+              "age": 41,
+              "optionId": "clive-owen:3"
+            },
+            {
+              "personId": "megan-fox",
+              "name": "Megan Fox",
+              "gender": "female",
+              "nationality": "American",
+              "popularityTier": "A",
+              "film": "Transformers",
+              "role": "Mikaela Banes",
+              "creditType": "lead",
+              "year": 2007,
+              "value": 2007,
+              "age": 21,
+              "optionId": "megan-fox:1"
+            },
+            {
+              "personId": "naomi-watts",
+              "name": "Naomi Watts",
+              "gender": "female",
+              "nationality": "British",
+              "popularityTier": "B",
+              "film": "King Kong",
+              "role": "Ann Darrow",
+              "creditType": "lead",
+              "year": 2005,
+              "value": 2005,
+              "age": 37,
+              "optionId": "naomi-watts:3"
+            }
+          ],
+          "nextRange": null
+        }
+      ]
     }
   ]
 }
