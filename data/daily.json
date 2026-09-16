@@ -6824,6 +6824,507 @@
           "nextRange": null
         }
       ]
+    },
+    {
+      "id": 20,
+      "date": "2026-09-16",
+      "mode": "middle",
+      "generatorVersion": "v6",
+      "roundCount": 5,
+      "rounds": [
+        {
+          "number": 1,
+          "mode": "middle",
+          "range": {
+            "min": 1957,
+            "max": 2025
+          },
+          "anchor": {
+            "personId": "jan-sterling",
+            "name": "Jan Sterling",
+            "gender": "female",
+            "nationality": "American",
+            "popularityTier": "B",
+            "film": "Slaughter on 10th Avenue",
+            "year": 1957,
+            "role": "Madge Pitts",
+            "creditType": "lead",
+            "value": 1957,
+            "age": 36,
+            "valueLabel": "1957"
+          },
+          "anchorSide": "left",
+          "target": {
+            "personId": "danny-glover",
+            "name": "Danny Glover",
+            "gender": "male",
+            "nationality": "American",
+            "popularityTier": "B",
+            "film": "Lethal Weapon 3",
+            "role": "Roger Murtaugh",
+            "creditType": "lead",
+            "year": 1992,
+            "value": 1992,
+            "age": 46,
+            "optionId": "danny-glover:3"
+          },
+          "options": [
+            {
+              "personId": "emily-blunt",
+              "name": "Emily Blunt",
+              "gender": "female",
+              "nationality": "American / British",
+              "popularityTier": "B",
+              "film": "The Devil Wears Prada",
+              "role": "Emily",
+              "creditType": "supporting",
+              "year": 2006,
+              "value": 2006,
+              "age": 23,
+              "optionId": "emily-blunt:1"
+            },
+            {
+              "personId": "danny-glover",
+              "name": "Danny Glover",
+              "gender": "male",
+              "nationality": "American",
+              "popularityTier": "B",
+              "film": "Lethal Weapon 3",
+              "role": "Roger Murtaugh",
+              "creditType": "lead",
+              "year": 1992,
+              "value": 1992,
+              "age": 46,
+              "optionId": "danny-glover:3"
+            },
+            {
+              "personId": "scarlett-johansson",
+              "name": "Scarlett Johansson",
+              "gender": "female",
+              "nationality": "American",
+              "popularityTier": "A",
+              "film": "The Avengers",
+              "role": "Natasha Romanoff",
+              "creditType": "supporting",
+              "year": 2012,
+              "value": 2012,
+              "age": 28,
+              "optionId": "scarlett-johansson:4"
+            },
+            {
+              "personId": "john-hurt",
+              "name": "John Hurt",
+              "gender": "male",
+              "nationality": "British",
+              "popularityTier": "A",
+              "film": "Jake Speed",
+              "role": "Sid",
+              "creditType": "supporting",
+              "year": 1986,
+              "value": 1986,
+              "age": 46,
+              "optionId": "john-hurt:5"
+            }
+          ],
+          "nextRange": {
+            "min": 1992,
+            "max": 2025
+          }
+        },
+        {
+          "number": 2,
+          "mode": "middle",
+          "range": {
+            "min": 1992,
+            "max": 2025
+          },
+          "anchor": {
+            "personId": "danny-glover",
+            "name": "Danny Glover",
+            "gender": "male",
+            "nationality": "American",
+            "popularityTier": "B",
+            "film": "Lethal Weapon 3",
+            "year": 1992,
+            "role": "Roger Murtaugh",
+            "creditType": "lead",
+            "value": 1992,
+            "age": 46,
+            "valueLabel": "1992"
+          },
+          "anchorSide": "left",
+          "target": {
+            "personId": "selma-blair",
+            "name": "Selma Blair",
+            "gender": "female",
+            "nationality": "American",
+            "popularityTier": "A",
+            "film": "Hellboy II: The Golden Army",
+            "role": "Liz Sherman",
+            "creditType": "lead",
+            "year": 2008,
+            "value": 2008,
+            "age": 36,
+            "optionId": "selma-blair:6"
+          },
+          "options": [
+            {
+              "personId": "natalie-portman",
+              "name": "Natalie Portman",
+              "gender": "female",
+              "nationality": "American / Israeli",
+              "popularityTier": "B",
+              "film": "Closer",
+              "role": "Alice",
+              "creditType": "lead",
+              "year": 2004,
+              "value": 2004,
+              "age": 23,
+              "optionId": "natalie-portman:1"
+            },
+            {
+              "personId": "brendan-gleeson",
+              "name": "Brendan Gleeson",
+              "gender": "male",
+              "nationality": "Irish",
+              "popularityTier": "B",
+              "film": "The Guard",
+              "role": "Gerry Boyle",
+              "creditType": "lead",
+              "year": 2011,
+              "value": 2011,
+              "age": 56,
+              "optionId": "brendan-gleeson:4"
+            },
+            {
+              "personId": "paul-walker",
+              "name": "Paul Walker",
+              "gender": "male",
+              "nationality": "American",
+              "popularityTier": "A",
+              "film": "Fast Five",
+              "role": "Brian O'Conner",
+              "creditType": "lead",
+              "year": 2011,
+              "value": 2011,
+              "age": 38,
+              "optionId": "paul-walker:6"
+            },
+            {
+              "personId": "selma-blair",
+              "name": "Selma Blair",
+              "gender": "female",
+              "nationality": "American",
+              "popularityTier": "A",
+              "film": "Hellboy II: The Golden Army",
+              "role": "Liz Sherman",
+              "creditType": "lead",
+              "year": 2008,
+              "value": 2008,
+              "age": 36,
+              "optionId": "selma-blair:6"
+            }
+          ],
+          "nextRange": {
+            "min": 1992,
+            "max": 2008
+          }
+        },
+        {
+          "number": 3,
+          "mode": "middle",
+          "range": {
+            "min": 1992,
+            "max": 2008
+          },
+          "anchor": {
+            "personId": "selma-blair",
+            "name": "Selma Blair",
+            "gender": "female",
+            "nationality": "American",
+            "popularityTier": "A",
+            "film": "Hellboy II: The Golden Army",
+            "year": 2008,
+            "role": "Liz Sherman",
+            "creditType": "lead",
+            "value": 2008,
+            "age": 36,
+            "valueLabel": "2008"
+          },
+          "anchorSide": "right",
+          "target": {
+            "personId": "shane-west",
+            "name": "Shane West",
+            "gender": "male",
+            "nationality": "American",
+            "popularityTier": "B",
+            "film": "Whatever It Takes",
+            "role": "Ryan",
+            "creditType": "lead",
+            "year": 2000,
+            "value": 2000,
+            "age": 22,
+            "optionId": "shane-west:0"
+          },
+          "options": [
+            {
+              "personId": "george-clooney",
+              "name": "George Clooney",
+              "gender": "male",
+              "nationality": "American / French",
+              "popularityTier": "A",
+              "film": "Michael Clayton",
+              "role": "Michael Clayton",
+              "creditType": "lead",
+              "year": 2007,
+              "value": 2007,
+              "age": 46,
+              "optionId": "george-clooney:4"
+            },
+            {
+              "personId": "ron-perlman",
+              "name": "Ron Perlman",
+              "gender": "male",
+              "nationality": "American",
+              "popularityTier": "B",
+              "film": "Hellboy",
+              "role": "Hellboy",
+              "creditType": "lead",
+              "year": 2004,
+              "value": 2004,
+              "age": 54,
+              "optionId": "ron-perlman:2"
+            },
+            {
+              "personId": "jeremy-irons",
+              "name": "Jeremy Irons",
+              "gender": "male",
+              "nationality": "British",
+              "popularityTier": "B",
+              "film": "Lolita",
+              "role": "Humbert Humbert",
+              "creditType": "lead",
+              "year": 1997,
+              "value": 1997,
+              "age": 49,
+              "optionId": "jeremy-irons:4"
+            },
+            {
+              "personId": "shane-west",
+              "name": "Shane West",
+              "gender": "male",
+              "nationality": "American",
+              "popularityTier": "B",
+              "film": "Whatever It Takes",
+              "role": "Ryan",
+              "creditType": "lead",
+              "year": 2000,
+              "value": 2000,
+              "age": 22,
+              "optionId": "shane-west:0"
+            }
+          ],
+          "nextRange": {
+            "min": 2000,
+            "max": 2008
+          }
+        },
+        {
+          "number": 4,
+          "mode": "middle",
+          "range": {
+            "min": 2000,
+            "max": 2008
+          },
+          "anchor": {
+            "personId": "shane-west",
+            "name": "Shane West",
+            "gender": "male",
+            "nationality": "American",
+            "popularityTier": "B",
+            "film": "Whatever It Takes",
+            "year": 2000,
+            "role": "Ryan",
+            "creditType": "lead",
+            "value": 2000,
+            "age": 22,
+            "valueLabel": "2000"
+          },
+          "anchorSide": "left",
+          "target": {
+            "personId": "rachel-mcadams",
+            "name": "Rachel McAdams",
+            "gender": "female",
+            "nationality": "Canadian",
+            "popularityTier": "A",
+            "film": "Mean Girls",
+            "role": "Regina George",
+            "creditType": "supporting",
+            "year": 2004,
+            "value": 2004,
+            "age": 26,
+            "optionId": "rachel-mcadams:1"
+          },
+          "options": [
+            {
+              "personId": "rachel-mcadams",
+              "name": "Rachel McAdams",
+              "gender": "female",
+              "nationality": "Canadian",
+              "popularityTier": "A",
+              "film": "Mean Girls",
+              "role": "Regina George",
+              "creditType": "supporting",
+              "year": 2004,
+              "value": 2004,
+              "age": 26,
+              "optionId": "rachel-mcadams:1"
+            },
+            {
+              "personId": "elijah-wood",
+              "name": "Elijah Wood",
+              "gender": "male",
+              "nationality": "American",
+              "popularityTier": "B",
+              "film": "The Lord of the Rings: The Two Towers",
+              "role": "Frodo",
+              "creditType": "lead",
+              "year": 2002,
+              "value": 2002,
+              "age": 21,
+              "optionId": "elijah-wood:3"
+            },
+            {
+              "personId": "angelina-jolie",
+              "name": "Angelina Jolie",
+              "gender": "female",
+              "nationality": "American / Cambodia",
+              "popularityTier": "B",
+              "film": "Lara Croft: Tomb Raider",
+              "role": "Lara Croft",
+              "creditType": "lead",
+              "year": 2001,
+              "value": 2001,
+              "age": 26,
+              "optionId": "angelina-jolie:2"
+            },
+            {
+              "personId": "seth-rogen",
+              "name": "Seth Rogen",
+              "gender": "male",
+              "nationality": "Canadian / American",
+              "popularityTier": "B",
+              "film": "Superbad",
+              "role": "Officer Michaels",
+              "creditType": "supporting",
+              "year": 2007,
+              "value": 2007,
+              "age": 25,
+              "optionId": "seth-rogen:1"
+            }
+          ],
+          "nextRange": {
+            "min": 2004,
+            "max": 2008
+          }
+        },
+        {
+          "number": 5,
+          "mode": "middle",
+          "range": {
+            "min": 2004,
+            "max": 2008
+          },
+          "anchor": {
+            "personId": "rachel-mcadams",
+            "name": "Rachel McAdams",
+            "gender": "female",
+            "nationality": "Canadian",
+            "popularityTier": "A",
+            "film": "Mean Girls",
+            "year": 2004,
+            "role": "Regina George",
+            "creditType": "supporting",
+            "value": 2004,
+            "age": 26,
+            "valueLabel": "2004"
+          },
+          "anchorSide": "left",
+          "target": {
+            "personId": "alec-baldwin",
+            "name": "Alec Baldwin",
+            "gender": "male",
+            "nationality": "American",
+            "popularityTier": "B",
+            "film": "The Departed",
+            "role": "Ellerby",
+            "creditType": "supporting",
+            "year": 2006,
+            "value": 2006,
+            "age": 48,
+            "optionId": "alec-baldwin:4"
+          },
+          "options": [
+            {
+              "personId": "orlando-bloom",
+              "name": "Orlando Bloom",
+              "gender": "male",
+              "nationality": "British",
+              "popularityTier": "B",
+              "film": "Kingdom of Heaven",
+              "role": "Balian de Ibelin",
+              "creditType": "lead",
+              "year": 2005,
+              "value": 2005,
+              "age": 28,
+              "optionId": "orlando-bloom:4"
+            },
+            {
+              "personId": "ralph-fiennes",
+              "name": "Ralph Fiennes",
+              "gender": "male",
+              "nationality": "British / Serbia",
+              "popularityTier": "B",
+              "film": "The Constant Gardener",
+              "role": "Justin Quayle",
+              "creditType": "lead",
+              "year": 2005,
+              "value": 2005,
+              "age": 43,
+              "optionId": "ralph-fiennes:3"
+            },
+            {
+              "personId": "will-ferrell",
+              "name": "Will Ferrell",
+              "gender": "male",
+              "nationality": "American",
+              "popularityTier": "B",
+              "film": "Blades of Glory",
+              "role": "Chazz Michael Michaels",
+              "creditType": "lead",
+              "year": 2007,
+              "value": 2007,
+              "age": 40,
+              "optionId": "will-ferrell:4"
+            },
+            {
+              "personId": "alec-baldwin",
+              "name": "Alec Baldwin",
+              "gender": "male",
+              "nationality": "American",
+              "popularityTier": "B",
+              "film": "The Departed",
+              "role": "Ellerby",
+              "creditType": "supporting",
+              "year": 2006,
+              "value": 2006,
+              "age": 48,
+              "optionId": "alec-baldwin:4"
+            }
+          ],
+          "nextRange": null
+        }
+      ]
     }
   ]
 }
