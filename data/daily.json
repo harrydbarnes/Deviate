@@ -7325,6 +7325,507 @@
           "nextRange": null
         }
       ]
+    },
+    {
+      "id": 21,
+      "date": "2026-09-17",
+      "mode": "middle",
+      "generatorVersion": "v6",
+      "roundCount": 5,
+      "rounds": [
+        {
+          "number": 1,
+          "mode": "middle",
+          "range": {
+            "min": 1957,
+            "max": 2025
+          },
+          "anchor": {
+            "personId": "jan-sterling",
+            "name": "Jan Sterling",
+            "gender": "female",
+            "nationality": "American",
+            "popularityTier": "B",
+            "film": "Slaughter on 10th Avenue",
+            "year": 1957,
+            "role": "Madge Pitts",
+            "creditType": "lead",
+            "value": 1957,
+            "age": 36,
+            "valueLabel": "1957"
+          },
+          "anchorSide": "left",
+          "target": {
+            "personId": "mel-gibson",
+            "name": "Mel Gibson",
+            "gender": "male",
+            "nationality": "Irish / American",
+            "popularityTier": "B",
+            "film": "Lethal Weapon 3",
+            "role": "Martin Riggs",
+            "creditType": "lead",
+            "year": 1992,
+            "value": 1992,
+            "age": 36,
+            "optionId": "mel-gibson:2"
+          },
+          "options": [
+            {
+              "personId": "john-hurt",
+              "name": "John Hurt",
+              "gender": "male",
+              "nationality": "British",
+              "popularityTier": "A",
+              "film": "Alien",
+              "role": "Kane",
+              "creditType": "supporting",
+              "year": 1979,
+              "value": 1979,
+              "age": 39,
+              "optionId": "john-hurt:2"
+            },
+            {
+              "personId": "ashley-greene",
+              "name": "Ashley Greene",
+              "gender": "female",
+              "nationality": "American",
+              "popularityTier": "A",
+              "film": "The Twilight Saga: Breaking Dawn - Part 1",
+              "role": "Alice Cullen",
+              "creditType": "supporting",
+              "year": 2011,
+              "value": 2011,
+              "age": 24,
+              "optionId": "ashley-greene:2"
+            },
+            {
+              "personId": "mel-gibson",
+              "name": "Mel Gibson",
+              "gender": "male",
+              "nationality": "Irish / American",
+              "popularityTier": "B",
+              "film": "Lethal Weapon 3",
+              "role": "Martin Riggs",
+              "creditType": "lead",
+              "year": 1992,
+              "value": 1992,
+              "age": 36,
+              "optionId": "mel-gibson:2"
+            },
+            {
+              "personId": "dougray-scott",
+              "name": "Dougray Scott",
+              "gender": "male",
+              "nationality": "British",
+              "popularityTier": "B",
+              "film": "Mission: Impossible II",
+              "role": "Sean Ambrose",
+              "creditType": "lead",
+              "year": 2000,
+              "value": 2000,
+              "age": 35,
+              "optionId": "dougray-scott:2"
+            }
+          ],
+          "nextRange": {
+            "min": 1992,
+            "max": 2025
+          }
+        },
+        {
+          "number": 2,
+          "mode": "middle",
+          "range": {
+            "min": 1992,
+            "max": 2025
+          },
+          "anchor": {
+            "personId": "mel-gibson",
+            "name": "Mel Gibson",
+            "gender": "male",
+            "nationality": "Irish / American",
+            "popularityTier": "B",
+            "film": "Lethal Weapon 3",
+            "year": 1992,
+            "role": "Martin Riggs",
+            "creditType": "lead",
+            "value": 1992,
+            "age": 36,
+            "valueLabel": "1992"
+          },
+          "anchorSide": "left",
+          "target": {
+            "personId": "robert-downey-jr",
+            "name": "Robert Downey Jr.",
+            "gender": "male",
+            "nationality": "American",
+            "popularityTier": "A",
+            "film": "Iron Man",
+            "role": "Tony Stark",
+            "creditType": "lead",
+            "year": 2008,
+            "value": 2008,
+            "age": 43,
+            "optionId": "robert-downey-jr:3"
+          },
+          "options": [
+            {
+              "personId": "emily-blunt",
+              "name": "Emily Blunt",
+              "gender": "female",
+              "nationality": "American / British",
+              "popularityTier": "B",
+              "film": "The Devil Wears Prada",
+              "role": "Emily",
+              "creditType": "supporting",
+              "year": 2006,
+              "value": 2006,
+              "age": 23,
+              "optionId": "emily-blunt:1"
+            },
+            {
+              "personId": "ben-affleck",
+              "name": "Ben Affleck",
+              "gender": "male",
+              "nationality": "American",
+              "popularityTier": "B",
+              "film": "Gone Girl",
+              "role": "Nick Dunne",
+              "creditType": "lead",
+              "year": 2014,
+              "value": 2014,
+              "age": 42,
+              "optionId": "ben-affleck:6"
+            },
+            {
+              "personId": "robert-downey-jr",
+              "name": "Robert Downey Jr.",
+              "gender": "male",
+              "nationality": "American",
+              "popularityTier": "A",
+              "film": "Iron Man",
+              "role": "Tony Stark",
+              "creditType": "lead",
+              "year": 2008,
+              "value": 2008,
+              "age": 43,
+              "optionId": "robert-downey-jr:3"
+            },
+            {
+              "personId": "kate-beckinsale",
+              "name": "Kate Beckinsale",
+              "gender": "female",
+              "nationality": "British",
+              "popularityTier": "A",
+              "film": "Underworld",
+              "role": "Selene",
+              "creditType": "lead",
+              "year": 2003,
+              "value": 2003,
+              "age": 30,
+              "optionId": "kate-beckinsale:2"
+            }
+          ],
+          "nextRange": {
+            "min": 1992,
+            "max": 2008
+          }
+        },
+        {
+          "number": 3,
+          "mode": "middle",
+          "range": {
+            "min": 1992,
+            "max": 2008
+          },
+          "anchor": {
+            "personId": "robert-downey-jr",
+            "name": "Robert Downey Jr.",
+            "gender": "male",
+            "nationality": "American",
+            "popularityTier": "A",
+            "film": "Iron Man",
+            "year": 2008,
+            "role": "Tony Stark",
+            "creditType": "lead",
+            "value": 2008,
+            "age": 43,
+            "valueLabel": "2008"
+          },
+          "anchorSide": "right",
+          "target": {
+            "personId": "lucy-liu",
+            "name": "Lucy Liu",
+            "gender": "female",
+            "nationality": "American",
+            "popularityTier": "A",
+            "film": "Charlie's Angels",
+            "role": "Alex",
+            "creditType": "supporting",
+            "year": 2000,
+            "value": 2000,
+            "age": 32,
+            "optionId": "lucy-liu:2"
+          },
+          "options": [
+            {
+              "personId": "nicolas-cage",
+              "name": "Nicolas Cage",
+              "gender": "male",
+              "nationality": "American",
+              "popularityTier": "A",
+              "film": "Leaving Las Vegas",
+              "role": "Ben Sanderson",
+              "creditType": "lead",
+              "year": 1995,
+              "value": 1995,
+              "age": 31,
+              "optionId": "nicolas-cage:1"
+            },
+            {
+              "personId": "sandra-bullock",
+              "name": "Sandra Bullock",
+              "gender": "female",
+              "nationality": "American / German",
+              "popularityTier": "A",
+              "film": "Speed",
+              "role": "Annie",
+              "creditType": "supporting",
+              "year": 1994,
+              "value": 1994,
+              "age": 30,
+              "optionId": "sandra-bullock:1"
+            },
+            {
+              "personId": "kate-beckinsale",
+              "name": "Kate Beckinsale",
+              "gender": "female",
+              "nationality": "British",
+              "popularityTier": "A",
+              "film": "Underworld",
+              "role": "Selene",
+              "creditType": "lead",
+              "year": 2003,
+              "value": 2003,
+              "age": 30,
+              "optionId": "kate-beckinsale:2"
+            },
+            {
+              "personId": "lucy-liu",
+              "name": "Lucy Liu",
+              "gender": "female",
+              "nationality": "American",
+              "popularityTier": "A",
+              "film": "Charlie's Angels",
+              "role": "Alex",
+              "creditType": "supporting",
+              "year": 2000,
+              "value": 2000,
+              "age": 32,
+              "optionId": "lucy-liu:2"
+            }
+          ],
+          "nextRange": {
+            "min": 2000,
+            "max": 2008
+          }
+        },
+        {
+          "number": 4,
+          "mode": "middle",
+          "range": {
+            "min": 2000,
+            "max": 2008
+          },
+          "anchor": {
+            "personId": "lucy-liu",
+            "name": "Lucy Liu",
+            "gender": "female",
+            "nationality": "American",
+            "popularityTier": "A",
+            "film": "Charlie's Angels",
+            "year": 2000,
+            "role": "Alex",
+            "creditType": "supporting",
+            "value": 2000,
+            "age": 32,
+            "valueLabel": "2000"
+          },
+          "anchorSide": "left",
+          "target": {
+            "personId": "sienna-guillory",
+            "name": "Sienna Guillory",
+            "gender": "female",
+            "nationality": "British",
+            "popularityTier": "A",
+            "film": "Resident Evil: Apocalypse",
+            "role": "Jill Valentine",
+            "creditType": "lead",
+            "year": 2004,
+            "value": 2004,
+            "age": 29,
+            "optionId": "sienna-guillory:3"
+          },
+          "options": [
+            {
+              "personId": "sienna-guillory",
+              "name": "Sienna Guillory",
+              "gender": "female",
+              "nationality": "British",
+              "popularityTier": "A",
+              "film": "Resident Evil: Apocalypse",
+              "role": "Jill Valentine",
+              "creditType": "lead",
+              "year": 2004,
+              "value": 2004,
+              "age": 29,
+              "optionId": "sienna-guillory:3"
+            },
+            {
+              "personId": "leonardo-dicaprio",
+              "name": "Leonardo DiCaprio",
+              "gender": "male",
+              "nationality": "American",
+              "popularityTier": "B",
+              "film": "The Departed",
+              "role": "Billy",
+              "creditType": "lead",
+              "year": 2006,
+              "value": 2006,
+              "age": 32,
+              "optionId": "leonardo-dicaprio:5"
+            },
+            {
+              "personId": "nicholas-hoult",
+              "name": "Nicholas Hoult",
+              "gender": "male",
+              "nationality": "British",
+              "popularityTier": "B",
+              "film": "About a Boy",
+              "role": "Marcus Brewer",
+              "creditType": "lead",
+              "year": 2002,
+              "value": 2002,
+              "age": 13,
+              "optionId": "nicholas-hoult:0"
+            },
+            {
+              "personId": "emma-watson",
+              "name": "Emma Watson",
+              "gender": "female",
+              "nationality": "British",
+              "popularityTier": "B",
+              "film": "Harry Potter and the Chamber of Secrets",
+              "role": "Hermione Granger",
+              "creditType": "supporting",
+              "year": 2002,
+              "value": 2002,
+              "age": 12,
+              "optionId": "emma-watson:1"
+            }
+          ],
+          "nextRange": {
+            "min": 2004,
+            "max": 2008
+          }
+        },
+        {
+          "number": 5,
+          "mode": "middle",
+          "range": {
+            "min": 2004,
+            "max": 2008
+          },
+          "anchor": {
+            "personId": "sienna-guillory",
+            "name": "Sienna Guillory",
+            "gender": "female",
+            "nationality": "British",
+            "popularityTier": "A",
+            "film": "Resident Evil: Apocalypse",
+            "year": 2004,
+            "role": "Jill Valentine",
+            "creditType": "lead",
+            "value": 2004,
+            "age": 29,
+            "valueLabel": "2004"
+          },
+          "anchorSide": "left",
+          "target": {
+            "personId": "jason-statham",
+            "name": "Jason Statham",
+            "gender": "male",
+            "nationality": "British",
+            "popularityTier": "A",
+            "film": "Crank",
+            "role": "Chev Chelios",
+            "creditType": "lead",
+            "year": 2006,
+            "value": 2006,
+            "age": 39,
+            "optionId": "jason-statham:2"
+          },
+          "options": [
+            {
+              "personId": "johnny-depp",
+              "name": "Johnny Depp",
+              "gender": "male",
+              "nationality": "American",
+              "popularityTier": "A",
+              "film": "Pirates of the Caribbean: At World's End",
+              "role": "Jack Sparrow",
+              "creditType": "lead",
+              "year": 2007,
+              "value": 2007,
+              "age": 44,
+              "optionId": "johnny-depp:5"
+            },
+            {
+              "personId": "amy-adams",
+              "name": "Amy Adams",
+              "gender": "female",
+              "nationality": "American / Italian",
+              "popularityTier": "A",
+              "film": "Enchanted",
+              "role": "Giselle",
+              "creditType": "lead",
+              "year": 2007,
+              "value": 2007,
+              "age": 33,
+              "optionId": "amy-adams:1"
+            },
+            {
+              "personId": "mickey-rourke",
+              "name": "Mickey Rourke",
+              "gender": "male",
+              "nationality": "American",
+              "popularityTier": "B",
+              "film": "Sin City",
+              "role": "Marv",
+              "creditType": "lead",
+              "year": 2005,
+              "value": 2005,
+              "age": 53,
+              "optionId": "mickey-rourke:3"
+            },
+            {
+              "personId": "jason-statham",
+              "name": "Jason Statham",
+              "gender": "male",
+              "nationality": "British",
+              "popularityTier": "A",
+              "film": "Crank",
+              "role": "Chev Chelios",
+              "creditType": "lead",
+              "year": 2006,
+              "value": 2006,
+              "age": 39,
+              "optionId": "jason-statham:2"
+            }
+          ],
+          "nextRange": null
+        }
+      ]
     }
   ]
 }
