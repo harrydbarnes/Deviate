@@ -7826,6 +7826,212 @@
           "nextRange": null
         }
       ]
+    },
+    {
+      "id": 22,
+      "date": "2026-09-18",
+      "mode": "year",
+      "generatorVersion": "v6",
+      "roundCount": 5,
+      "rounds": [
+        {
+          "number": 1,
+          "mode": "year",
+          "range": {
+            "min": 1957,
+            "max": 2025
+          },
+          "anchor": {
+            "personId": "jan-sterling",
+            "name": "Jan Sterling",
+            "gender": "female",
+            "nationality": "American",
+            "popularityTier": "B",
+            "film": "Slaughter on 10th Avenue",
+            "year": 1957,
+            "role": "Madge Pitts",
+            "creditType": "lead",
+            "value": 1957,
+            "age": 36,
+            "valueLabel": "1957"
+          },
+          "anchorSide": "left",
+          "target": {
+            "personId": "tom-cruise",
+            "name": "Tom Cruise",
+            "gender": "male",
+            "nationality": "American",
+            "popularityTier": "A",
+            "film": "Mission: Impossible II",
+            "role": "Ethan Hunt",
+            "creditType": "lead",
+            "year": 2000,
+            "value": 2000,
+            "age": 38
+          },
+          "nextRange": {
+            "min": 2000,
+            "max": 2025
+          }
+        },
+        {
+          "number": 2,
+          "mode": "year",
+          "range": {
+            "min": 2000,
+            "max": 2025
+          },
+          "anchor": {
+            "personId": "tom-cruise",
+            "name": "Tom Cruise",
+            "gender": "male",
+            "nationality": "American",
+            "popularityTier": "A",
+            "film": "Mission: Impossible II",
+            "year": 2000,
+            "role": "Ethan Hunt",
+            "creditType": "lead",
+            "value": 2000,
+            "age": 38,
+            "valueLabel": "2000"
+          },
+          "anchorSide": "left",
+          "target": {
+            "personId": "scarlett-johansson",
+            "name": "Scarlett Johansson",
+            "gender": "female",
+            "nationality": "American",
+            "popularityTier": "A",
+            "film": "The Avengers",
+            "role": "Natasha Romanoff",
+            "creditType": "supporting",
+            "year": 2012,
+            "value": 2012,
+            "age": 28
+          },
+          "nextRange": {
+            "min": 2000,
+            "max": 2012
+          }
+        },
+        {
+          "number": 3,
+          "mode": "year",
+          "range": {
+            "min": 2000,
+            "max": 2012
+          },
+          "anchor": {
+            "personId": "scarlett-johansson",
+            "name": "Scarlett Johansson",
+            "gender": "female",
+            "nationality": "American",
+            "popularityTier": "A",
+            "film": "The Avengers",
+            "year": 2012,
+            "role": "Natasha Romanoff",
+            "creditType": "supporting",
+            "value": 2012,
+            "age": 28,
+            "valueLabel": "2012"
+          },
+          "anchorSide": "right",
+          "target": {
+            "personId": "johnny-depp",
+            "name": "Johnny Depp",
+            "gender": "male",
+            "nationality": "American",
+            "popularityTier": "A",
+            "film": "Pirates of the Caribbean: Dead Man's Chest",
+            "role": "Jack Sparrow",
+            "creditType": "lead",
+            "year": 2006,
+            "value": 2006,
+            "age": 43
+          },
+          "nextRange": {
+            "min": 2006,
+            "max": 2012
+          }
+        },
+        {
+          "number": 4,
+          "mode": "year",
+          "range": {
+            "min": 2006,
+            "max": 2012
+          },
+          "anchor": {
+            "personId": "johnny-depp",
+            "name": "Johnny Depp",
+            "gender": "male",
+            "nationality": "American",
+            "popularityTier": "A",
+            "film": "Pirates of the Caribbean: Dead Man's Chest",
+            "year": 2006,
+            "role": "Jack Sparrow",
+            "creditType": "lead",
+            "value": 2006,
+            "age": 43,
+            "valueLabel": "2006"
+          },
+          "anchorSide": "left",
+          "target": {
+            "personId": "jordana-brewster",
+            "name": "Jordana Brewster",
+            "gender": "female",
+            "nationality": "American / Panama",
+            "popularityTier": "A",
+            "film": "Fast & Furious",
+            "role": "Mia",
+            "creditType": "supporting",
+            "year": 2009,
+            "value": 2009,
+            "age": 29
+          },
+          "nextRange": {
+            "min": 2009,
+            "max": 2012
+          }
+        },
+        {
+          "number": 5,
+          "mode": "year",
+          "range": {
+            "min": 2009,
+            "max": 2012
+          },
+          "anchor": {
+            "personId": "jordana-brewster",
+            "name": "Jordana Brewster",
+            "gender": "female",
+            "nationality": "American / Panama",
+            "popularityTier": "A",
+            "film": "Fast & Furious",
+            "year": 2009,
+            "role": "Mia",
+            "creditType": "supporting",
+            "value": 2009,
+            "age": 29,
+            "valueLabel": "2009"
+          },
+          "anchorSide": "left",
+          "target": {
+            "personId": "rose-byrne",
+            "name": "Rose Byrne",
+            "gender": "female",
+            "nationality": "Australian",
+            "popularityTier": "A",
+            "film": "Bridesmaids",
+            "role": "Helen",
+            "creditType": "supporting",
+            "year": 2011,
+            "value": 2011,
+            "age": 32
+          },
+          "nextRange": null
+        }
+      ]
     }
   ]
 }
