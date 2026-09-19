@@ -8032,6 +8032,212 @@
           "nextRange": null
         }
       ]
+    },
+    {
+      "id": 23,
+      "date": "2026-09-19",
+      "mode": "age",
+      "generatorVersion": "v6",
+      "roundCount": 5,
+      "rounds": [
+        {
+          "number": 1,
+          "mode": "age",
+          "range": {
+            "min": 12,
+            "max": 80
+          },
+          "anchor": {
+            "personId": "anton-yelchin",
+            "name": "Anton Yelchin",
+            "gender": "male",
+            "nationality": "American",
+            "popularityTier": "B",
+            "film": "Hearts in Atlantis",
+            "year": 2001,
+            "role": "Bobby Garfield",
+            "creditType": "lead",
+            "value": 12,
+            "age": 12,
+            "valueLabel": "12.0 yrs"
+          },
+          "anchorSide": "left",
+          "target": {
+            "personId": "rose-byrne",
+            "name": "Rose Byrne",
+            "gender": "female",
+            "nationality": "Australian",
+            "popularityTier": "A",
+            "film": "Spy",
+            "role": "Rayna Boyanov",
+            "creditType": "lead",
+            "year": 2015,
+            "value": 36,
+            "age": 36
+          },
+          "nextRange": {
+            "min": 12,
+            "max": 36
+          }
+        },
+        {
+          "number": 2,
+          "mode": "age",
+          "range": {
+            "min": 12,
+            "max": 36
+          },
+          "anchor": {
+            "personId": "rose-byrne",
+            "name": "Rose Byrne",
+            "gender": "female",
+            "nationality": "Australian",
+            "popularityTier": "A",
+            "film": "Spy",
+            "year": 2015,
+            "role": "Rayna Boyanov",
+            "creditType": "lead",
+            "value": 36,
+            "age": 36,
+            "valueLabel": "36.0 yrs"
+          },
+          "anchorSide": "right",
+          "target": {
+            "personId": "ashley-greene",
+            "name": "Ashley Greene",
+            "gender": "female",
+            "nationality": "American",
+            "popularityTier": "A",
+            "film": "The Twilight Saga: Breaking Dawn - Part 1",
+            "role": "Alice Cullen",
+            "creditType": "supporting",
+            "year": 2011,
+            "value": 24,
+            "age": 24
+          },
+          "nextRange": {
+            "min": 24,
+            "max": 36
+          }
+        },
+        {
+          "number": 3,
+          "mode": "age",
+          "range": {
+            "min": 24,
+            "max": 36
+          },
+          "anchor": {
+            "personId": "ashley-greene",
+            "name": "Ashley Greene",
+            "gender": "female",
+            "nationality": "American",
+            "popularityTier": "A",
+            "film": "The Twilight Saga: Breaking Dawn - Part 1",
+            "year": 2011,
+            "role": "Alice Cullen",
+            "creditType": "supporting",
+            "value": 24,
+            "age": 24,
+            "valueLabel": "24.0 yrs"
+          },
+          "anchorSide": "left",
+          "target": {
+            "personId": "kate-beckinsale",
+            "name": "Kate Beckinsale",
+            "gender": "female",
+            "nationality": "British",
+            "popularityTier": "A",
+            "film": "Underworld",
+            "role": "Selene",
+            "creditType": "lead",
+            "year": 2003,
+            "value": 30,
+            "age": 30
+          },
+          "nextRange": {
+            "min": 30,
+            "max": 36
+          }
+        },
+        {
+          "number": 4,
+          "mode": "age",
+          "range": {
+            "min": 30,
+            "max": 36
+          },
+          "anchor": {
+            "personId": "kate-beckinsale",
+            "name": "Kate Beckinsale",
+            "gender": "female",
+            "nationality": "British",
+            "popularityTier": "A",
+            "film": "Underworld",
+            "year": 2003,
+            "role": "Selene",
+            "creditType": "lead",
+            "value": 30,
+            "age": 30,
+            "valueLabel": "30.0 yrs"
+          },
+          "anchorSide": "left",
+          "target": {
+            "personId": "tom-hardy",
+            "name": "Tom Hardy",
+            "gender": "male",
+            "nationality": "British",
+            "popularityTier": "A",
+            "film": "Inception",
+            "role": "Eames",
+            "creditType": "supporting",
+            "year": 2010,
+            "value": 33,
+            "age": 33
+          },
+          "nextRange": {
+            "min": 33,
+            "max": 36
+          }
+        },
+        {
+          "number": 5,
+          "mode": "age",
+          "range": {
+            "min": 33,
+            "max": 36
+          },
+          "anchor": {
+            "personId": "tom-hardy",
+            "name": "Tom Hardy",
+            "gender": "male",
+            "nationality": "British",
+            "popularityTier": "A",
+            "film": "Inception",
+            "year": 2010,
+            "role": "Eames",
+            "creditType": "supporting",
+            "value": 33,
+            "age": 33,
+            "valueLabel": "33.0 yrs"
+          },
+          "anchorSide": "left",
+          "target": {
+            "personId": "jake-gyllenhaal",
+            "name": "Jake Gyllenhaal",
+            "gender": "male",
+            "nationality": "American",
+            "popularityTier": "A",
+            "film": "Nightcrawler",
+            "role": "Louis Bloom",
+            "creditType": "lead",
+            "year": 2014,
+            "value": 34,
+            "age": 34
+          },
+          "nextRange": null
+        }
+      ]
     }
   ]
 }
