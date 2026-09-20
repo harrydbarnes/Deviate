@@ -8238,6 +8238,507 @@
           "nextRange": null
         }
       ]
+    },
+    {
+      "id": 24,
+      "date": "2026-09-20",
+      "mode": "middle",
+      "generatorVersion": "v6",
+      "roundCount": 5,
+      "rounds": [
+        {
+          "number": 1,
+          "mode": "middle",
+          "range": {
+            "min": 1957,
+            "max": 2025
+          },
+          "anchor": {
+            "personId": "jan-sterling",
+            "name": "Jan Sterling",
+            "gender": "female",
+            "nationality": "American",
+            "popularityTier": "B",
+            "film": "Slaughter on 10th Avenue",
+            "year": 1957,
+            "role": "Madge Pitts",
+            "creditType": "lead",
+            "value": 1957,
+            "age": 36,
+            "valueLabel": "1957"
+          },
+          "anchorSide": "left",
+          "target": {
+            "personId": "harvey-keitel",
+            "name": "Harvey Keitel",
+            "gender": "male",
+            "nationality": "American / Romanian",
+            "popularityTier": "B",
+            "film": "Reservoir Dogs",
+            "role": "Mr. White",
+            "creditType": "lead",
+            "year": 1992,
+            "value": 1992,
+            "age": 53,
+            "optionId": "harvey-keitel:3"
+          },
+          "options": [
+            {
+              "personId": "john-hurt",
+              "name": "John Hurt",
+              "gender": "male",
+              "nationality": "British",
+              "popularityTier": "A",
+              "film": "1984",
+              "role": "Winston Smith",
+              "creditType": "lead",
+              "year": 1984,
+              "value": 1984,
+              "age": 44,
+              "optionId": "john-hurt:4"
+            },
+            {
+              "personId": "nicolas-cage",
+              "name": "Nicolas Cage",
+              "gender": "male",
+              "nationality": "American",
+              "popularityTier": "A",
+              "film": "Leaving Las Vegas",
+              "role": "Ben Sanderson",
+              "creditType": "lead",
+              "year": 1995,
+              "value": 1995,
+              "age": 31,
+              "optionId": "nicolas-cage:1"
+            },
+            {
+              "personId": "harvey-keitel",
+              "name": "Harvey Keitel",
+              "gender": "male",
+              "nationality": "American / Romanian",
+              "popularityTier": "B",
+              "film": "Reservoir Dogs",
+              "role": "Mr. White",
+              "creditType": "lead",
+              "year": 1992,
+              "value": 1992,
+              "age": 53,
+              "optionId": "harvey-keitel:3"
+            },
+            {
+              "personId": "john-leguizamo",
+              "name": "John Leguizamo",
+              "gender": "male",
+              "nationality": "American / Colombia",
+              "popularityTier": "B",
+              "film": "Moulin Rouge!",
+              "role": "Toulouse-Lautrec",
+              "creditType": "supporting",
+              "year": 2001,
+              "value": 2001,
+              "age": 41,
+              "optionId": "john-leguizamo:4"
+            }
+          ],
+          "nextRange": {
+            "min": 1992,
+            "max": 2025
+          }
+        },
+        {
+          "number": 2,
+          "mode": "middle",
+          "range": {
+            "min": 1992,
+            "max": 2025
+          },
+          "anchor": {
+            "personId": "harvey-keitel",
+            "name": "Harvey Keitel",
+            "gender": "male",
+            "nationality": "American / Romanian",
+            "popularityTier": "B",
+            "film": "Reservoir Dogs",
+            "year": 1992,
+            "role": "Mr. White",
+            "creditType": "lead",
+            "value": 1992,
+            "age": 53,
+            "valueLabel": "1992"
+          },
+          "anchorSide": "left",
+          "target": {
+            "personId": "kristen-bell",
+            "name": "Kristen Bell",
+            "gender": "female",
+            "nationality": "American",
+            "popularityTier": "B",
+            "film": "Forgetting Sarah Marshall",
+            "role": "Sarah Marshall",
+            "creditType": "lead",
+            "year": 2008,
+            "value": 2008,
+            "age": 28,
+            "optionId": "kristen-bell:1"
+          },
+          "options": [
+            {
+              "personId": "kristen-bell",
+              "name": "Kristen Bell",
+              "gender": "female",
+              "nationality": "American",
+              "popularityTier": "B",
+              "film": "Forgetting Sarah Marshall",
+              "role": "Sarah Marshall",
+              "creditType": "lead",
+              "year": 2008,
+              "value": 2008,
+              "age": 28,
+              "optionId": "kristen-bell:1"
+            },
+            {
+              "personId": "rachael-leigh-cook",
+              "name": "Rachael Leigh Cook",
+              "gender": "female",
+              "nationality": "American",
+              "popularityTier": "B",
+              "film": "She's All That",
+              "role": "Laney Boggs",
+              "creditType": "lead",
+              "year": 1999,
+              "value": 1999,
+              "age": 20,
+              "optionId": "rachael-leigh-cook:1"
+            },
+            {
+              "personId": "paul-walker",
+              "name": "Paul Walker",
+              "gender": "male",
+              "nationality": "American",
+              "popularityTier": "A",
+              "film": "Furious 7",
+              "role": "Brian O'Conner",
+              "creditType": "lead",
+              "year": 2015,
+              "value": 2015,
+              "age": 42,
+              "optionId": "paul-walker:7"
+            },
+            {
+              "personId": "vin-diesel",
+              "name": "Vin Diesel",
+              "gender": "male",
+              "nationality": "American",
+              "popularityTier": "A",
+              "film": "The Fast and the Furious",
+              "role": "Dominic Toretto",
+              "creditType": "lead",
+              "year": 2001,
+              "value": 2001,
+              "age": 34,
+              "optionId": "vin-diesel:1"
+            }
+          ],
+          "nextRange": {
+            "min": 1992,
+            "max": 2008
+          }
+        },
+        {
+          "number": 3,
+          "mode": "middle",
+          "range": {
+            "min": 1992,
+            "max": 2008
+          },
+          "anchor": {
+            "personId": "kristen-bell",
+            "name": "Kristen Bell",
+            "gender": "female",
+            "nationality": "American",
+            "popularityTier": "B",
+            "film": "Forgetting Sarah Marshall",
+            "year": 2008,
+            "role": "Sarah Marshall",
+            "creditType": "lead",
+            "value": 2008,
+            "age": 28,
+            "valueLabel": "2008"
+          },
+          "anchorSide": "right",
+          "target": {
+            "personId": "tom-hanks",
+            "name": "Tom Hanks",
+            "gender": "male",
+            "nationality": "American / Greek",
+            "popularityTier": "A",
+            "film": "Cast Away",
+            "role": "Chuck Noland",
+            "creditType": "lead",
+            "year": 2000,
+            "value": 2000,
+            "age": 44,
+            "optionId": "tom-hanks:5"
+          },
+          "options": [
+            {
+              "personId": "kevin-spacey",
+              "name": "Kevin Spacey",
+              "gender": "male",
+              "nationality": "American",
+              "popularityTier": "B",
+              "film": "L.A. Confidential",
+              "role": "Jack Vincennes",
+              "creditType": "lead",
+              "year": 1997,
+              "value": 1997,
+              "age": 38,
+              "optionId": "kevin-spacey:4"
+            },
+            {
+              "personId": "clive-owen",
+              "name": "Clive Owen",
+              "gender": "male",
+              "nationality": "British",
+              "popularityTier": "B",
+              "film": "Closer",
+              "role": "Larry",
+              "creditType": "supporting",
+              "year": 2004,
+              "value": 2004,
+              "age": 40,
+              "optionId": "clive-owen:2"
+            },
+            {
+              "personId": "tom-hanks",
+              "name": "Tom Hanks",
+              "gender": "male",
+              "nationality": "American / Greek",
+              "popularityTier": "A",
+              "film": "Cast Away",
+              "role": "Chuck Noland",
+              "creditType": "lead",
+              "year": 2000,
+              "value": 2000,
+              "age": 44,
+              "optionId": "tom-hanks:5"
+            },
+            {
+              "personId": "jude-law",
+              "name": "Jude Law",
+              "gender": "male",
+              "nationality": "British",
+              "popularityTier": "A",
+              "film": "Closer",
+              "role": "Dan",
+              "creditType": "lead",
+              "year": 2004,
+              "value": 2004,
+              "age": 32,
+              "optionId": "jude-law:3"
+            }
+          ],
+          "nextRange": {
+            "min": 2000,
+            "max": 2008
+          }
+        },
+        {
+          "number": 4,
+          "mode": "middle",
+          "range": {
+            "min": 2000,
+            "max": 2008
+          },
+          "anchor": {
+            "personId": "tom-hanks",
+            "name": "Tom Hanks",
+            "gender": "male",
+            "nationality": "American / Greek",
+            "popularityTier": "A",
+            "film": "Cast Away",
+            "year": 2000,
+            "role": "Chuck Noland",
+            "creditType": "lead",
+            "value": 2000,
+            "age": 44,
+            "valueLabel": "2000"
+          },
+          "anchorSide": "left",
+          "target": {
+            "personId": "jude-law",
+            "name": "Jude Law",
+            "gender": "male",
+            "nationality": "British",
+            "popularityTier": "A",
+            "film": "Closer",
+            "role": "Dan",
+            "creditType": "lead",
+            "year": 2004,
+            "value": 2004,
+            "age": 32,
+            "optionId": "jude-law:3"
+          },
+          "options": [
+            {
+              "personId": "lena-headey",
+              "name": "Lena Headey",
+              "gender": "female",
+              "nationality": "British",
+              "popularityTier": "B",
+              "film": "300",
+              "role": "Gorgo",
+              "creditType": "lead",
+              "year": 2006,
+              "value": 2006,
+              "age": 33,
+              "optionId": "lena-headey:3"
+            },
+            {
+              "personId": "jude-law",
+              "name": "Jude Law",
+              "gender": "male",
+              "nationality": "British",
+              "popularityTier": "A",
+              "film": "Closer",
+              "role": "Dan",
+              "creditType": "lead",
+              "year": 2004,
+              "value": 2004,
+              "age": 32,
+              "optionId": "jude-law:3"
+            },
+            {
+              "personId": "amy-adams",
+              "name": "Amy Adams",
+              "gender": "female",
+              "nationality": "American / Italian",
+              "popularityTier": "A",
+              "film": "Enchanted",
+              "role": "Giselle",
+              "creditType": "lead",
+              "year": 2007,
+              "value": 2007,
+              "age": 33,
+              "optionId": "amy-adams:1"
+            },
+            {
+              "personId": "ian-mckellen",
+              "name": "Ian McKellen",
+              "gender": "male",
+              "nationality": "British",
+              "popularityTier": "B",
+              "film": "The Lord of the Rings: The Fellowship of the Ring",
+              "role": "Gandalf",
+              "creditType": "lead",
+              "year": 2001,
+              "value": 2001,
+              "age": 62,
+              "optionId": "ian-mckellen:4"
+            }
+          ],
+          "nextRange": {
+            "min": 2004,
+            "max": 2008
+          }
+        },
+        {
+          "number": 5,
+          "mode": "middle",
+          "range": {
+            "min": 2004,
+            "max": 2008
+          },
+          "anchor": {
+            "personId": "jude-law",
+            "name": "Jude Law",
+            "gender": "male",
+            "nationality": "British",
+            "popularityTier": "A",
+            "film": "Closer",
+            "year": 2004,
+            "role": "Dan",
+            "creditType": "lead",
+            "value": 2004,
+            "age": 32,
+            "valueLabel": "2004"
+          },
+          "anchorSide": "left",
+          "target": {
+            "personId": "lee-pace",
+            "name": "Lee Pace",
+            "gender": "male",
+            "nationality": "American",
+            "popularityTier": "B",
+            "film": "The Fall",
+            "role": "Roy Walker",
+            "creditType": "lead",
+            "year": 2006,
+            "value": 2006,
+            "age": 27,
+            "optionId": "lee-pace:0"
+          },
+          "options": [
+            {
+              "personId": "hayden-christensen",
+              "name": "Hayden Christensen",
+              "gender": "male",
+              "nationality": "Canadian",
+              "popularityTier": "B",
+              "film": "Star Wars: Episode III - Revenge of the Sith",
+              "role": "Anakin Skywalker",
+              "creditType": "lead",
+              "year": 2005,
+              "value": 2005,
+              "age": 24,
+              "optionId": "hayden-christensen:3"
+            },
+            {
+              "personId": "dougray-scott",
+              "name": "Dougray Scott",
+              "gender": "male",
+              "nationality": "British",
+              "popularityTier": "B",
+              "film": "Hitman",
+              "role": "Mike Whittier",
+              "creditType": "lead",
+              "year": 2007,
+              "value": 2007,
+              "age": 42,
+              "optionId": "dougray-scott:5"
+            },
+            {
+              "personId": "emma-stone",
+              "name": "Emma Stone",
+              "gender": "female",
+              "nationality": "American",
+              "popularityTier": "B",
+              "film": "Superbad",
+              "role": "Jules",
+              "creditType": "supporting",
+              "year": 2007,
+              "value": 2007,
+              "age": 19,
+              "optionId": "emma-stone:0"
+            },
+            {
+              "personId": "lee-pace",
+              "name": "Lee Pace",
+              "gender": "male",
+              "nationality": "American",
+              "popularityTier": "B",
+              "film": "The Fall",
+              "role": "Roy Walker",
+              "creditType": "lead",
+              "year": 2006,
+              "value": 2006,
+              "age": 27,
+              "optionId": "lee-pace:0"
+            }
+          ],
+          "nextRange": null
+        }
+      ]
     }
   ]
 }
