@@ -8739,6 +8739,507 @@
           "nextRange": null
         }
       ]
+    },
+    {
+      "id": 25,
+      "date": "2026-09-21",
+      "mode": "middle",
+      "generatorVersion": "v6",
+      "roundCount": 5,
+      "rounds": [
+        {
+          "number": 1,
+          "mode": "middle",
+          "range": {
+            "min": 1957,
+            "max": 2025
+          },
+          "anchor": {
+            "personId": "jan-sterling",
+            "name": "Jan Sterling",
+            "gender": "female",
+            "nationality": "American",
+            "popularityTier": "B",
+            "film": "Slaughter on 10th Avenue",
+            "year": 1957,
+            "role": "Madge Pitts",
+            "creditType": "lead",
+            "value": 1957,
+            "age": 36,
+            "valueLabel": "1957"
+          },
+          "anchorSide": "left",
+          "target": {
+            "personId": "clint-eastwood",
+            "name": "Clint Eastwood",
+            "gender": "male",
+            "nationality": "American",
+            "popularityTier": "A",
+            "film": "Unforgiven",
+            "role": "Bill Munny",
+            "creditType": "lead",
+            "year": 1992,
+            "value": 1992,
+            "age": 62,
+            "optionId": "clint-eastwood:4"
+          },
+          "options": [
+            {
+              "personId": "kristen-bell",
+              "name": "Kristen Bell",
+              "gender": "female",
+              "nationality": "American",
+              "popularityTier": "B",
+              "film": "Frozen II",
+              "role": "Anna",
+              "creditType": "lead",
+              "year": 2019,
+              "value": 2019,
+              "age": 39,
+              "optionId": "kristen-bell:7"
+            },
+            {
+              "personId": "linda-hamilton",
+              "name": "Linda Hamilton",
+              "gender": "female",
+              "nationality": "American",
+              "popularityTier": "B",
+              "film": "The Terminator",
+              "role": "Sarah Connor",
+              "creditType": "lead",
+              "year": 1984,
+              "value": 1984,
+              "age": 28,
+              "optionId": "linda-hamilton:1"
+            },
+            {
+              "personId": "clint-eastwood",
+              "name": "Clint Eastwood",
+              "gender": "male",
+              "nationality": "American",
+              "popularityTier": "A",
+              "film": "Unforgiven",
+              "role": "Bill Munny",
+              "creditType": "lead",
+              "year": 1992,
+              "value": 1992,
+              "age": 62,
+              "optionId": "clint-eastwood:4"
+            },
+            {
+              "personId": "chris-hemsworth",
+              "name": "Chris Hemsworth",
+              "gender": "male",
+              "nationality": "Australian",
+              "popularityTier": "A",
+              "film": "Snow White and the Huntsman",
+              "role": "The Huntsman",
+              "creditType": "lead",
+              "year": 2012,
+              "value": 2012,
+              "age": 29,
+              "optionId": "chris-hemsworth:1"
+            }
+          ],
+          "nextRange": {
+            "min": 1992,
+            "max": 2025
+          }
+        },
+        {
+          "number": 2,
+          "mode": "middle",
+          "range": {
+            "min": 1992,
+            "max": 2025
+          },
+          "anchor": {
+            "personId": "clint-eastwood",
+            "name": "Clint Eastwood",
+            "gender": "male",
+            "nationality": "American",
+            "popularityTier": "A",
+            "film": "Unforgiven",
+            "year": 1992,
+            "role": "Bill Munny",
+            "creditType": "lead",
+            "value": 1992,
+            "age": 62,
+            "valueLabel": "1992"
+          },
+          "anchorSide": "left",
+          "target": {
+            "personId": "lea-thompson",
+            "name": "Lea Thompson",
+            "gender": "female",
+            "nationality": "American",
+            "popularityTier": "B",
+            "film": "Exit Speed",
+            "role": "Maudie McMinn",
+            "creditType": "lead",
+            "year": 2008,
+            "value": 2008,
+            "age": 47,
+            "optionId": "lea-thompson:4"
+          },
+          "options": [
+            {
+              "personId": "justin-timberlake",
+              "name": "Justin Timberlake",
+              "gender": "male",
+              "nationality": "American",
+              "popularityTier": "A",
+              "film": "Trolls",
+              "role": "Branch",
+              "creditType": "lead",
+              "year": 2016,
+              "value": 2016,
+              "age": 35,
+              "optionId": "justin-timberlake:5"
+            },
+            {
+              "personId": "richard-madden",
+              "name": "Richard Madden",
+              "gender": "male",
+              "nationality": "British",
+              "popularityTier": "B",
+              "film": "Cinderella",
+              "role": "Prince",
+              "creditType": "supporting",
+              "year": 2015,
+              "value": 2015,
+              "age": 29,
+              "optionId": "richard-madden:1"
+            },
+            {
+              "personId": "daniel-craig",
+              "name": "Daniel Craig",
+              "gender": "male",
+              "nationality": "American / British",
+              "popularityTier": "B",
+              "film": "Casino Royale",
+              "role": "James Bond",
+              "creditType": "lead",
+              "year": 2006,
+              "value": 2006,
+              "age": 38,
+              "optionId": "daniel-craig:2"
+            },
+            {
+              "personId": "lea-thompson",
+              "name": "Lea Thompson",
+              "gender": "female",
+              "nationality": "American",
+              "popularityTier": "B",
+              "film": "Exit Speed",
+              "role": "Maudie McMinn",
+              "creditType": "lead",
+              "year": 2008,
+              "value": 2008,
+              "age": 47,
+              "optionId": "lea-thompson:4"
+            }
+          ],
+          "nextRange": {
+            "min": 1992,
+            "max": 2008
+          }
+        },
+        {
+          "number": 3,
+          "mode": "middle",
+          "range": {
+            "min": 1992,
+            "max": 2008
+          },
+          "anchor": {
+            "personId": "lea-thompson",
+            "name": "Lea Thompson",
+            "gender": "female",
+            "nationality": "American",
+            "popularityTier": "B",
+            "film": "Exit Speed",
+            "year": 2008,
+            "role": "Maudie McMinn",
+            "creditType": "lead",
+            "value": 2008,
+            "age": 47,
+            "valueLabel": "2008"
+          },
+          "anchorSide": "right",
+          "target": {
+            "personId": "carrie-anne-moss",
+            "name": "Carrie-Anne Moss",
+            "gender": "female",
+            "nationality": "Canadian",
+            "popularityTier": "A",
+            "film": "Memento",
+            "role": "Natalie",
+            "creditType": "lead",
+            "year": 2000,
+            "value": 2000,
+            "age": 33,
+            "optionId": "carrie-anne-moss:3"
+          },
+          "options": [
+            {
+              "personId": "carrie-anne-moss",
+              "name": "Carrie-Anne Moss",
+              "gender": "female",
+              "nationality": "Canadian",
+              "popularityTier": "A",
+              "film": "Memento",
+              "role": "Natalie",
+              "creditType": "lead",
+              "year": 2000,
+              "value": 2000,
+              "age": 33,
+              "optionId": "carrie-anne-moss:3"
+            },
+            {
+              "personId": "woody-harrelson",
+              "name": "Woody Harrelson",
+              "gender": "male",
+              "nationality": "American",
+              "popularityTier": "B",
+              "film": "The People vs. Larry Flynt",
+              "role": "Larry Flynt",
+              "creditType": "lead",
+              "year": 1996,
+              "value": 1996,
+              "age": 35,
+              "optionId": "woody-harrelson:2"
+            },
+            {
+              "personId": "lacey-chabert",
+              "name": "Lacey Chabert",
+              "gender": "female",
+              "nationality": "American",
+              "popularityTier": "A",
+              "film": "The Wild Thornberrys Movie",
+              "role": "Eliza Thornberry",
+              "creditType": "supporting",
+              "year": 2002,
+              "value": 2002,
+              "age": 20,
+              "optionId": "lacey-chabert:2"
+            },
+            {
+              "personId": "jeremy-irons",
+              "name": "Jeremy Irons",
+              "gender": "male",
+              "nationality": "British",
+              "popularityTier": "B",
+              "film": "Lolita",
+              "role": "Humbert Humbert",
+              "creditType": "lead",
+              "year": 1997,
+              "value": 1997,
+              "age": 49,
+              "optionId": "jeremy-irons:4"
+            }
+          ],
+          "nextRange": {
+            "min": 2000,
+            "max": 2008
+          }
+        },
+        {
+          "number": 4,
+          "mode": "middle",
+          "range": {
+            "min": 2000,
+            "max": 2008
+          },
+          "anchor": {
+            "personId": "carrie-anne-moss",
+            "name": "Carrie-Anne Moss",
+            "gender": "female",
+            "nationality": "Canadian",
+            "popularityTier": "A",
+            "film": "Memento",
+            "year": 2000,
+            "role": "Natalie",
+            "creditType": "lead",
+            "value": 2000,
+            "age": 33,
+            "valueLabel": "2000"
+          },
+          "anchorSide": "left",
+          "target": {
+            "personId": "uma-thurman",
+            "name": "Uma Thurman",
+            "gender": "female",
+            "nationality": "American",
+            "popularityTier": "B",
+            "film": "Kill Bill: Vol. 2",
+            "role": "Beatrix Kiddo aka The Bride aka Black Mamba aka Mommy",
+            "creditType": "lead",
+            "year": 2004,
+            "value": 2004,
+            "age": 34,
+            "optionId": "uma-thurman:5"
+          },
+          "options": [
+            {
+              "personId": "uma-thurman",
+              "name": "Uma Thurman",
+              "gender": "female",
+              "nationality": "American",
+              "popularityTier": "B",
+              "film": "Kill Bill: Vol. 2",
+              "role": "Beatrix Kiddo aka The Bride aka Black Mamba aka Mommy",
+              "creditType": "lead",
+              "year": 2004,
+              "value": 2004,
+              "age": 34,
+              "optionId": "uma-thurman:5"
+            },
+            {
+              "personId": "will-ferrell",
+              "name": "Will Ferrell",
+              "gender": "male",
+              "nationality": "American",
+              "popularityTier": "B",
+              "film": "Talladega Nights: The Ballad of Ricky Bobby",
+              "role": "Ricky Bobby",
+              "creditType": "lead",
+              "year": 2006,
+              "value": 2006,
+              "age": 39,
+              "optionId": "will-ferrell:3"
+            },
+            {
+              "personId": "jamie-foxx",
+              "name": "Jamie Foxx",
+              "gender": "male",
+              "nationality": "American",
+              "popularityTier": "B",
+              "film": "Dreamgirls",
+              "role": "Curtis Taylor Jr.",
+              "creditType": "lead",
+              "year": 2006,
+              "value": 2006,
+              "age": 39,
+              "optionId": "jamie-foxx:4"
+            },
+            {
+              "personId": "nicole-kidman",
+              "name": "Nicole Kidman",
+              "gender": "female",
+              "nationality": "American / Australian",
+              "popularityTier": "B",
+              "film": "Moulin Rouge!",
+              "role": "Satine",
+              "creditType": "lead",
+              "year": 2001,
+              "value": 2001,
+              "age": 34,
+              "optionId": "nicole-kidman:3"
+            }
+          ],
+          "nextRange": {
+            "min": 2004,
+            "max": 2008
+          }
+        },
+        {
+          "number": 5,
+          "mode": "middle",
+          "range": {
+            "min": 2004,
+            "max": 2008
+          },
+          "anchor": {
+            "personId": "uma-thurman",
+            "name": "Uma Thurman",
+            "gender": "female",
+            "nationality": "American",
+            "popularityTier": "B",
+            "film": "Kill Bill: Vol. 2",
+            "year": 2004,
+            "role": "Beatrix Kiddo aka The Bride aka Black Mamba aka Mommy",
+            "creditType": "lead",
+            "value": 2004,
+            "age": 34,
+            "valueLabel": "2004"
+          },
+          "anchorSide": "left",
+          "target": {
+            "personId": "sienna-guillory",
+            "name": "Sienna Guillory",
+            "gender": "female",
+            "nationality": "British",
+            "popularityTier": "A",
+            "film": "Eragon",
+            "role": "Arya",
+            "creditType": "lead",
+            "year": 2006,
+            "value": 2006,
+            "age": 31,
+            "optionId": "sienna-guillory:4"
+          },
+          "options": [
+            {
+              "personId": "hayden-christensen",
+              "name": "Hayden Christensen",
+              "gender": "male",
+              "nationality": "Canadian",
+              "popularityTier": "B",
+              "film": "Star Wars: Episode III - Revenge of the Sith",
+              "role": "Anakin Skywalker",
+              "creditType": "lead",
+              "year": 2005,
+              "value": 2005,
+              "age": 24,
+              "optionId": "hayden-christensen:3"
+            },
+            {
+              "personId": "daniel-radcliffe",
+              "name": "Daniel Radcliffe",
+              "gender": "male",
+              "nationality": "British",
+              "popularityTier": "A",
+              "film": "Harry Potter and the Order of the Phoenix",
+              "role": "Harry Potter",
+              "creditType": "lead",
+              "year": 2007,
+              "value": 2007,
+              "age": 18,
+              "optionId": "daniel-radcliffe:2"
+            },
+            {
+              "personId": "sienna-guillory",
+              "name": "Sienna Guillory",
+              "gender": "female",
+              "nationality": "British",
+              "popularityTier": "A",
+              "film": "Eragon",
+              "role": "Arya",
+              "creditType": "lead",
+              "year": 2006,
+              "value": 2006,
+              "age": 31,
+              "optionId": "sienna-guillory:4"
+            },
+            {
+              "personId": "emma-watson",
+              "name": "Emma Watson",
+              "gender": "female",
+              "nationality": "British",
+              "popularityTier": "B",
+              "film": "Harry Potter and the Order of the Phoenix",
+              "role": "Hermione Granger",
+              "creditType": "lead",
+              "year": 2007,
+              "value": 2007,
+              "age": 17,
+              "optionId": "emma-watson:2"
+            }
+          ],
+          "nextRange": null
+        }
+      ]
     }
   ]
 }
