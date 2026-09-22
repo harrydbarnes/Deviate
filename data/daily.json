@@ -9240,6 +9240,212 @@
           "nextRange": null
         }
       ]
+    },
+    {
+      "id": 26,
+      "date": "2026-09-22",
+      "mode": "year",
+      "generatorVersion": "v6",
+      "roundCount": 5,
+      "rounds": [
+        {
+          "number": 1,
+          "mode": "year",
+          "range": {
+            "min": 1957,
+            "max": 2025
+          },
+          "anchor": {
+            "personId": "jan-sterling",
+            "name": "Jan Sterling",
+            "gender": "female",
+            "nationality": "American",
+            "popularityTier": "B",
+            "film": "Slaughter on 10th Avenue",
+            "year": 1957,
+            "role": "Madge Pitts",
+            "creditType": "lead",
+            "value": 1957,
+            "age": 36,
+            "valueLabel": "1957"
+          },
+          "anchorSide": "left",
+          "target": {
+            "personId": "sigourney-weaver",
+            "name": "Sigourney Weaver",
+            "gender": "female",
+            "nationality": "American",
+            "popularityTier": "A",
+            "film": "Alien: Resurrection",
+            "role": "Ripley",
+            "creditType": "lead",
+            "year": 1997,
+            "value": 1997,
+            "age": 48
+          },
+          "nextRange": {
+            "min": 1997,
+            "max": 2025
+          }
+        },
+        {
+          "number": 2,
+          "mode": "year",
+          "range": {
+            "min": 1997,
+            "max": 2025
+          },
+          "anchor": {
+            "personId": "sigourney-weaver",
+            "name": "Sigourney Weaver",
+            "gender": "female",
+            "nationality": "American",
+            "popularityTier": "A",
+            "film": "Alien: Resurrection",
+            "year": 1997,
+            "role": "Ripley",
+            "creditType": "lead",
+            "value": 1997,
+            "age": 48,
+            "valueLabel": "1997"
+          },
+          "anchorSide": "left",
+          "target": {
+            "personId": "dwayne-johnson",
+            "name": "Dwayne Johnson",
+            "gender": "male",
+            "nationality": "Canadian / American",
+            "popularityTier": "A",
+            "film": "Journey 2: The Mysterious Island",
+            "role": "Hank",
+            "creditType": "lead",
+            "year": 2012,
+            "value": 2012,
+            "age": 40
+          },
+          "nextRange": {
+            "min": 2012,
+            "max": 2025
+          }
+        },
+        {
+          "number": 3,
+          "mode": "year",
+          "range": {
+            "min": 2012,
+            "max": 2025
+          },
+          "anchor": {
+            "personId": "dwayne-johnson",
+            "name": "Dwayne Johnson",
+            "gender": "male",
+            "nationality": "Canadian / American",
+            "popularityTier": "A",
+            "film": "Journey 2: The Mysterious Island",
+            "year": 2012,
+            "role": "Hank",
+            "creditType": "lead",
+            "value": 2012,
+            "age": 40,
+            "valueLabel": "2012"
+          },
+          "anchorSide": "left",
+          "target": {
+            "personId": "emilia-clarke",
+            "name": "Emilia Clarke",
+            "gender": "female",
+            "nationality": "British",
+            "popularityTier": "A",
+            "film": "Solo: A Star Wars Story",
+            "role": "Qi'ra",
+            "creditType": "supporting",
+            "year": 2018,
+            "value": 2018,
+            "age": 32
+          },
+          "nextRange": {
+            "min": 2012,
+            "max": 2018
+          }
+        },
+        {
+          "number": 4,
+          "mode": "year",
+          "range": {
+            "min": 2012,
+            "max": 2018
+          },
+          "anchor": {
+            "personId": "emilia-clarke",
+            "name": "Emilia Clarke",
+            "gender": "female",
+            "nationality": "British",
+            "popularityTier": "A",
+            "film": "Solo: A Star Wars Story",
+            "year": 2018,
+            "role": "Qi'ra",
+            "creditType": "supporting",
+            "value": 2018,
+            "age": 32,
+            "valueLabel": "2018"
+          },
+          "anchorSide": "right",
+          "target": {
+            "personId": "michelle-rodriguez",
+            "name": "Michelle Rodriguez",
+            "gender": "female",
+            "nationality": "American",
+            "popularityTier": "A",
+            "film": "Furious 7",
+            "role": "Letty",
+            "creditType": "supporting",
+            "year": 2015,
+            "value": 2015,
+            "age": 37
+          },
+          "nextRange": {
+            "min": 2015,
+            "max": 2018
+          }
+        },
+        {
+          "number": 5,
+          "mode": "year",
+          "range": {
+            "min": 2015,
+            "max": 2018
+          },
+          "anchor": {
+            "personId": "michelle-rodriguez",
+            "name": "Michelle Rodriguez",
+            "gender": "female",
+            "nationality": "American",
+            "popularityTier": "A",
+            "film": "Furious 7",
+            "year": 2015,
+            "role": "Letty",
+            "creditType": "supporting",
+            "value": 2015,
+            "age": 37,
+            "valueLabel": "2015"
+          },
+          "anchorSide": "left",
+          "target": {
+            "personId": "amy-adams",
+            "name": "Amy Adams",
+            "gender": "female",
+            "nationality": "American / Italian",
+            "popularityTier": "A",
+            "film": "Arrival",
+            "role": "Louise Banks",
+            "creditType": "lead",
+            "year": 2016,
+            "value": 2016,
+            "age": 42
+          },
+          "nextRange": null
+        }
+      ]
     }
   ]
 }
